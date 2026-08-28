@@ -57,6 +57,7 @@
     .support{ background:#075e54; color:white; padding:20px; text-align:center; border-radius:12px; }
     .support a{ color:white; font-size:22px; font-weight:bold; }
     .help-button{ position:fixed; right:18px; bottom:18px; width:60px; height:60px; border-radius:50%; border:0; background:#075e54; color:white; font-size:25px; z-index:100; }
+    .moderator-button{ position:fixed; left:18px; bottom:18px; border:0; background:#222; color:white; padding:13px 16px; border-radius:9px; font-weight:bold; z-index:100; }
     .modal{ position:fixed; inset:0; background:rgba(0,0,0,.65); display:flex; align-items:center; justify-content:center; padding:20px; z-index:500; }
     .modal-box{ width:100%; max-width:850px; max-height:92vh; overflow-y:auto; background:white; border-radius:15px; padding:25px; }
     .modal-box h2{ color:#075e54; margin-bottom:10px; }
@@ -237,6 +238,9 @@
   </div>
 </section>
 
+<!-- VISIBLE FLOATING MODERATOR / CUSTOMER SERVICE BUTTON -->
+<button class="moderator-button" onclick="openModerator()"> 🛡 Moderator / CS </button>
+
 <!-- HELP BUTTON -->
 <button class="help-button" onclick="callCustomerCare()"> ☎ </button>
 
@@ -246,7 +250,7 @@
     <!-- MODERATOR LOGIN -->
     <div id="moderatorLogin">
       <h2> 🛡 Moderator / Customer Care Portal </h2>
-      <p class="subtitle"> Authorized staff authentication required. </p>
+      <p class="subtitle"> Restricted staff login: Enter ID and Password to manage level activations. </p>
       <input id="moderatorId" placeholder="Moderator ID">
       <input id="moderatorPassword" type="password" placeholder="Moderator password">
       <button class="primary" onclick="moderatorSignIn()"> Sign In </button>
@@ -257,7 +261,7 @@
     <div id="moderatorDashboard" class="hidden">
       <h2> 🛡 Moderator Dashboard </h2>
       <div class="notice">
-        <b>Security Notice:</b> Verification strictly allowed for confirmed M-Pesa payments.
+        <b>Verification Notice:</b> Manually activate user levels only after confirming payment receipts.
       </div>
 
       <h3> Find Customer </h3>
@@ -265,7 +269,7 @@
       <button class="primary" onclick="searchCustomer()"> Search Customer </button>
       <div id="customerResult"></div>
 
-      <h3 style="margin-top:25px;"> Pending Level Activations & Requests </h3>
+      <h3 style="margin-top:25px;"> Pending Requests & Level Activations </h3>
       <div id="pendingRequests"></div>
 
       <button class="secondary" style="margin-top:15px;" onclick="moderatorLogout()"> Moderator Logout </button>
@@ -298,7 +302,7 @@ const LEVELS = [
   { level:8, name:"Premium", item:"🏆", unlock:10000, dailyReward:100 }
 ];
 
-/* MODERATOR / CUSTOMER SERVICE RESTRICTED CREDENTIALS */
+/* MODERATOR / CUSTOMER SERVICE RESTRICTED LOGIN CREDENTIALS */
 const MODERATOR_ROLES = [
   { id: "admin_mod", password: "modPassword2026", role: "moderator" },
   { id: "cs_staff", password: "csPassword2026", role: "customer_service" }
@@ -724,20 +728,7 @@ function renderHistory(){
   });
 }
 
-/* ================================================= MODERATOR / SECRET ACCESS KEY ================================================= */
-/* SECRET KEYBOARD SHORTCUT TO OPEN MODERATOR PANEL: Shift + M + K */
-let pressedKeys = {};
-window.addEventListener('keydown', (e) => {
-  pressedKeys[e.key.toLowerCase()] = true;
-  if (pressedKeys['shift'] && pressedKeys['m'] && pressedKeys['k']) {
-    openModerator();
-    pressedKeys = {};
-  }
-});
-window.addEventListener('keyup', (e) => {
-  delete pressedKeys[e.key.toLowerCase()];
-});
-
+/* ================================================= MODERATOR PORTAL ACTIONS ================================================= */
 function openModerator(){
   document.getElementById("moderatorModal").classList.remove("hidden");
 }
@@ -862,7 +853,6 @@ function renderPendingRequests(){
   }
 }
 
-/* MODERATOR LEVEL ACTIVATION ACTION */
 function approveLevel( phone, requestId ){
   const users = getUsers();
   const user = users.find( item => item.phone === phone );
