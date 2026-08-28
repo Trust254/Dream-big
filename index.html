@@ -30,7 +30,7 @@ button{
 header{
     background:#075e54;
     color:white;
-    padding:15px 5%;
+    padding:14px 5%;
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -46,8 +46,8 @@ header{
 }
 
 .logo-icon{
-    width:42px;
-    height:42px;
+    width:43px;
+    height:43px;
     background:white;
     color:#075e54;
     border-radius:50%;
@@ -55,6 +55,7 @@ header{
     align-items:center;
     justify-content:center;
     font-size:22px;
+    font-weight:bold;
 }
 
 .logo h1{
@@ -140,6 +141,14 @@ input:focus{
 .secondary{
     background:#eee;
     color:#333;
+    border:0;
+    border-radius:8px;
+    padding:11px 15px;
+}
+
+.danger{
+    background:#a80000;
+    color:white;
     border:0;
     border-radius:8px;
     padding:11px 15px;
@@ -341,6 +350,88 @@ input:focus{
     color:#805d00;
 }
 
+.task-progress{
+    height:14px;
+    background:#e8e8e8;
+    border-radius:20px;
+    overflow:hidden;
+    margin:15px 0;
+}
+
+.task-progress-bar{
+    height:100%;
+    width:0%;
+    background:#075e54;
+    transition:.4s;
+}
+
+.task-buttons{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:8px;
+    margin:20px 0;
+}
+
+.task-circle{
+    height:50px;
+    border-radius:50%;
+    border:2px solid #075e54;
+    background:white;
+    color:#075e54;
+    font-weight:bold;
+}
+
+.task-circle.completed{
+    background:#075e54;
+    color:white;
+}
+
+.countdown{
+    text-align:center;
+    background:#075e54;
+    color:white;
+    border-radius:12px;
+    padding:22px;
+    margin-top:15px;
+}
+
+.countdown-number{
+    font-size:32px;
+    font-weight:bold;
+    margin:10px 0;
+    letter-spacing:2px;
+}
+
+.support{
+    background:#075e54;
+    color:white;
+    text-align:center;
+    padding:20px;
+    border-radius:12px;
+}
+
+.support a{
+    color:white;
+    font-size:22px;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+.help-btn{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    width:60px;
+    height:60px;
+    border:0;
+    border-radius:50%;
+    background:#075e54;
+    color:white;
+    font-size:25px;
+    box-shadow:0 4px 15px rgba(0,0,0,.25);
+    z-index:200;
+}
+
 .table-wrapper{
     overflow-x:auto;
 }
@@ -398,19 +489,11 @@ th,td{
     margin-top:15px;
 }
 
-.support{
-    background:#075e54;
-    color:white;
-    text-align:center;
-    padding:18px;
-    border-radius:12px;
-}
-
-.support a{
-    color:white;
-    font-size:21px;
-    font-weight:bold;
-    text-decoration:none;
+.admin-user{
+    background:#f4f7f6;
+    padding:15px;
+    border-radius:10px;
+    margin:10px 0;
 }
 
 footer{
@@ -426,6 +509,7 @@ footer a{
 }
 
 @media(max-width:850px){
+
     .stats{
         grid-template-columns:repeat(2,1fr);
     }
@@ -436,6 +520,7 @@ footer a{
 }
 
 @media(max-width:520px){
+
     .level-grid{
         grid-template-columns:1fr;
     }
@@ -450,6 +535,10 @@ footer a{
 
     .referral-box button{
         padding:12px;
+    }
+
+    .task-buttons{
+        grid-template-columns:repeat(3,1fr);
     }
 }
 </style>
@@ -482,7 +571,7 @@ footer a{
 </header>
 
 
-<!-- AUTH -->
+<!-- ================= AUTH ================= -->
 
 <section id="authSection" class="container">
 
@@ -499,6 +588,8 @@ footer a{
 
 
     <div class="card auth">
+
+        <!-- REGISTER -->
 
         <div id="registerBox">
 
@@ -590,6 +681,8 @@ footer a{
         </div>
 
 
+        <!-- LOGIN -->
+
         <div id="loginBox" class="hidden">
 
             <h2>Login</h2>
@@ -639,7 +732,7 @@ footer a{
 </section>
 
 
-<!-- DASHBOARD -->
+<!-- ================= DASHBOARD ================= -->
 
 <section id="dashboard" class="container hidden">
 
@@ -661,11 +754,10 @@ footer a{
 
         <strong>Important:</strong>
 
-        Deposits and level payments require
-        verification. Rewards and activities
-        are subject to eligibility and platform
-        rules. Rewards are not guaranteed
-        investment returns.
+        Payments require verification.
+        Rewards displayed on this prototype are
+        activity/promotional rewards and are not
+        guaranteed investment returns.
 
     </div>
 
@@ -711,7 +803,7 @@ footer a{
             <h4>Today's Activities</h4>
 
             <strong>
-                <span id="tasksCompletedToday">0</span>/10
+                <span id="tasksCompletedToday">0</span>/6
             </strong>
 
         </div>
@@ -727,16 +819,35 @@ footer a{
 
         <p style="color:#777;margin:8px 0 15px;">
 
-            Deposit through M-Pesa using
-            the official Till Number below.
+            Use M-Pesa Till Number:
 
         </p>
+
+        <div class="till">
+
+            <div class="till-title">
+                M-Pesa Till Number
+            </div>
+
+            <div class="till-number">
+                555122
+            </div>
+
+            <button
+                class="copy-btn"
+                onclick="copyTill()">
+
+                Copy Till Number
+
+            </button>
+
+        </div>
 
         <button
             class="primary"
             onclick="openDeposit()">
 
-            💰 Deposit via M-Pesa
+            💰 Submit Deposit
 
         </button>
 
@@ -747,7 +858,7 @@ footer a{
 
     <div class="card">
 
-        <h2>My Account</h2>
+        <h2>👤 My Account</h2>
 
         <p style="margin-top:12px;">
             <b>Name:</b>
@@ -807,8 +918,7 @@ footer a{
             style="color:#777;margin:8px 0 18px;">
 
             Level 1 is available to new members.
-            Higher levels require payment and
-            verification before activation.
+            Higher levels require verified activation.
 
         </p>
 
@@ -820,7 +930,7 @@ footer a{
     </div>
 
 
-    <!-- ACTIVITIES -->
+    <!-- TASK AREA -->
 
     <div
         id="taskSection"
@@ -835,75 +945,97 @@ footer a{
             style="color:#777;margin:10px 0;">
         </p>
 
+
         <div class="success">
 
-            Today's progress:
+            Progress:
 
             <b>
-                <span id="taskCount">0</span>/10
+                <span id="taskCount">0</span>/6
             </b>
 
         </div>
 
-        <button
-            class="primary"
-            onclick="completeTask()">
 
-            ▶ Start Activity
+        <div class="task-progress">
+
+            <div
+                id="taskProgressBar"
+                class="task-progress-bar">
+            </div>
+
+        </div>
+
+
+        <div
+            id="taskButtons"
+            class="task-buttons">
+        </div>
+
+
+        <div id="taskStatus"></div>
+
+
+        <button
+            id="startTaskButton"
+            class="primary"
+            onclick="startEarning()">
+
+            ▶ START EARNING
 
         </button>
 
-        <p
-            style="font-size:12px;color:#777;margin-top:10px;">
 
-            Activities and rewards are subject
-            to the applicable Dream Big rules.
+        <div
+            id="completedMessage"
+            class="countdown hidden">
 
-        </p>
+            <div>
+                🎉 DAILY TASK COMPLETED
+            </div>
+
+            <div
+                id="countdown"
+                class="countdown-number">
+
+                00:00:00
+
+            </div>
+
+            <p>
+                New activities become available
+                after midnight Kenya time.
+            </p>
+
+        </div>
 
     </div>
 
 
-    <!-- DEPOSIT -->
+    <!-- DEPOSIT SECTION -->
 
     <div
         id="paymentSection"
         class="card hidden">
 
-        <h2>💰 Deposit via M-Pesa</h2>
+        <h2>💰 M-Pesa Deposit</h2>
 
-        <p style="color:#777;margin-top:8px;">
+        <p style="color:#777;margin:10px 0;">
 
-            Enter the amount you are depositing.
+            Pay to Till Number:
+
+            <strong>
+                555122
+            </strong>
 
         </p>
+
 
         <input
             id="depositAmount"
             type="number"
             min="1"
             placeholder="Amount in KSh">
-
-
-        <div class="till">
-
-            <div class="till-title">
-                M-Pesa Till Number
-            </div>
-
-            <div class="till-number">
-                555122
-            </div>
-
-            <button
-                class="copy-btn"
-                onclick="copyTill()">
-
-                Copy Till Number
-
-            </button>
-
-        </div>
 
 
         <input
@@ -916,9 +1048,10 @@ footer a{
             class="primary"
             onclick="submitDeposit()">
 
-            Submit Deposit
+            Submit for Verification
 
         </button>
+
 
         <div id="paymentMessage"></div>
 
@@ -931,18 +1064,19 @@ footer a{
         id="unlockSection"
         class="card hidden">
 
-        <h2>🔓 Unlock Next Level</h2>
+        <h2>🔓 Level Activation</h2>
 
         <p style="margin:10px 0;">
 
-            Level:
+            Selected:
+
             <strong id="unlockLevel"></strong>
 
         </p>
 
         <p>
 
-            Required payment:
+            Required amount:
 
             <strong>
                 KSh
@@ -971,16 +1105,6 @@ footer a{
             </button>
 
         </div>
-
-
-        <p style="color:#555;">
-
-            After making the payment,
-            enter the M-Pesa transaction code.
-            Your request will remain pending
-            until verified.
-
-        </p>
 
 
         <input
@@ -1051,14 +1175,12 @@ footer a{
 
             <p style="margin:8px 0 12px;">
 
-                Need help? Contact our helpline.
+                Need help?
 
             </p>
 
             <a href="tel:0719222390">
-
                 0719222390
-
             </a>
 
         </div>
@@ -1100,40 +1222,19 @@ footer a{
 </section>
 
 
-<footer>
+<!-- HELP CENTER BUTTON -->
 
-    <p>
-        © 2026 Dream Big Kenya
-    </p>
+<button
+    class="help-btn"
+    onclick="openHelpCenter()"
+    title="Help Center">
 
-    <p style="margin-top:7px;">
-        Published:
-        <strong>28 August 2026</strong>
-    </p>
+    ☎
 
-    <p style="margin-top:7px;">
-        Helpline:
-        <strong>0719222390</strong>
-    </p>
-
-    <p style="margin-top:10px;">
-
-        <a onclick="openTerms()">
-            Terms & Conditions
-        </a>
-
-        &nbsp; | &nbsp;
-
-        <a onclick="openPrivacy()">
-            Privacy Policy
-        </a>
-
-    </p>
-
-</footer>
+</button>
 
 
-<!-- TERMS MODAL -->
+<!-- ================= TERMS ================= -->
 
 <div
     id="termsModal"
@@ -1151,7 +1252,7 @@ footer a{
             </strong>
         </p>
 
-        <h3>1. Account Registration</h3>
+        <h3>1. Registration</h3>
 
         <p>
             Members must provide accurate information.
@@ -1162,42 +1263,42 @@ footer a{
         <h3>2. Payments</h3>
 
         <p>
-            Payments submitted for level access or
-            other services require verification.
+            Payment information submitted through
+            Dream Big is subject to verification.
             Entering a transaction code does not
-            itself prove that payment was made.
+            automatically prove payment.
         </p>
 
-        <h3>3. Activities</h3>
+        <h3>3. Levels</h3>
 
         <p>
-            Activities are provided according to the
-            level available to the member.
+            Higher levels require eligibility and
+            verified payment where applicable.
         </p>
 
-        <h3>4. Rewards</h3>
+        <h3>4. Activities and Rewards</h3>
 
         <p>
-            Any promotional or activity rewards are
-            subject to eligibility, verification and
-            applicable platform rules and are not
+            Activities and promotional rewards are
+            subject to eligibility and platform rules.
+            Rewards displayed by the platform are not
             guaranteed investment returns.
         </p>
 
         <h3>5. Withdrawals</h3>
 
         <p>
-            Withdrawal requests are subject to
-            verification and processing requirements.
+            Withdrawals are subject to account,
+            payment and verification requirements.
             Weekend withdrawals may be unavailable.
         </p>
 
-        <h3>6. Prohibited Activity</h3>
+        <h3>6. Account Security</h3>
 
         <p>
-            Users must not attempt to manipulate
-            balances, payments, accounts or the
-            operation of the website.
+            Users must keep their login information
+            confidential and must not attempt to
+            manipulate the platform.
         </p>
 
         <h3>7. Changes</h3>
@@ -1205,7 +1306,7 @@ footer a{
         <p>
             Dream Big may update these terms when
             necessary. Updated terms should be
-            displayed on the website.
+            published on the website.
         </p>
 
         <button
@@ -1221,7 +1322,7 @@ footer a{
 </div>
 
 
-<!-- PRIVACY MODAL -->
+<!-- ================= PRIVACY ================= -->
 
 <div
     id="privacyModal"
@@ -1257,16 +1358,17 @@ footer a{
         <h3>Payment Information</h3>
 
         <p>
-            M-Pesa transaction codes submitted through
-            the platform may be recorded for verification.
+            Transaction references submitted for
+            verification may be stored for account
+            processing.
         </p>
 
         <h3>Security</h3>
 
         <p>
             The production version should use secure
-            server-side authentication and a protected
-            database.
+            server-side authentication and database
+            controls.
         </p>
 
         <button
@@ -1282,19 +1384,165 @@ footer a{
 </div>
 
 
+<!-- ================= HELP CENTER ================= -->
+
+<div
+    id="helpModal"
+    class="modal hidden">
+
+    <div class="modal-box">
+
+        <div id="helpLogin">
+
+            <h2>🔐 Dream Big Help Center</h2>
+
+            <p style="color:#777;margin-bottom:15px;">
+
+                Authorized support staff only.
+
+            </p>
+
+            <input
+                id="staffId"
+                type="text"
+                placeholder="Staff ID">
+
+            <input
+                id="staffPassword"
+                type="password"
+                placeholder="Help Center password">
+
+            <button
+                class="primary"
+                onclick="staffLogin()">
+
+                Help Center Login
+
+            </button>
+
+            <div id="staffMessage"></div>
+
+        </div>
+
+
+        <div
+            id="helpDashboard"
+            class="hidden">
+
+            <h2>🛠 Help Center</h2>
+
+            <p style="color:#777;margin:8px 0 15px;">
+
+                Support and account verification panel.
+
+            </p>
+
+
+            <input
+                id="searchUser"
+                type="text"
+                placeholder="Search user by phone">
+
+
+            <button
+                class="primary"
+                onclick="findUser()">
+
+                Search User
+
+            </button>
+
+
+            <div id="adminResult"></div>
+
+
+            <button
+                class="secondary"
+                onclick="staffLogout()">
+
+                Logout Help Center
+
+            </button>
+
+        </div>
+
+
+        <button
+            class="secondary modal-close"
+            onclick="closeModals()">
+
+            Close
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<footer>
+
+    <p>
+        © 2026 Dream Big Kenya
+    </p>
+
+    <p style="margin-top:7px;">
+        Published:
+        <strong>28 August 2026</strong>
+    </p>
+
+    <p style="margin-top:7px;">
+        Helpline:
+        <strong>0719222390</strong>
+    </p>
+
+    <p style="margin-top:10px;">
+
+        <a onclick="openTerms()">
+            Terms & Conditions
+        </a>
+
+        &nbsp; | &nbsp;
+
+        <a onclick="openPrivacy()">
+            Privacy Policy
+        </a>
+
+    </p>
+
+</footer>
+
+
 <script>
 
-/* ==========================================
+/* ==================================================
    DREAM BIG CONFIGURATION
-========================================== */
+================================================== */
 
 const MPESA_TILL = "555122";
 const HELPLINE = "0719222390";
 
+const DAILY_TASKS = 6;
 
-/* ==========================================
+
+/*
+   IMPORTANT:
+
+   This staff password is ONLY a prototype/demo
+   placeholder. Do NOT use this approach in a
+   real production system.
+
+   A real Help Center must use secure backend
+   authentication such as Supabase Auth.
+*/
+
+const DEMO_STAFF_ID = "helpcenter";
+const DEMO_STAFF_PASSWORD = "CHANGE_THIS_IN_BACKEND";
+
+
+/* ==================================================
    LEVELS
-========================================== */
+================================================== */
 
 const LEVELS = [
 
@@ -1303,7 +1551,7 @@ const LEVELS = [
         name:"Starter Phone",
         item:"📱",
         unlock:0,
-        reward:5,
+        dailyReward:5,
         description:
         "Free starter activities for new members."
     },
@@ -1313,7 +1561,7 @@ const LEVELS = [
         name:"Mobile Phone",
         item:"📲",
         unlock:500,
-        reward:10,
+        dailyReward:10,
         description:
         "Mobile promotional activities."
     },
@@ -1323,7 +1571,7 @@ const LEVELS = [
         name:"Sound Woofer",
         item:"🔊",
         unlock:1000,
-        reward:20,
+        dailyReward:20,
         description:
         "Audio promotional activities."
     },
@@ -1333,7 +1581,7 @@ const LEVELS = [
         name:"Smart TV",
         item:"📺",
         unlock:2000,
-        reward:30,
+        dailyReward:30,
         description:
         "Digital promotional activities."
     },
@@ -1343,7 +1591,7 @@ const LEVELS = [
         name:"Laptop",
         item:"💻",
         unlock:3500,
-        reward:40,
+        dailyReward:40,
         description:
         "Technology-related activities."
     },
@@ -1353,7 +1601,7 @@ const LEVELS = [
         name:"Motorbike",
         item:"🏍️",
         unlock:5000,
-        reward:50,
+        dailyReward:50,
         description:
         "Advanced promotional activities."
     },
@@ -1363,7 +1611,7 @@ const LEVELS = [
         name:"Business",
         item:"🏪",
         unlock:7500,
-        reward:70,
+        dailyReward:70,
         description:
         "Business-related activities."
     },
@@ -1373,7 +1621,7 @@ const LEVELS = [
         name:"Premium",
         item:"🏆",
         unlock:10000,
-        reward:100,
+        dailyReward:100,
         description:
         "Highest available activity level."
     }
@@ -1381,9 +1629,9 @@ const LEVELS = [
 ];
 
 
-/* ==========================================
-   USERS
-========================================== */
+/* ==================================================
+   USER STORAGE
+================================================== */
 
 function getUsers(){
 
@@ -1421,9 +1669,9 @@ function getCurrentUser(){
 }
 
 
-/* ==========================================
-   AUTH
-========================================== */
+/* ==================================================
+   REGISTER / LOGIN UI
+================================================== */
 
 function showLogin(){
 
@@ -1440,6 +1688,7 @@ function showLogin(){
     .innerHTML = "";
 
 }
+
 
 function showRegister(){
 
@@ -1458,9 +1707,9 @@ function showRegister(){
 }
 
 
-/* ==========================================
+/* ==================================================
    REGISTER
-========================================== */
+================================================== */
 
 function register(){
 
@@ -1523,6 +1772,10 @@ function register(){
     const users = getUsers();
 
 
+    /*
+       Prevent duplicate phone OR email.
+    */
+
     const existing =
         users.find(
             user =>
@@ -1543,6 +1796,7 @@ function register(){
 
 
     let referrer = null;
+
 
     if(referral){
 
@@ -1566,8 +1820,16 @@ function register(){
     const user = {
 
         name:name,
+
         phone:phone,
+
         email:email,
+
+        /*
+           Prototype only.
+           Production must hash passwords server-side.
+        */
+
         password:password,
 
         balance:0,
@@ -1576,12 +1838,14 @@ function register(){
 
         referrals:0,
 
-        tasksCompleted:0,
-
         taskProgress:0,
 
         taskDate:
-            new Date().toDateString(),
+            getKenyaDateKey(),
+
+        taskStarted:false,
+
+        taskFinished:false,
 
         referralCode:referralCode,
 
@@ -1609,6 +1873,12 @@ function register(){
     users.push(user);
 
 
+    /*
+       Referral count is updated only in this
+       prototype. Production referral rewards
+       should be calculated server-side.
+    */
+
     if(referrer){
 
         referrer.referrals += 1;
@@ -1630,9 +1900,9 @@ function register(){
 }
 
 
-/* ==========================================
+/* ==================================================
    LOGIN
-========================================== */
+================================================== */
 
 function login(){
 
@@ -1679,9 +1949,9 @@ function login(){
 }
 
 
-/* ==========================================
+/* ==================================================
    LOGOUT
-========================================== */
+================================================== */
 
 function logout(){
 
@@ -1706,20 +1976,64 @@ function logout(){
 }
 
 
-/* ==========================================
+/* ==================================================
+   KENYA TIME
+================================================== */
+
+function getKenyaNow(){
+
+    return new Date(
+        new Date().toLocaleString(
+            "en-US",
+            {
+                timeZone:"Africa/Nairobi"
+            }
+        )
+    );
+
+}
+
+
+function getKenyaDateKey(){
+
+    const now =
+        getKenyaNow();
+
+    return (
+        now.getFullYear() +
+        "-" +
+        String(
+            now.getMonth()+1
+        ).padStart(2,"0") +
+        "-" +
+        String(
+            now.getDate()
+        ).padStart(2,"0")
+    );
+
+}
+
+
+/* ==================================================
    DAILY RESET
-========================================== */
+================================================== */
 
 function resetDailyTasks(user){
 
     const today =
-        new Date().toDateString();
+        getKenyaDateKey();
 
 
     if(user.taskDate !== today){
 
         user.taskDate = today;
+
         user.taskProgress = 0;
+
+        user.taskStarted = false;
+
+        user.taskFinished = false;
+
 
         const users = getUsers();
 
@@ -1728,6 +2042,7 @@ function resetDailyTasks(user){
                 u =>
                 u.phone === user.phone
             );
+
 
         if(index !== -1){
 
@@ -1742,9 +2057,9 @@ function resetDailyTasks(user){
 }
 
 
-/* ==========================================
+/* ==================================================
    DASHBOARD
-========================================== */
+================================================== */
 
 function showDashboard(){
 
@@ -1819,14 +2134,17 @@ function showDashboard(){
 
 
     renderLevels();
+
     renderHistory();
+
+    updateTaskInterface();
 
 }
 
 
-/* ==========================================
-   LEVELS
-========================================== */
+/* ==================================================
+   LEVEL DISPLAY
+================================================== */
 
 function renderLevels(){
 
@@ -1889,7 +2207,7 @@ function renderLevels(){
                     class="level-btn"
                     disabled>
 
-                    ⏳ Payment Pending Verification
+                    ⏳ Pending Verification
 
                 </button>
 
@@ -1906,7 +2224,7 @@ function renderLevels(){
                     class="level-btn"
                     onclick="levelAction(${level.level})">
 
-                    🔓 Pay & Request Activation
+                    🔓 Request Activation
 
                 </button>
 
@@ -1957,9 +2275,9 @@ function renderLevels(){
             </p>
 
             <p>
-                Activity reward:
+                Displayed daily activity reward:
                 <b>
-                    KSh ${level.reward}
+                    KSh ${level.dailyReward}
                 </b>
             </p>
 
@@ -1968,7 +2286,13 @@ function renderLevels(){
                 Status:
 
                 <span class="status
-                    ${active ? "active" : pending ? "pending" : ""}">
+                    ${
+                        active
+                        ? "active"
+                        : pending
+                        ? "pending"
+                        : ""
+                    }">
 
                     ${
                         active
@@ -1994,9 +2318,9 @@ function renderLevels(){
 }
 
 
-/* ==========================================
-   LEVEL ACTION
-========================================== */
+/* ==================================================
+   LEVEL ACTIVATION
+================================================== */
 
 function levelAction(levelNumber){
 
@@ -2058,9 +2382,9 @@ function levelAction(levelNumber){
 }
 
 
-/* ==========================================
-   ACTIVITIES
-========================================== */
+/* ==================================================
+   TASKS
+================================================== */
 
 function openTasks(levelNumber){
 
@@ -2070,7 +2394,7 @@ function openTasks(levelNumber){
     if(levelNumber > user.level){
 
         alert(
-            "This level is not active yet."
+            "This level is not active."
         );
 
         return;
@@ -2104,10 +2428,7 @@ function openTasks(levelNumber){
         level.description;
 
 
-    document
-    .getElementById("taskCount")
-    .textContent =
-        user.taskProgress;
+    updateTaskInterface();
 
 
     document
@@ -2119,9 +2440,187 @@ function openTasks(levelNumber){
 }
 
 
-/* ==========================================
-   COMPLETE ACTIVITY
-========================================== */
+/* ==================================================
+   START EARNING
+================================================== */
+
+function startEarning(){
+
+    const users = getUsers();
+
+    const phone =
+        localStorage.getItem(
+            "dreamBigCurrentUser"
+        );
+
+
+    const user =
+        users.find(
+            item =>
+            item.phone === phone
+        );
+
+
+    if(!user){
+        return;
+    }
+
+
+    resetDailyTasks(user);
+
+
+    if(user.taskFinished){
+
+        return;
+    }
+
+
+    user.taskStarted = true;
+
+
+    saveUsers(users);
+
+
+    updateTaskInterface();
+
+}
+
+
+/* ==================================================
+   TASK INTERFACE
+================================================== */
+
+function updateTaskInterface(){
+
+    const user = getCurrentUser();
+
+    if(!user){
+        return;
+    }
+
+
+    resetDailyTasks(user);
+
+
+    document
+    .getElementById("taskCount")
+    .textContent =
+    user.taskProgress;
+
+
+    const percentage =
+        (user.taskProgress / DAILY_TASKS) * 100;
+
+
+    document
+    .getElementById("taskProgressBar")
+    .style.width =
+    percentage + "%";
+
+
+    const buttons =
+        document
+        .getElementById("taskButtons");
+
+
+    buttons.innerHTML = "";
+
+
+    for(
+        let i=1;
+        i<=DAILY_TASKS;
+        i++
+    ){
+
+        const button =
+            document.createElement("button");
+
+
+        button.className =
+            "task-circle";
+
+
+        if(
+            i <= user.taskProgress
+        ){
+
+            button.classList.add(
+                "completed"
+            );
+
+            button.textContent = "✓";
+
+        }
+        else{
+
+            button.textContent = i;
+
+        }
+
+
+        buttons.appendChild(button);
+
+    }
+
+
+    const startButton =
+        document
+        .getElementById("startTaskButton");
+
+
+    const completedMessage =
+        document
+        .getElementById("completedMessage");
+
+
+    if(user.taskFinished){
+
+        startButton.classList.add(
+            "hidden"
+        );
+
+        completedMessage.classList.remove(
+            "hidden"
+        );
+
+        startCountdown();
+
+    }
+    else if(user.taskStarted){
+
+        startButton.classList.remove(
+            "hidden"
+        );
+
+        startButton.textContent =
+            "▶ COMPLETE NEXT ACTIVITY";
+
+        completedMessage.classList.add(
+            "hidden"
+        );
+
+    }
+    else{
+
+        startButton.classList.remove(
+            "hidden"
+        );
+
+        startButton.textContent =
+            "▶ START EARNING";
+
+        completedMessage.classList.add(
+            "hidden"
+        );
+
+    }
+
+}
+
+
+/* ==================================================
+   COMPLETE ONE OF SIX ACTIVITIES
+================================================== */
 
 function completeTask(){
 
@@ -2148,11 +2647,17 @@ function completeTask(){
     resetDailyTasks(user);
 
 
-    if(user.taskProgress >= 10){
+    if(!user.taskStarted){
 
         alert(
-            "You have completed today's 10 activities."
+            "Press START EARNING first."
         );
+
+        return;
+    }
+
+
+    if(user.taskProgress >= DAILY_TASKS){
 
         return;
     }
@@ -2172,17 +2677,16 @@ function completeTask(){
 
     user.taskProgress += 1;
 
-    user.tasksCompleted += 1;
-
 
     /*
-       Activity reward shown here is for the
-       website prototype only. In a real system,
-       reward eligibility should be determined
-       securely by the backend.
+       This prototype records the displayed
+       activity reward locally.
+
+       Production reward calculations should
+       happen on the secure backend.
     */
 
-    user.balance += level.reward;
+    user.balance += level.dailyReward;
 
 
     user.history.push({
@@ -2194,12 +2698,23 @@ function completeTask(){
             "Activity reward",
 
         amount:
-            level.reward,
+            level.dailyReward,
 
         status:
-            "Completed"
+            "Recorded"
 
     });
+
+
+    if(
+        user.taskProgress >= DAILY_TASKS
+    ){
+
+        user.taskFinished = true;
+
+        user.taskStarted = false;
+
+    }
 
 
     saveUsers(users);
@@ -2212,9 +2727,164 @@ function completeTask(){
 }
 
 
-/* ==========================================
+/* ==================================================
+   MAKE THE START BUTTON COMPLETE THE NEXT TASK
+================================================== */
+
+document
+.getElementById("startTaskButton")
+.addEventListener(
+    "click",
+    function(){
+
+        const user =
+            getCurrentUser();
+
+        if(!user){
+            return;
+        }
+
+
+        if(!user.taskStarted){
+
+            startEarning();
+
+        }
+        else{
+
+            completeTask();
+
+        }
+
+    }
+);
+
+
+/* ==================================================
+   MIDNIGHT COUNTDOWN — KENYA
+================================================== */
+
+let countdownTimer = null;
+
+
+function startCountdown(){
+
+    if(countdownTimer){
+        clearInterval(countdownTimer);
+    }
+
+
+    updateCountdown();
+
+
+    countdownTimer =
+        setInterval(
+            updateCountdown,
+            1000
+        );
+
+}
+
+
+function updateCountdown(){
+
+    const user =
+        getCurrentUser();
+
+
+    if(!user){
+        return;
+    }
+
+
+    resetDailyTasks(user);
+
+
+    /*
+       resetDailyTasks can unlock the new day.
+    */
+
+    if(!user.taskFinished){
+
+        updateTaskInterface();
+
+        return;
+    }
+
+
+    const now =
+        getKenyaNow();
+
+
+    const tomorrow =
+        new Date(now);
+
+
+    tomorrow.setDate(
+        tomorrow.getDate()+1
+    );
+
+    tomorrow.setHours(
+        0,0,0,0
+    );
+
+
+    const difference =
+        tomorrow - now;
+
+
+    if(difference <= 0){
+
+        resetDailyTasks(user);
+
+        showDashboard();
+
+        return;
+    }
+
+
+    const hours =
+        Math.floor(
+            difference /
+            (1000*60*60)
+        );
+
+
+    const minutes =
+        Math.floor(
+            (
+                difference %
+                (1000*60*60)
+            ) /
+            (1000*60)
+        );
+
+
+    const seconds =
+        Math.floor(
+            (
+                difference %
+                (1000*60)
+            ) /
+            1000
+        );
+
+
+    document
+    .getElementById("countdown")
+    .textContent =
+        String(hours).padStart(2,"0") +
+        ":" +
+        String(minutes).padStart(2,"0") +
+        ":" +
+        String(seconds).padStart(2,"0");
+
+}
+
+
+/* ==================================================
    DEPOSIT
-========================================== */
+================================================== */
 
 function openDeposit(){
 
@@ -2237,9 +2907,9 @@ function openDeposit(){
 }
 
 
-/* ==========================================
+/* ==================================================
    COPY TILL
-========================================== */
+================================================== */
 
 function copyTill(){
 
@@ -2266,9 +2936,9 @@ function copyTill(){
 }
 
 
-/* ==========================================
-   SUBMIT DEPOSIT
-========================================== */
+/* ==================================================
+   DEPOSIT SUBMISSION
+================================================== */
 
 function submitDeposit(){
 
@@ -2388,7 +3058,7 @@ function submitDeposit(){
 
     message.innerHTML =
     '<div class="pending">' +
-    'Deposit submitted. Status: Pending verification.' +
+    'Deposit submitted. Pending verification.' +
     '</div>';
 
 
@@ -2406,9 +3076,9 @@ function submitDeposit(){
 }
 
 
-/* ==========================================
+/* ==================================================
    LEVEL PAYMENT
-========================================== */
+================================================== */
 
 function submitUnlock(){
 
@@ -2474,7 +3144,7 @@ function submitUnlock(){
 
         message.innerHTML =
         '<div class="pending">' +
-        'You already have a level payment pending verification.' +
+        'A level activation is already pending verification.' +
         '</div>';
 
         return;
@@ -2546,8 +3216,7 @@ function submitUnlock(){
 
     message.innerHTML =
     '<div class="pending">' +
-    'Payment submitted successfully. ' +
-    'Your level will become active after payment verification.' +
+    'Payment submitted. The level will activate after verification.' +
     '</div>';
 
 
@@ -2557,14 +3226,15 @@ function submitUnlock(){
 
 
     renderLevels();
+
     renderHistory();
 
 }
 
 
-/* ==========================================
+/* ==================================================
    REFERRAL
-========================================== */
+================================================== */
 
 function copyReferral(){
 
@@ -2594,9 +3264,9 @@ function copyReferral(){
 }
 
 
-/* ==========================================
+/* ==================================================
    WITHDRAWAL
-========================================== */
+================================================== */
 
 function withdraw(){
 
@@ -2619,8 +3289,12 @@ function withdraw(){
         .getElementById("withdrawMessage");
 
 
+    const kenyaNow =
+        getKenyaNow();
+
+
     const day =
-        new Date().getDay();
+        kenyaNow.getDay();
 
 
     if(
@@ -2727,9 +3401,9 @@ function withdraw(){
 }
 
 
-/* ==========================================
+/* ==================================================
    HISTORY
-========================================== */
+================================================== */
 
 function renderHistory(){
 
@@ -2799,9 +3473,204 @@ function renderHistory(){
 }
 
 
-/* ==========================================
+/* ==================================================
+   HELP CENTER
+================================================== */
+
+function openHelpCenter(){
+
+    document
+    .getElementById("helpModal")
+    .classList.remove("hidden");
+
+}
+
+
+function staffLogin(){
+
+    const id =
+        document
+        .getElementById("staffId")
+        .value.trim();
+
+    const password =
+        document
+        .getElementById("staffPassword")
+        .value;
+
+
+    const message =
+        document
+        .getElementById("staffMessage");
+
+
+    /*
+       Prototype-only login.
+
+       Replace with Supabase Auth in production.
+    */
+
+    if(
+        id === DEMO_STAFF_ID &&
+        password === DEMO_STAFF_PASSWORD
+    ){
+
+        document
+        .getElementById("helpLogin")
+        .classList.add("hidden");
+
+        document
+        .getElementById("helpDashboard")
+        .classList.remove("hidden");
+
+        message.innerHTML = "";
+
+    }
+    else{
+
+        message.innerHTML =
+        '<div class="error">' +
+        'Invalid Help Center credentials.' +
+        '</div>';
+
+    }
+
+}
+
+
+function staffLogout(){
+
+    document
+    .getElementById("helpDashboard")
+    .classList.add("hidden");
+
+    document
+    .getElementById("helpLogin")
+    .classList.remove("hidden");
+
+    document
+    .getElementById("staffPassword")
+    .value = "";
+
+}
+
+
+/* ==================================================
+   SEARCH USER IN HELP CENTER
+================================================== */
+
+function findUser(){
+
+    const phone =
+        document
+        .getElementById("searchUser")
+        .value.trim();
+
+
+    const result =
+        document
+        .getElementById("adminResult");
+
+
+    if(!phone){
+
+        result.innerHTML =
+        '<div class="error">' +
+        'Enter a phone number.' +
+        '</div>';
+
+        return;
+    }
+
+
+    const user =
+        getUsers().find(
+            item =>
+            item.phone === phone
+        );
+
+
+    if(!user){
+
+        result.innerHTML =
+        '<div class="error">' +
+        'User not found.' +
+        '</div>';
+
+        return;
+    }
+
+
+    const pendingLevel =
+        user.pendingLevel
+        ? "Level " + user.pendingLevel
+        : "None";
+
+
+    result.innerHTML = `
+
+        <div class="admin-user">
+
+            <h3>
+                ${user.name}
+            </h3>
+
+            <p>
+                Phone:
+                <b>${user.phone}</b>
+            </p>
+
+            <p>
+                Current Level:
+                <b>${user.level}</b>
+            </p>
+
+            <p>
+                Balance:
+                <b>
+                    KSh
+                    ${Number(user.balance)
+                    .toLocaleString()}
+                </b>
+            </p>
+
+            <p>
+                Referrals:
+                <b>${user.referrals}</b>
+            </p>
+
+            <p>
+                Pending Level:
+                <b>${pendingLevel}</b>
+            </p>
+
+            <p>
+                Today's Activities:
+                <b>
+                    ${user.taskProgress}/6
+                </b>
+            </p>
+
+            <p
+                style="font-size:12px;color:#777;margin-top:12px;">
+
+                Production version:
+                staff actions must be performed
+                through a secure server-side system
+                with an audit trail.
+
+            </p>
+
+        </div>
+
+    `;
+
+}
+
+
+/* ==================================================
    MODALS
-========================================== */
+================================================== */
 
 function openTerms(){
 
@@ -2811,6 +3680,7 @@ function openTerms(){
 
 }
 
+
 function openPrivacy(){
 
     document
@@ -2818,6 +3688,7 @@ function openPrivacy(){
     .classList.remove("hidden");
 
 }
+
 
 function closeModals(){
 
@@ -2829,48 +3700,51 @@ function closeModals(){
     .getElementById("privacyModal")
     .classList.add("hidden");
 
+    document
+    .getElementById("helpModal")
+    .classList.add("hidden");
+
 }
 
 
-/* ==========================================
+/* ==================================================
    OUTSIDE MODAL CLICK
-========================================== */
+================================================== */
 
-document
-.getElementById("termsModal")
-.addEventListener(
-    "click",
-    function(event){
+[
+    "termsModal",
+    "privacyModal",
+    "helpModal"
+]
+.forEach(id => {
 
-        if(event.target === this){
-            closeModals();
+    document
+    .getElementById(id)
+    .addEventListener(
+        "click",
+        function(event){
+
+            if(event.target === this){
+
+                closeModals();
+
+            }
+
         }
+    );
 
-    }
-);
-
-
-document
-.getElementById("privacyModal")
-.addEventListener(
-    "click",
-    function(event){
-
-        if(event.target === this){
-            closeModals();
-        }
-
-    }
-);
+});
 
 
-/* ==========================================
+/* ==================================================
    AUTO LOGIN
-========================================== */
+================================================== */
 
 window.onload = function(){
 
-    const user = getCurrentUser();
+    const user =
+        getCurrentUser();
+
 
     if(user){
 
