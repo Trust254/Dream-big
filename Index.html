@@ -1,0 +1,1774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Hope Support Kenya</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f3f6f8;
+    color:#222;
+}
+
+header{
+    background:#075e54;
+    color:white;
+    padding:16px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+header h1{
+    font-size:20px;
+}
+
+header button{
+    background:white;
+    color:#075e54;
+    border:0;
+    padding:9px 15px;
+    border-radius:7px;
+    font-weight:bold;
+}
+
+.container{
+    width:94%;
+    max-width:1100px;
+    margin:25px auto;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:14px;
+    margin-bottom:20px;
+    box-shadow:0 3px 15px rgba(0,0,0,.07);
+}
+
+.hero{
+    background:linear-gradient(135deg,#075e54,#0b907e);
+    color:white;
+    padding:30px 22px;
+    border-radius:15px;
+    margin-bottom:20px;
+}
+
+.hero h2{
+    margin-bottom:10px;
+    font-size:27px;
+}
+
+.hero p{
+    line-height:1.6;
+}
+
+.auth{
+    max-width:450px;
+    margin:40px auto;
+}
+
+input{
+    width:100%;
+    padding:13px;
+    margin:7px 0 13px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    font-size:15px;
+}
+
+.primary{
+    width:100%;
+    padding:13px;
+    background:#075e54;
+    color:white;
+    border:0;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.primary:hover{
+    background:#064b44;
+}
+
+.link{
+    color:#075e54;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.hidden{
+    display:none!important;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.stat{
+    background:white;
+    padding:18px;
+    border-radius:12px;
+    box-shadow:0 2px 10px rgba(0,0,0,.06);
+}
+
+.stat h4{
+    color:#777;
+    font-size:13px;
+    margin-bottom:7px;
+}
+
+.stat strong{
+    font-size:23px;
+    color:#075e54;
+}
+
+.level-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.level{
+    border:1px solid #ddd;
+    border-radius:12px;
+    padding:17px;
+    background:white;
+}
+
+.level.active{
+    border:2px solid #075e54;
+}
+
+.level.locked{
+    opacity:.65;
+}
+
+.item{
+    font-size:35px;
+    margin:10px 0;
+}
+
+.level h3{
+    margin-bottom:5px;
+}
+
+.level p{
+    color:#666;
+    font-size:14px;
+    line-height:1.5;
+    margin:7px 0;
+}
+
+.level button{
+    width:100%;
+    border:0;
+    padding:10px;
+    border-radius:7px;
+    background:#075e54;
+    color:white;
+    cursor:pointer;
+}
+
+.level.locked button{
+    background:#999;
+}
+
+.notice{
+    background:#fff7df;
+    border-left:5px solid #e3a900;
+    padding:14px;
+    border-radius:8px;
+    margin-bottom:20px;
+    line-height:1.5;
+}
+
+.success{
+    background:#e7f8ef;
+    color:#087441;
+    padding:13px;
+    border-radius:8px;
+    margin:12px 0;
+}
+
+.error{
+    background:#fdeaea;
+    color:#a00000;
+    padding:13px;
+    border-radius:8px;
+    margin:12px 0;
+}
+
+.till{
+    background:#f0f5f4;
+    padding:20px;
+    border-radius:10px;
+    text-align:center;
+    margin:15px 0;
+}
+
+.till-number{
+    font-size:30px;
+    font-weight:bold;
+    color:#075e54;
+    margin-top:8px;
+}
+
+.copy-btn{
+    margin-top:10px;
+    padding:9px 15px;
+    border:0;
+    border-radius:7px;
+    background:#075e54;
+    color:white;
+}
+
+.referral{
+    display:flex;
+    gap:10px;
+}
+
+.referral input{
+    margin:0;
+}
+
+.referral button{
+    padding:10px 15px;
+    border:0;
+    border-radius:7px;
+    background:#075e54;
+    color:white;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    padding:11px;
+    border-bottom:1px solid #eee;
+    text-align:left;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#777;
+}
+
+@media(max-width:800px){
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .level-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:500px){
+
+    .stats,
+    .level-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero h2{
+        font-size:23px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Hope Support Kenya</h1>
+
+    <button id="logoutBtn"
+            class="hidden"
+            onclick="logout()">
+        Logout
+    </button>
+</header>
+
+
+<!-- ================= AUTH ================= -->
+
+<section id="authSection" class="container">
+
+    <div class="hero">
+        <h2>Welcome to Hope Support Kenya</h2>
+
+        <p>
+            Join, complete eligible activities and progress
+            through the available levels.
+        </p>
+    </div>
+
+
+    <div class="card auth">
+
+        <!-- REGISTER -->
+
+        <div id="registerBox">
+
+            <h2>Create Account</h2>
+
+            <p style="color:#777;margin:10px 0;">
+                One account per phone number and email.
+            </p>
+
+            <input id="regName"
+                   placeholder="Full name">
+
+            <input id="regPhone"
+                   type="tel"
+                   placeholder="Phone number">
+
+            <input id="regEmail"
+                   type="email"
+                   placeholder="Email address">
+
+            <input id="regPassword"
+                   type="password"
+                   placeholder="Password">
+
+            <input id="refCode"
+                   placeholder="Referral code (optional)">
+
+            <button class="primary"
+                    onclick="register()">
+                Register
+            </button>
+
+            <p style="text-align:center;margin-top:15px;">
+                Already registered?
+                <span class="link"
+                      onclick="showLogin()">
+                    Login
+                </span>
+            </p>
+
+        </div>
+
+
+        <!-- LOGIN -->
+
+        <div id="loginBox" class="hidden">
+
+            <h2>Login</h2>
+
+            <input id="loginPhone"
+                   type="tel"
+                   placeholder="Phone number">
+
+            <input id="loginPassword"
+                   type="password"
+                   placeholder="Password">
+
+            <button class="primary"
+                    onclick="login()">
+                Login
+            </button>
+
+            <p style="text-align:center;margin-top:15px;">
+                New user?
+                <span class="link"
+                      onclick="showRegister()">
+                    Register
+                </span>
+            </p>
+
+        </div>
+
+        <div id="authMessage"></div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= DASHBOARD ================= -->
+
+<section id="dashboard"
+         class="container hidden">
+
+    <div class="hero">
+
+        <h2>
+            Welcome,
+            <span id="userName"></span> 👋
+        </h2>
+
+        <p>
+            Your activities, balance, levels and referrals
+            are available below.
+        </p>
+
+    </div>
+
+
+    <div class="notice">
+
+        <strong>Important:</strong>
+        Activity rewards are subject to available funding,
+        eligibility and verification. Level payments do not
+        represent guaranteed investment returns.
+
+    </div>
+
+
+    <!-- STATS -->
+
+    <div class="stats">
+
+        <div class="stat">
+            <h4>Available Balance</h4>
+            <strong>
+                KSh <span id="balance">0</span>
+            </strong>
+        </div>
+
+        <div class="stat">
+            <h4>Current Level</h4>
+            <strong>
+                Level <span id="currentLevel">1</span>
+            </strong>
+        </div>
+
+        <div class="stat">
+            <h4>Referrals</h4>
+            <strong id="referrals">0</strong>
+        </div>
+
+        <div class="stat">
+            <h4>Activities Completed</h4>
+            <strong id="tasksCompleted">0</strong>
+        </div>
+
+    </div>
+
+
+    <!-- ACCOUNT -->
+
+    <div class="card">
+
+        <h2>My Account</h2>
+
+        <p style="margin-top:12px;">
+            <b>Name:</b>
+            <span id="profileName"></span>
+        </p>
+
+        <p style="margin-top:8px;">
+            <b>Phone:</b>
+            <span id="profilePhone"></span>
+        </p>
+
+        <p style="margin-top:8px;">
+            <b>Email:</b>
+            <span id="profileEmail"></span>
+        </p>
+
+    </div>
+
+
+    <!-- REFERRAL -->
+
+    <div class="card">
+
+        <h2>Invite Friends</h2>
+
+        <p style="color:#777;margin:10px 0;">
+            Share your referral code with friends.
+            Referral rewards should only be paid for
+            qualifying activities.
+        </p>
+
+        <div class="referral">
+
+            <input id="myReferralCode"
+                   readonly>
+
+            <button onclick="copyReferral()">
+                Copy
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- LEVELS -->
+
+    <div class="card">
+
+        <h2>Available Levels</h2>
+
+        <p style="color:#777;margin:8px 0 18px;">
+            Select an unlocked level to open its activities.
+        </p>
+
+        <div id="levels"
+             class="level-grid">
+        </div>
+
+    </div>
+
+
+    <!-- EARNING / ACTIVITIES -->
+
+    <div id="taskSection"
+         class="card hidden">
+
+        <h2 id="taskTitle">
+            Level 1 Activities
+        </h2>
+
+        <p id="taskDescription"
+           style="color:#777;margin:10px 0;">
+        </p>
+
+        <div class="success">
+
+            Today's progress:
+            <b>
+                <span id="taskCount">0</span>/10
+            </b>
+
+        </div>
+
+        <button class="primary"
+                onclick="completeTask()">
+
+            ▶ Complete Activity
+
+        </button>
+
+    </div>
+
+
+    <!-- M-PESA PAYMENT -->
+
+    <div id="paymentSection"
+         class="card hidden">
+
+        <h2>Unlock Level</h2>
+
+        <p style="margin-top:10px;">
+            Amount required:
+            <strong>
+                KSh <span id="paymentAmount">0</span>
+            </strong>
+        </p>
+
+
+        <div class="till">
+
+            <div>
+                Pay using M-Pesa Till Number
+            </div>
+
+            <div class="till-number">
+                555122
+            </div>
+
+            <button class="copy-btn"
+                    onclick="copyTill()">
+                Copy Till Number
+            </button>
+
+        </div>
+
+
+        <p style="line-height:1.5;color:#555;">
+            After making the payment, enter the M-Pesa
+            transaction code below. Your payment will be
+            reviewed before the level is activated.
+        </p>
+
+
+        <input id="mpesaCode"
+               placeholder="M-Pesa transaction code">
+
+
+        <button class="primary"
+                onclick="submitPayment()">
+
+            Submit Payment Code
+
+        </button>
+
+
+        <div id="paymentMessage"></div>
+
+    </div>
+
+
+    <!-- WITHDRAWAL -->
+
+    <div class="card">
+
+        <h2>Withdraw</h2>
+
+        <div id="withdrawMessage"></div>
+
+        <input id="withdrawAmount"
+               type="number"
+               placeholder="Amount">
+
+        <input id="withdrawPhone"
+               type="tel"
+               placeholder="M-Pesa phone number">
+
+        <button class="primary"
+                onclick="withdraw()">
+
+            Request Withdrawal
+
+        </button>
+
+        <p style="font-size:13px;color:#777;margin-top:10px;">
+            Withdrawals are processed Monday to Friday.
+            Weekend withdrawals are unavailable.
+        </p>
+
+    </div>
+
+
+    <!-- HISTORY -->
+
+    <div class="card">
+
+        <h2>Transaction History</h2>
+
+        <div style="overflow-x:auto;margin-top:15px;">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Date</th>
+                        <th>Type</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="history"></tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <p>
+        © 2026 Hope Support Kenya
+    </p>
+
+    <p style="margin-top:7px;">
+        Transparent support • Secure accounts
+    </p>
+
+</footer>
+
+
+<script>
+
+/* =====================================
+   LEVEL INFORMATION
+===================================== */
+
+const LEVELS = [
+
+    {
+        level:1,
+        name:"Starter Phone",
+        item:"📱",
+        unlock:0,
+        reward:5,
+        description:
+        "Starter activities for new members."
+    },
+
+    {
+        level:2,
+        name:"Mobile Phone",
+        item:"📲",
+        unlock:500,
+        reward:10,
+        description:
+        "Mobile promotional activities."
+    },
+
+    {
+        level:3,
+        name:"Sound Woofer",
+        item:"🔊",
+        unlock:1000,
+        reward:20,
+        description:
+        "Audio and promotional activities."
+    },
+
+    {
+        level:4,
+        name:"Smart TV",
+        item:"📺",
+        unlock:2000,
+        reward:30,
+        description:
+        "Digital promotional activities."
+    },
+
+    {
+        level:5,
+        name:"Laptop",
+        item:"💻",
+        unlock:3500,
+        reward:40,
+        description:
+        "Technology-related activities."
+    },
+
+    {
+        level:6,
+        name:"Motorbike",
+        item:"🏍️",
+        unlock:5000,
+        reward:50,
+        description:
+        "Advanced promotional activities."
+    },
+
+    {
+        level:7,
+        name:"Business",
+        item:"🏪",
+        unlock:7500,
+        reward:70,
+        description:
+        "Business-related activities."
+    },
+
+    {
+        level:8,
+        name:"Premium",
+        item:"🏆",
+        unlock:10000,
+        reward:100,
+        description:
+        "Highest available activity level."
+    }
+
+];
+
+
+/* =====================================
+   STORAGE
+===================================== */
+
+function getUsers(){
+
+    return JSON.parse(
+        localStorage.getItem("users") || "[]"
+    );
+
+}
+
+
+function saveUsers(users){
+
+    localStorage.setItem(
+        "users",
+        JSON.stringify(users)
+    );
+
+}
+
+
+function getCurrentUser(){
+
+    const phone =
+        localStorage.getItem("currentUser");
+
+    if(!phone) return null;
+
+    return getUsers().find(
+        u => u.phone === phone
+    ) || null;
+
+}
+
+
+/* =====================================
+   AUTH
+===================================== */
+
+function showLogin(){
+
+    document
+    .getElementById("registerBox")
+    .classList.add("hidden");
+
+    document
+    .getElementById("loginBox")
+    .classList.remove("hidden");
+
+}
+
+
+function showRegister(){
+
+    document
+    .getElementById("loginBox")
+    .classList.add("hidden");
+
+    document
+    .getElementById("registerBox")
+    .classList.remove("hidden");
+
+}
+
+
+function register(){
+
+    const name =
+        document.getElementById("regName")
+        .value.trim();
+
+    const phone =
+        document.getElementById("regPhone")
+        .value.trim();
+
+    const email =
+        document.getElementById("regEmail")
+        .value.trim()
+        .toLowerCase();
+
+    const password =
+        document.getElementById("regPassword")
+        .value;
+
+    const referral =
+        document.getElementById("refCode")
+        .value.trim();
+
+    const message =
+        document.getElementById("authMessage");
+
+
+    if(!name || !phone || !email || !password){
+
+        message.innerHTML =
+        '<div class="error">' +
+        'Please complete all fields.' +
+        '</div>';
+
+        return;
+    }
+
+
+    const users = getUsers();
+
+
+    const existing =
+        users.find(
+            u =>
+            u.phone === phone ||
+            u.email === email
+        );
+
+
+    if(existing){
+
+        message.innerHTML =
+        '<div class="error">' +
+        'These details are already registered. ' +
+        'Please login instead.' +
+        '</div>';
+
+        return;
+    }
+
+
+    let referrer = null;
+
+
+    if(referral){
+
+        referrer =
+            users.find(
+                u => u.referralCode === referral
+            );
+
+    }
+
+
+    const referralCode =
+        "HSK" +
+        Math.random()
+        .toString(36)
+        .substring(2,8)
+        .toUpperCase();
+
+
+    const user = {
+
+        name:name,
+
+        phone:phone,
+
+        email:email,
+
+        password:password,
+
+        balance:0,
+
+        level:1,
+
+        referrals:0,
+
+        tasksCompleted:0,
+
+        taskProgress:0,
+
+        referralCode:referralCode,
+
+        referredBy:
+            referrer
+            ? referrer.phone
+            : null,
+
+        history:[],
+
+        payments:[]
+
+    };
+
+
+    users.push(user);
+
+
+    if(referrer){
+
+        referrer.referrals += 1;
+
+    }
+
+
+    saveUsers(users);
+
+
+    localStorage.setItem(
+        "currentUser",
+        phone
+    );
+
+
+    showDashboard();
+
+}
+
+
+function login(){
+
+    const phone =
+        document.getElementById("loginPhone")
+        .value.trim();
+
+    const password =
+        document.getElementById("loginPassword")
+        .value;
+
+
+    const user =
+        getUsers().find(
+            u =>
+            u.phone === phone &&
+            u.password === password
+        );
+
+
+    if(!user){
+
+        document.getElementById(
+            "authMessage"
+        ).innerHTML =
+        '<div class="error">' +
+        'Incorrect phone number or password.' +
+        '</div>';
+
+        return;
+    }
+
+
+    localStorage.setItem(
+        "currentUser",
+        phone
+    );
+
+
+    showDashboard();
+
+}
+
+
+function logout(){
+
+    localStorage.removeItem(
+        "currentUser"
+    );
+
+    document
+    .getElementById("dashboard")
+    .classList.add("hidden");
+
+    document
+    .getElementById("authSection")
+    .classList.remove("hidden");
+
+    document
+    .getElementById("logoutBtn")
+    .classList.add("hidden");
+
+    showLogin();
+
+}
+
+
+/* =====================================
+   DASHBOARD
+===================================== */
+
+function showDashboard(){
+
+    const user =
+        getCurrentUser();
+
+    if(!user) return;
+
+
+    document
+    .getElementById("authSection")
+    .classList.add("hidden");
+
+    document
+    .getElementById("dashboard")
+    .classList.remove("hidden");
+
+    document
+    .getElementById("logoutBtn")
+    .classList.remove("hidden");
+
+
+    document.getElementById(
+        "userName"
+    ).textContent = user.name;
+
+
+    document.getElementById(
+        "profileName"
+    ).textContent = user.name;
+
+
+    document.getElementById(
+        "profilePhone"
+    ).textContent = user.phone;
+
+
+    document.getElementById(
+        "profileEmail"
+    ).textContent = user.email;
+
+
+    document.getElementById(
+        "balance"
+    ).textContent =
+        Number(user.balance)
+        .toLocaleString();
+
+
+    document.getElementById(
+        "currentLevel"
+    ).textContent = user.level;
+
+
+    document.getElementById(
+        "referrals"
+    ).textContent = user.referrals;
+
+
+    document.getElementById(
+        "tasksCompleted"
+    ).textContent =
+        user.tasksCompleted;
+
+
+    document.getElementById(
+        "myReferralCode"
+    ).value =
+        user.referralCode;
+
+
+    renderLevels();
+
+    renderHistory();
+
+}
+
+
+/* =====================================
+   RENDER LEVELS
+===================================== */
+
+function renderLevels(){
+
+    const user =
+        getCurrentUser();
+
+    const container =
+        document.getElementById("levels");
+
+    container.innerHTML = "";
+
+
+    LEVELS.forEach(level => {
+
+        const unlocked =
+            level.level <= user.level;
+
+
+        const next =
+            level.level === user.level + 1;
+
+
+        let button = "Locked";
+
+
+        if(unlocked){
+
+            button = "▶ Start Earning";
+
+        }
+        else if(next){
+
+            button = "🔒 Unlock Level";
+
+        }
+
+
+        const div =
+            document.createElement("div");
+
+
+        div.className =
+            "level " +
+            (unlocked
+                ? "active"
+                : "locked");
+
+
+        div.innerHTML = `
+
+            <div class="item">
+                ${level.item}
+            </div>
+
+            <h3>
+                Level ${level.level}
+            </h3>
+
+            <strong>
+                ${level.name}
+            </strong>
+
+            <p>
+                ${level.description}
+            </p>
+
+            <p>
+                Unlock:
+                <b>
+                    KSh
+                    ${level.unlock.toLocaleString()}
+                </b>
+            </p>
+
+            <p>
+                Activity reward:
+                <b>
+                    KSh ${level.reward}
+                </b>
+            </p>
+
+            <button
+                onclick="levelAction(${level.level})">
+
+                ${button}
+
+            </button>
+
+        `;
+
+
+        container.appendChild(div);
+
+    });
+
+}
+
+
+/* =====================================
+   LEVEL ACTION
+===================================== */
+
+function levelAction(levelNumber){
+
+    const user =
+        getCurrentUser();
+
+
+    if(levelNumber <= user.level){
+
+        openTasks(levelNumber);
+
+        return;
+
+    }
+
+
+    if(levelNumber !== user.level + 1){
+
+        alert(
+            "Unlock the previous level first."
+        );
+
+        return;
+
+    }
+
+
+    const level =
+        LEVELS.find(
+            l => l.level === levelNumber
+        );
+
+
+    document
+    .getElementById("paymentSection")
+    .classList.remove("hidden");
+
+
+    document.getElementById(
+        "paymentAmount"
+    ).textContent =
+        level.unlock.toLocaleString();
+
+
+    document.getElementById(
+        "paymentMessage"
+    ).innerHTML = "";
+
+}
+
+
+/* =====================================
+   OPEN ACTIVITIES
+===================================== */
+
+function openTasks(levelNumber){
+
+    const level =
+        LEVELS.find(
+            l => l.level === levelNumber
+        );
+
+
+    const user =
+        getCurrentUser();
+
+
+    document
+    .getElementById("taskSection")
+    .classList.remove("hidden");
+
+
+    document.getElementById(
+        "taskTitle"
+    ).textContent =
+        "Level " +
+        level.level +
+        " - " +
+        level.name;
+
+
+    document.getElementById(
+        "taskDescription"
+    ).textContent =
+        level.description +
+        " Complete up to 10 eligible activities.";
+
+
+    document.getElementById(
+        "taskCount"
+    ).textContent =
+        user.taskProgress;
+
+
+    document
+    .getElementById("taskSection")
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================
+   COMPLETE ACTIVITY
+===================================== */
+
+function completeTask(){
+
+    const users =
+        getUsers();
+
+    const phone =
+        localStorage.getItem(
+            "currentUser"
+        );
+
+    const user =
+        users.find(
+            u => u.phone === phone
+        );
+
+
+    if(!user) return;
+
+
+    if(user.taskProgress >= 10){
+
+        alert(
+            "You have completed today's 10 activities."
+        );
+
+        return;
+
+    }
+
+
+    const level =
+        LEVELS.find(
+            l => l.level === user.level
+        );
+
+
+    user.taskProgress++;
+
+    user.tasksCompleted++;
+
+    user.balance += level.reward;
+
+
+    user.history.push({
+
+        date:
+            new Date()
+            .toLocaleString(),
+
+        type:
+            "Activity reward",
+
+        amount:
+            level.reward,
+
+        status:
+            "Completed"
+
+    });
+
+
+    saveUsers(users);
+
+
+    showDashboard();
+
+    openTasks(user.level);
+
+}
+
+
+/* =====================================
+   M-PESA
+===================================== */
+
+function copyTill(){
+
+    navigator.clipboard.writeText(
+        "555122"
+    );
+
+    alert(
+        "Till number 555122 copied."
+    );
+
+}
+
+
+function submitPayment(){
+
+    const code =
+        document.getElementById(
+            "mpesaCode"
+        ).value.trim();
+
+
+    const message =
+        document.getElementById(
+            "paymentMessage"
+        );
+
+
+    if(!code){
+
+        message.innerHTML =
+        '<div class="error">' +
+        'Please enter the M-Pesa transaction code.' +
+        '</div>';
+
+        return;
+
+    }
+
+
+    const users =
+        getUsers();
+
+    const phone =
+        localStorage.getItem(
+            "currentUser"
+        );
+
+
+    const user =
+        users.find(
+            u => u.phone === phone
+        );
+
+
+    if(!user) return;
+
+
+    const requestedLevel =
+        user.level + 1;
+
+
+    const level =
+        LEVELS.find(
+            l => l.level === requestedLevel
+        );
+
+
+    user.payments.push({
+
+        code:code,
+
+        amount:level.unlock,
+
+        level:requestedLevel,
+
+        date:
+            new Date()
+            .toLocaleString(),
+
+        status:"Pending verification"
+
+    });
+
+
+    saveUsers(users);
+
+
+    message.innerHTML =
+    '<div class="success">' +
+    'Payment code submitted successfully. ' +
+    'Your level will remain pending until the payment ' +
+    'is verified.' +
+    '</div>';
+
+
+    document.getElementById(
+        "mpesaCode"
+    ).value = "";
+
+}
+
+
+/* =====================================
+   REFERRAL
+===================================== */
+
+function copyReferral(){
+
+    const value =
+        document.getElementById(
+            "myReferralCode"
+        ).value;
+
+
+    navigator.clipboard.writeText(
+        value
+    );
+
+    alert(
+        "Referral code copied."
+    );
+
+}
+
+
+/* =====================================
+   WITHDRAW
+===================================== */
+
+function withdraw(){
+
+    const amount =
+        Number(
+            document.getElementById(
+                "withdrawAmount"
+            ).value
+        );
+
+
+    const phone =
+        document.getElementById(
+            "withdrawPhone"
+        ).value.trim();
+
+
+    const message =
+        document.getElementById(
+            "withdrawMessage"
+        );
+
+
+    const day =
+        new Date().getDay();
+
+
+    if(day === 0 || day === 6){
+
+        message.innerHTML =
+        '<div class="error">' +
+        'Weekend withdrawals are unavailable. ' +
+        'Please request your withdrawal Monday to Friday.' +
+        '</div>';
+
+        return;
+
+    }
+
+
+    const user =
+        getCurrentUser();
+
+
+    if(amount <= 0){
+
+        message.innerHTML =
+        '<div class="error">' +
+        'Enter a valid withdrawal amount.' +
+        '</div>';
+
+        return;
+
+    }
+
+
+    if(amount > user.balance){
+
+        message.innerHTML =
+        '<div class="error">' +
+        'Insufficient available balance.' +
+        '</div>';
+
+        return;
+
+    }
+
+
+    if(!phone){
+
+        message.innerHTML =
+        '<div class="error">' +
+        'Enter the M-Pesa phone number.' +
+        '</div>';
+
+        return;
+
+    }
+
+
+    const users =
+        getUsers();
+
+
+    const current =
+        users.find(
+            u => u.phone === user.phone
+        );
+
+
+    current.balance -= amount;
+
+
+    current.history.push({
+
+        date:
+            new Date()
+            .toLocaleString(),
+
+        type:
+            "Withdrawal",
+
+        amount:
+            amount,
+
+        status:
+            "Pending"
+
+    });
+
+
+    saveUsers(users);
+
+
+    showDashboard();
+
+
+    document.getElementById(
+        "withdrawMessage"
+    ).innerHTML =
+    '<div class="success">' +
+    'Withdrawal request submitted. Status: Pending.' +
+    '</div>';
+
+}
+
+
+/* =====================================
+   HISTORY
+===================================== */
+
+function renderHistory(){
+
+    const user =
+        getCurrentUser();
+
+    const tbody =
+        document.getElementById(
+            "history"
+        );
+
+
+    tbody.innerHTML = "";
+
+
+    if(!user.history ||
+       user.history.length === 0){
+
+        tbody.innerHTML = `
+            <tr>
+                <td colspan="4">
+                    No transactions yet.
+                </td>
+            </tr>
+        `;
+
+        return;
+
+    }
+
+
+    [...user.history]
+    .reverse()
+    .forEach(item => {
+
+        const row =
+            document.createElement("tr");
+
+
+        row.innerHTML = `
+
+            <td>${item.date}</td>
+
+            <td>${item.type}</td>
+
+            <td>
+                KSh
+                ${Number(item.amount)
+                .toLocaleString()}
+            </td>
+
+            <td>
+                ${item.status}
+            </td>
+
+        `;
+
+
+        tbody.appendChild(row);
+
+    });
+
+}
+
+
+/* =====================================
+   AUTO LOGIN
+===================================== */
+
+window.onload = function(){
+
+    const user =
+        getCurrentUser();
+
+
+    if(user){
+
+        showDashboard();
+
+    }
+
+};
+
+</script>
+
+</body>
+</html>
