@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<title>Dream Big | Kenya</title>
+<title>Dream Big Kenya</title>
 
 <style>
 *{
     box-sizing:border-box;
     margin:0;
     padding:0;
-    font-family:Arial,Helvetica,sans-serif;
+    font-family:Arial,sans-serif;
 }
 
 body{
@@ -19,12 +19,12 @@ body{
     color:#222;
 }
 
-button{
-    cursor:pointer;
-}
-
 .hidden{
     display:none!important;
+}
+
+button{
+    cursor:pointer;
 }
 
 header{
@@ -32,11 +32,8 @@ header{
     color:white;
     padding:14px 5%;
     display:flex;
-    justify-content:space-between;
     align-items:center;
-    position:sticky;
-    top:0;
-    z-index:100;
+    justify-content:space-between;
 }
 
 .logo{
@@ -46,15 +43,15 @@ header{
 }
 
 .logo-icon{
-    width:43px;
-    height:43px;
+    width:44px;
+    height:44px;
+    border-radius:50%;
     background:white;
     color:#075e54;
-    border-radius:50%;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:22px;
+    font-size:23px;
     font-weight:bold;
 }
 
@@ -63,17 +60,7 @@ header{
 }
 
 .logo small{
-    font-size:11px;
-    opacity:.85;
-}
-
-.logout-btn{
-    background:white;
-    color:#075e54;
-    border:0;
-    padding:9px 15px;
-    border-radius:8px;
-    font-weight:bold;
+    opacity:.8;
 }
 
 .container{
@@ -110,21 +97,16 @@ header{
 
 .subtitle{
     color:#777;
-    margin:7px 0 15px;
+    margin:8px 0 15px;
 }
 
-input{
+input,select{
     width:100%;
     padding:13px;
     margin:7px 0 13px;
-    border:1px solid #d9d9d9;
+    border:1px solid #ddd;
     border-radius:8px;
     font-size:15px;
-    outline:none;
-}
-
-input:focus{
-    border-color:#075e54;
 }
 
 .primary{
@@ -146,12 +128,29 @@ input:focus{
     padding:11px 15px;
 }
 
-.danger{
+.approve{
+    background:#087441;
+    color:white;
+    border:0;
+    border-radius:7px;
+    padding:9px 12px;
+}
+
+.reject{
     background:#a80000;
     color:white;
     border:0;
+    border-radius:7px;
+    padding:9px 12px;
+}
+
+.logout{
+    background:white;
+    color:#075e54;
+    border:0;
+    padding:9px 15px;
     border-radius:8px;
-    padding:11px 15px;
+    font-weight:bold;
 }
 
 .link{
@@ -160,31 +159,48 @@ input:focus{
     cursor:pointer;
 }
 
-.terms-check{
-    display:flex;
-    align-items:flex-start;
-    gap:9px;
-    margin:10px 0 15px;
-    font-size:13px;
-    color:#555;
+.error{
+    background:#fdeaea;
+    color:#a00000;
+    padding:13px;
+    border-radius:8px;
+    margin:12px 0;
 }
 
-.terms-check input{
-    width:auto;
-    margin-top:3px;
+.success{
+    background:#e7f8ef;
+    color:#087441;
+    padding:13px;
+    border-radius:8px;
+    margin:12px 0;
+}
+
+.pending{
+    background:#fff6d8;
+    color:#805d00;
+    padding:13px;
+    border-radius:8px;
+    margin:12px 0;
+}
+
+.notice{
+    background:#fff6d8;
+    border-left:5px solid #d6a000;
+    padding:15px;
+    border-radius:8px;
+    margin-bottom:20px;
 }
 
 .stats{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:15px;
-    margin-bottom:20px;
 }
 
 .stat{
     background:white;
-    padding:19px;
     border-radius:13px;
+    padding:19px;
     box-shadow:0 2px 12px rgba(0,0,0,.06);
 }
 
@@ -199,38 +215,6 @@ input:focus{
     font-size:23px;
 }
 
-.notice{
-    background:#fff7df;
-    border-left:5px solid #e0a500;
-    padding:15px;
-    border-radius:8px;
-    margin-bottom:20px;
-}
-
-.success{
-    background:#e7f8ef;
-    color:#087441;
-    padding:13px;
-    border-radius:8px;
-    margin:12px 0;
-}
-
-.error{
-    background:#fdeaea;
-    color:#a00000;
-    padding:13px;
-    border-radius:8px;
-    margin:12px 0;
-}
-
-.pending{
-    background:#fff7df;
-    color:#805d00;
-    padding:13px;
-    border-radius:8px;
-    margin:12px 0;
-}
-
 .level-grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
@@ -238,10 +222,10 @@ input:focus{
 }
 
 .level{
-    background:white;
     border:1px solid #ddd;
     border-radius:13px;
     padding:17px;
+    background:white;
 }
 
 .level.active{
@@ -249,7 +233,7 @@ input:focus{
 }
 
 .level.pending-level{
-    border:2px solid #e0a500;
+    border:2px solid #d6a000;
 }
 
 .level.locked{
@@ -258,12 +242,12 @@ input:focus{
 
 .item{
     font-size:40px;
-    margin-bottom:8px;
 }
 
 .level-name{
-    font-weight:bold;
     color:#075e54;
+    font-weight:bold;
+    margin:5px 0;
 }
 
 .level p{
@@ -279,90 +263,30 @@ input:focus{
     padding:11px;
     background:#075e54;
     color:white;
-    margin-top:8px;
     font-weight:bold;
-}
-
-.level-btn:disabled{
-    background:#999;
-}
-
-.referral-box{
-    display:flex;
-    gap:10px;
-}
-
-.referral-box input{
-    margin:0;
-}
-
-.referral-box button{
-    border:0;
-    border-radius:8px;
-    background:#075e54;
-    color:white;
-    padding:0 17px;
 }
 
 .till{
     background:#f0f6f5;
     border-radius:12px;
-    padding:22px;
+    padding:20px;
     text-align:center;
-    margin:17px 0;
-}
-
-.till-title{
-    color:#555;
+    margin:15px 0;
 }
 
 .till-number{
-    font-size:36px;
+    font-size:35px;
     color:#075e54;
     font-weight:bold;
     margin:8px 0;
 }
 
-.copy-btn{
+.copy{
     background:#075e54;
     color:white;
     border:0;
-    border-radius:8px;
-    padding:9px 15px;
-}
-
-.status{
-    display:inline-block;
-    padding:5px 9px;
-    border-radius:15px;
-    background:#eee;
-    font-size:12px;
-    font-weight:bold;
-}
-
-.status.active{
-    background:#dff6e8;
-    color:#087441;
-}
-
-.status.pending{
-    background:#fff2c9;
-    color:#805d00;
-}
-
-.task-progress{
-    height:14px;
-    background:#e8e8e8;
-    border-radius:20px;
-    overflow:hidden;
-    margin:15px 0;
-}
-
-.task-progress-bar{
-    height:100%;
-    width:0%;
-    background:#075e54;
-    transition:.4s;
+    padding:9px 14px;
+    border-radius:7px;
 }
 
 .task-buttons{
@@ -386,23 +310,20 @@ input:focus{
     color:white;
 }
 
-.countdown{
-    text-align:center;
+.progress{
+    height:13px;
+    background:#eee;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress-bar{
+    height:100%;
+    width:0;
     background:#075e54;
-    color:white;
-    border-radius:12px;
-    padding:22px;
-    margin-top:15px;
 }
 
-.countdown-number{
-    font-size:32px;
-    font-weight:bold;
-    margin:10px 0;
-    letter-spacing:2px;
-}
-
-.support{
+.countdown{
     background:#075e54;
     color:white;
     text-align:center;
@@ -410,26 +331,90 @@ input:focus{
     border-radius:12px;
 }
 
+.countdown-time{
+    font-size:32px;
+    font-weight:bold;
+    margin:10px;
+}
+
+.support{
+    background:#075e54;
+    color:white;
+    padding:20px;
+    text-align:center;
+    border-radius:12px;
+}
+
 .support a{
     color:white;
     font-size:22px;
     font-weight:bold;
-    text-decoration:none;
 }
 
-.help-btn{
+.help-button{
     position:fixed;
     right:18px;
     bottom:18px;
     width:60px;
     height:60px;
-    border:0;
     border-radius:50%;
+    border:0;
     background:#075e54;
     color:white;
     font-size:25px;
-    box-shadow:0 4px 15px rgba(0,0,0,.25);
-    z-index:200;
+    z-index:100;
+}
+
+.moderator-button{
+    position:fixed;
+    left:18px;
+    bottom:18px;
+    border:0;
+    background:#222;
+    color:white;
+    padding:13px 16px;
+    border-radius:9px;
+    font-weight:bold;
+    z-index:100;
+}
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:500;
+}
+
+.modal-box{
+    width:100%;
+    max-width:850px;
+    max-height:92vh;
+    overflow-y:auto;
+    background:white;
+    border-radius:15px;
+    padding:25px;
+}
+
+.modal-box h2{
+    color:#075e54;
+    margin-bottom:10px;
+}
+
+.request{
+    border:1px solid #ddd;
+    border-radius:10px;
+    padding:15px;
+    margin:10px 0;
+}
+
+.request-buttons{
+    display:flex;
+    gap:8px;
+    margin-top:10px;
 }
 
 .table-wrapper{
@@ -442,70 +427,15 @@ table{
 }
 
 th,td{
-    padding:12px;
+    padding:11px;
     border-bottom:1px solid #eee;
     text-align:left;
-    white-space:nowrap;
-}
-
-.modal{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.65);
-    z-index:500;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-}
-
-.modal-box{
-    background:white;
-    width:100%;
-    max-width:700px;
-    max-height:90vh;
-    overflow-y:auto;
-    border-radius:15px;
-    padding:25px;
-}
-
-.modal-box h2{
-    color:#075e54;
-    margin-bottom:10px;
-}
-
-.modal-box h3{
-    margin-top:18px;
-    margin-bottom:7px;
-}
-
-.modal-box p{
-    color:#555;
-    font-size:14px;
-    margin-bottom:8px;
-}
-
-.modal-close{
-    margin-top:15px;
-}
-
-.admin-user{
-    background:#f4f7f6;
-    padding:15px;
-    border-radius:10px;
-    margin:10px 0;
 }
 
 footer{
     text-align:center;
-    padding:30px 15px;
     color:#777;
-}
-
-footer a{
-    color:#075e54;
-    cursor:pointer;
-    font-weight:bold;
+    padding:30px;
 }
 
 @media(max-width:850px){
@@ -525,16 +455,8 @@ footer a{
         grid-template-columns:1fr;
     }
 
-    .hero h2{
-        font-size:24px;
-    }
-
-    .referral-box{
-        flex-direction:column;
-    }
-
-    .referral-box button{
-        padding:12px;
+    .stats{
+        grid-template-columns:1fr 1fr;
     }
 
     .task-buttons{
@@ -561,7 +483,7 @@ footer a{
 
     <button
         id="logoutBtn"
-        class="logout-btn hidden"
+        class="logout hidden"
         onclick="logout()">
 
         Logout
@@ -571,7 +493,9 @@ footer a{
 </header>
 
 
-<!-- ================= AUTH ================= -->
+<!-- =================================================
+     AUTH
+================================================== -->
 
 <section id="authSection" class="container">
 
@@ -581,7 +505,6 @@ footer a{
 
         <p>
             Dream Big. Build Bigger.
-            Welcome to the Dream Big member platform.
         </p>
 
     </div>
@@ -589,24 +512,20 @@ footer a{
 
     <div class="card auth">
 
-        <!-- REGISTER -->
-
         <div id="registerBox">
 
             <h2>Create Account</h2>
 
             <p class="subtitle">
-                Register once using your details.
+                Register once.
             </p>
 
             <input
                 id="regName"
-                type="text"
                 placeholder="Full name">
 
             <input
                 id="regPhone"
-                type="tel"
                 placeholder="Phone number">
 
             <input
@@ -620,39 +539,17 @@ footer a{
                 placeholder="Password">
 
             <input
-                id="refCode"
-                type="text"
+                id="referralCode"
                 placeholder="Referral code (optional)">
 
-            <label class="terms-check">
+            <label style="font-size:13px;display:block;margin-bottom:15px;">
 
                 <input
-                    id="agreeTerms"
-                    type="checkbox">
+                    id="terms"
+                    type="checkbox"
+                    style="width:auto;margin-right:7px;">
 
-                <span>
-
-                    I agree to the
-
-                    <span
-                        class="link"
-                        onclick="openTerms()">
-
-                        Terms & Conditions
-
-                    </span>
-
-                    and
-
-                    <span
-                        class="link"
-                        onclick="openPrivacy()">
-
-                        Privacy Policy
-
-                    </span>.
-
-                </span>
+                I agree to Dream Big Terms & Conditions.
 
             </label>
 
@@ -681,19 +578,16 @@ footer a{
         </div>
 
 
-        <!-- LOGIN -->
-
         <div id="loginBox" class="hidden">
 
             <h2>Login</h2>
 
             <p class="subtitle">
-                Login to your Dream Big account.
+                Login to your account.
             </p>
 
             <input
                 id="loginPhone"
-                type="tel"
                 placeholder="Phone number">
 
             <input
@@ -732,9 +626,13 @@ footer a{
 </section>
 
 
-<!-- ================= DASHBOARD ================= -->
+<!-- =================================================
+     USER DASHBOARD
+================================================== -->
 
-<section id="dashboard" class="container hidden">
+<section
+    id="dashboard"
+    class="container hidden">
 
     <div class="hero">
 
@@ -752,23 +650,21 @@ footer a{
 
     <div class="notice">
 
-        <strong>Important:</strong>
+        <b>Payment verification:</b>
 
-        Payments require verification.
-        Rewards displayed on this prototype are
-        activity/promotional rewards and are not
-        guaranteed investment returns.
+        Level activation and account credits
+        require customer-care verification.
+        A submitted M-Pesa code is not by itself
+        proof of payment.
 
     </div>
 
-
-    <!-- STATS -->
 
     <div class="stats">
 
         <div class="stat">
 
-            <h4>Available Balance</h4>
+            <h4>Balance</h4>
 
             <strong>
                 KSh
@@ -782,7 +678,6 @@ footer a{
             <h4>Current Level</h4>
 
             <strong>
-                Level
                 <span id="currentLevel">1</span>
             </strong>
 
@@ -800,10 +695,10 @@ footer a{
 
         <div class="stat">
 
-            <h4>Today's Activities</h4>
+            <h4>Today's Tasks</h4>
 
             <strong>
-                <span id="tasksCompletedToday">0</span>/6
+                <span id="taskCountTop">0</span>/6
             </strong>
 
         </div>
@@ -817,15 +712,15 @@ footer a{
 
         <h2>💰 Deposit</h2>
 
-        <p style="color:#777;margin:8px 0 15px;">
+        <p style="margin:10px 0;color:#666;">
 
-            Use M-Pesa Till Number:
+            Pay using M-Pesa to Dream Big Till:
 
         </p>
 
         <div class="till">
 
-            <div class="till-title">
+            <div>
                 M-Pesa Till Number
             </div>
 
@@ -834,76 +729,33 @@ footer a{
             </div>
 
             <button
-                class="copy-btn"
+                class="copy"
                 onclick="copyTill()">
 
-                Copy Till Number
+                Copy Till
 
             </button>
 
         </div>
+
+        <input
+            id="depositAmount"
+            type="number"
+            placeholder="Amount">
+
+        <input
+            id="depositCode"
+            placeholder="M-Pesa transaction code">
 
         <button
             class="primary"
-            onclick="openDeposit()">
+            onclick="submitDeposit()">
 
-            💰 Submit Deposit
+            Submit Deposit for Verification
 
         </button>
 
-    </div>
-
-
-    <!-- ACCOUNT -->
-
-    <div class="card">
-
-        <h2>👤 My Account</h2>
-
-        <p style="margin-top:12px;">
-            <b>Name:</b>
-            <span id="profileName"></span>
-        </p>
-
-        <p style="margin-top:8px;">
-            <b>Phone:</b>
-            <span id="profilePhone"></span>
-        </p>
-
-        <p style="margin-top:8px;">
-            <b>Email:</b>
-            <span id="profileEmail"></span>
-        </p>
-
-    </div>
-
-
-    <!-- REFERRAL -->
-
-    <div class="card">
-
-        <h2>🤝 Invite Friends</h2>
-
-        <p style="color:#777;margin:8px 0 15px;">
-
-            Share your referral code with friends.
-
-        </p>
-
-        <div class="referral-box">
-
-            <input
-                id="myReferralCode"
-                readonly>
-
-            <button
-                onclick="copyReferral()">
-
-                Copy
-
-            </button>
-
-        </div>
+        <div id="depositMessage"></div>
 
     </div>
 
@@ -914,11 +766,10 @@ footer a{
 
         <h2>🏆 Dream Big Levels</h2>
 
-        <p
-            style="color:#777;margin:8px 0 18px;">
+        <p style="color:#777;margin:8px 0 18px;">
 
-            Level 1 is available to new members.
-            Higher levels require verified activation.
+            Each higher level requires eligibility
+            and customer-care verification.
 
         </p>
 
@@ -930,14 +781,14 @@ footer a{
     </div>
 
 
-    <!-- TASK AREA -->
+    <!-- TASK -->
 
     <div
         id="taskSection"
         class="card hidden">
 
         <h2 id="taskTitle">
-            Today's Activities
+            Daily Activities
         </h2>
 
         <p
@@ -945,49 +796,40 @@ footer a{
             style="color:#777;margin:10px 0;">
         </p>
 
-
-        <div class="success">
-
+        <p>
             Progress:
-
             <b>
                 <span id="taskCount">0</span>/6
             </b>
+        </p>
 
-        </div>
-
-
-        <div class="task-progress">
+        <div
+            class="progress"
+            style="margin-top:12px;">
 
             <div
-                id="taskProgressBar"
-                class="task-progress-bar">
+                id="progressBar"
+                class="progress-bar">
             </div>
 
         </div>
-
 
         <div
             id="taskButtons"
             class="task-buttons">
         </div>
 
-
-        <div id="taskStatus"></div>
-
-
         <button
-            id="startTaskButton"
+            id="startButton"
             class="primary"
-            onclick="startEarning()">
+            onclick="startOrCompleteTask()">
 
             ▶ START EARNING
 
         </button>
 
-
         <div
-            id="completedMessage"
+            id="completedBox"
             class="countdown hidden">
 
             <div>
@@ -996,64 +838,18 @@ footer a{
 
             <div
                 id="countdown"
-                class="countdown-number">
+                class="countdown-time">
 
                 00:00:00
 
             </div>
 
             <p>
-                New activities become available
-                after midnight Kenya time.
+                Your next round will become
+                available after midnight Kenya time.
             </p>
 
         </div>
-
-    </div>
-
-
-    <!-- DEPOSIT SECTION -->
-
-    <div
-        id="paymentSection"
-        class="card hidden">
-
-        <h2>💰 M-Pesa Deposit</h2>
-
-        <p style="color:#777;margin:10px 0;">
-
-            Pay to Till Number:
-
-            <strong>
-                555122
-            </strong>
-
-        </p>
-
-
-        <input
-            id="depositAmount"
-            type="number"
-            min="1"
-            placeholder="Amount in KSh">
-
-
-        <input
-            id="mpesaCode"
-            type="text"
-            placeholder="M-Pesa transaction code">
-
-
-        <button
-            class="primary"
-            onclick="submitDeposit()">
-
-            Submit for Verification
-
-        </button>
-
-
-        <div id="paymentMessage"></div>
 
     </div>
 
@@ -1064,31 +860,28 @@ footer a{
         id="unlockSection"
         class="card hidden">
 
-        <h2>🔓 Level Activation</h2>
+        <h2>🔓 Unlock Next Level</h2>
 
         <p style="margin:10px 0;">
 
-            Selected:
-
-            <strong id="unlockLevel"></strong>
+            Selected level:
+            <b id="unlockName"></b>
 
         </p>
 
         <p>
 
             Required amount:
-
-            <strong>
+            <b>
                 KSh
-                <span id="unlockAmount">0</span>
-            </strong>
+                <span id="unlockAmount"></span>
+            </b>
 
         </p>
 
-
         <div class="till">
 
-            <div class="till-title">
+            <div>
                 M-Pesa Till Number
             </div>
 
@@ -1097,68 +890,60 @@ footer a{
             </div>
 
             <button
-                class="copy-btn"
+                class="copy"
                 onclick="copyTill()">
 
-                Copy Till Number
+                Copy Till
 
             </button>
 
         </div>
 
-
         <input
             id="unlockCode"
-            type="text"
             placeholder="M-Pesa transaction code">
-
 
         <button
             class="primary"
-            onclick="submitUnlock()">
+            onclick="submitLevelUnlock()">
 
-            Submit Level Payment
+            Submit for Customer Care Approval
 
         </button>
-
 
         <div id="unlockMessage"></div>
 
     </div>
 
 
-    <!-- WITHDRAW -->
+    <!-- WITHDRAWAL -->
 
     <div class="card">
 
-        <h2>💸 Withdraw</h2>
-
-        <div id="withdrawMessage"></div>
+        <h2>💸 Withdrawal</h2>
 
         <input
             id="withdrawAmount"
             type="number"
-            min="1"
             placeholder="Amount">
 
         <input
             id="withdrawPhone"
-            type="tel"
             placeholder="M-Pesa phone number">
 
         <button
             class="primary"
-            onclick="withdraw()">
+            onclick="requestWithdrawal()">
 
             Request Withdrawal
 
         </button>
 
-        <p
-            style="font-size:13px;color:#777;margin-top:10px;">
+        <div id="withdrawMessage"></div>
+
+        <p style="font-size:13px;color:#777;margin-top:10px;">
 
             Weekend withdrawals are unavailable.
-            Requests can be submitted Monday to Friday.
 
         </p>
 
@@ -1171,12 +956,10 @@ footer a{
 
         <div class="support">
 
-            <h2>📞 Dream Big Support</h2>
+            <h2>📞 Customer Care</h2>
 
-            <p style="margin:8px 0 12px;">
-
+            <p style="margin:8px 0;">
                 Need help?
-
             </p>
 
             <a href="tel:0719222390">
@@ -1192,11 +975,9 @@ footer a{
 
     <div class="card">
 
-        <h2>📋 Transaction History</h2>
+        <h2>📋 My Transactions</h2>
 
-        <div
-            class="table-wrapper"
-            style="margin-top:15px;">
+        <div class="table-wrapper">
 
             <table>
 
@@ -1222,245 +1003,131 @@ footer a{
 </section>
 
 
-<!-- HELP CENTER BUTTON -->
+<!-- =================================================
+     MODERATOR BUTTON
+================================================== -->
 
 <button
-    class="help-btn"
-    onclick="openHelpCenter()"
-    title="Help Center">
+    class="moderator-button"
+    onclick="openModerator()">
+
+    🛡 Moderator / Customer Care
+
+</button>
+
+
+<!-- =================================================
+     HELP BUTTON
+================================================== -->
+
+<button
+    class="help-button"
+    onclick="callCustomerCare()">
 
     ☎
 
 </button>
 
 
-<!-- ================= TERMS ================= -->
+<!-- =================================================
+     MODERATOR PORTAL
+================================================== -->
 
 <div
-    id="termsModal"
+    id="moderatorModal"
     class="modal hidden">
 
     <div class="modal-box">
 
-        <h2>
-            Dream Big — Terms & Conditions
-        </h2>
+        <!-- LOGIN -->
 
-        <p>
-            <strong>
-                Published: 28 August 2026
-            </strong>
-        </p>
+        <div id="moderatorLogin">
 
-        <h3>1. Registration</h3>
+            <h2>
+                🛡 Moderator / Customer Care
+            </h2>
 
-        <p>
-            Members must provide accurate information.
-            Each phone number and email address may
-            only be registered once.
-        </p>
+            <p class="subtitle">
 
-        <h3>2. Payments</h3>
-
-        <p>
-            Payment information submitted through
-            Dream Big is subject to verification.
-            Entering a transaction code does not
-            automatically prove payment.
-        </p>
-
-        <h3>3. Levels</h3>
-
-        <p>
-            Higher levels require eligibility and
-            verified payment where applicable.
-        </p>
-
-        <h3>4. Activities and Rewards</h3>
-
-        <p>
-            Activities and promotional rewards are
-            subject to eligibility and platform rules.
-            Rewards displayed by the platform are not
-            guaranteed investment returns.
-        </p>
-
-        <h3>5. Withdrawals</h3>
-
-        <p>
-            Withdrawals are subject to account,
-            payment and verification requirements.
-            Weekend withdrawals may be unavailable.
-        </p>
-
-        <h3>6. Account Security</h3>
-
-        <p>
-            Users must keep their login information
-            confidential and must not attempt to
-            manipulate the platform.
-        </p>
-
-        <h3>7. Changes</h3>
-
-        <p>
-            Dream Big may update these terms when
-            necessary. Updated terms should be
-            published on the website.
-        </p>
-
-        <button
-            class="primary modal-close"
-            onclick="closeModals()">
-
-            Close
-
-        </button>
-
-    </div>
-
-</div>
-
-
-<!-- ================= PRIVACY ================= -->
-
-<div
-    id="privacyModal"
-    class="modal hidden">
-
-    <div class="modal-box">
-
-        <h2>
-            Dream Big — Privacy Policy
-        </h2>
-
-        <p>
-            <strong>
-                Published: 28 August 2026
-            </strong>
-        </p>
-
-        <h3>Information Collected</h3>
-
-        <p>
-            Dream Big may collect name, phone number,
-            email address and account information.
-        </p>
-
-        <h3>Use of Information</h3>
-
-        <p>
-            Information may be used to manage accounts,
-            verify transactions, process requests and
-            communicate with members.
-        </p>
-
-        <h3>Payment Information</h3>
-
-        <p>
-            Transaction references submitted for
-            verification may be stored for account
-            processing.
-        </p>
-
-        <h3>Security</h3>
-
-        <p>
-            The production version should use secure
-            server-side authentication and database
-            controls.
-        </p>
-
-        <button
-            class="primary modal-close"
-            onclick="closeModals()">
-
-            Close
-
-        </button>
-
-    </div>
-
-</div>
-
-
-<!-- ================= HELP CENTER ================= -->
-
-<div
-    id="helpModal"
-    class="modal hidden">
-
-    <div class="modal-box">
-
-        <div id="helpLogin">
-
-            <h2>🔐 Dream Big Help Center</h2>
-
-            <p style="color:#777;margin-bottom:15px;">
-
-                Authorized support staff only.
+                Authorized staff only.
 
             </p>
 
             <input
-                id="staffId"
-                type="text"
-                placeholder="Staff ID">
+                id="moderatorId"
+                placeholder="Moderator ID">
 
             <input
-                id="staffPassword"
+                id="moderatorPassword"
                 type="password"
-                placeholder="Help Center password">
+                placeholder="Moderator password">
 
             <button
                 class="primary"
-                onclick="staffLogin()">
+                onclick="moderatorSignIn()">
 
-                Help Center Login
+                Sign In
 
             </button>
 
-            <div id="staffMessage"></div>
+            <div id="moderatorLoginMessage"></div>
 
         </div>
 
 
+        <!-- DASHBOARD -->
+
         <div
-            id="helpDashboard"
+            id="moderatorDashboard"
             class="hidden">
 
-            <h2>🛠 Help Center</h2>
+            <h2>
+                🛡 Moderator Dashboard
+            </h2>
 
-            <p style="color:#777;margin:8px 0 15px;">
+            <div class="notice">
 
-                Support and account verification panel.
+                <b>Security:</b>
 
-            </p>
+                This interface is for authorized
+                customer-care staff. Production
+                approval must be performed by the
+                secure backend.
 
+            </div>
+
+
+            <h3>
+                Find Customer
+            </h3>
 
             <input
-                id="searchUser"
-                type="text"
-                placeholder="Search user by phone">
-
+                id="moderatorSearch"
+                placeholder="Customer phone number">
 
             <button
                 class="primary"
-                onclick="findUser()">
+                onclick="searchCustomer()">
 
-                Search User
+                Search Customer
 
             </button>
 
+            <div id="customerResult"></div>
 
-            <div id="adminResult"></div>
+
+            <h3 style="margin-top:25px;">
+                Pending Requests
+            </h3>
+
+            <div id="pendingRequests"></div>
 
 
             <button
                 class="secondary"
-                onclick="staffLogout()">
+                onclick="moderatorLogout()">
 
-                Logout Help Center
+                Moderator Logout
 
             </button>
 
@@ -1468,8 +1135,9 @@ footer a{
 
 
         <button
-            class="secondary modal-close"
-            onclick="closeModals()">
+            class="secondary"
+            style="margin-top:15px;"
+            onclick="closeModerator()">
 
             Close
 
@@ -1479,6 +1147,10 @@ footer a{
 
 </div>
 
+
+<!-- =================================================
+     TERMS
+================================================== -->
 
 <footer>
 
@@ -1487,27 +1159,17 @@ footer a{
     </p>
 
     <p style="margin-top:7px;">
-        Published:
-        <strong>28 August 2026</strong>
+        Published: 28 August 2026
     </p>
 
     <p style="margin-top:7px;">
-        Helpline:
-        <strong>0719222390</strong>
+        Customer Care:
+        <b>0719222390</b>
     </p>
 
-    <p style="margin-top:10px;">
-
-        <a onclick="openTerms()">
-            Terms & Conditions
-        </a>
-
-        &nbsp; | &nbsp;
-
-        <a onclick="openPrivacy()">
-            Privacy Policy
-        </a>
-
+    <p style="margin-top:7px;">
+        M-Pesa Till:
+        <b>555122</b>
     </p>
 
 </footer>
@@ -1515,34 +1177,24 @@ footer a{
 
 <script>
 
-/* ==================================================
-   DREAM BIG CONFIGURATION
-================================================== */
+/* =================================================
+   CONFIGURATION
+================================================= */
 
 const MPESA_TILL = "555122";
+
 const HELPLINE = "0719222390";
 
 const DAILY_TASKS = 6;
 
 
 /*
+   FRONT-END DEMO LEVEL DATA.
+
    IMPORTANT:
-
-   This staff password is ONLY a prototype/demo
-   placeholder. Do NOT use this approach in a
-   real production system.
-
-   A real Help Center must use secure backend
-   authentication such as Supabase Auth.
+   Real financial rewards and level activation
+   must be calculated and approved server-side.
 */
-
-const DEMO_STAFF_ID = "helpcenter";
-const DEMO_STAFF_PASSWORD = "CHANGE_THIS_IN_BACKEND";
-
-
-/* ==================================================
-   LEVELS
-================================================== */
 
 const LEVELS = [
 
@@ -1551,9 +1203,7 @@ const LEVELS = [
         name:"Starter Phone",
         item:"📱",
         unlock:0,
-        dailyReward:5,
-        description:
-        "Free starter activities for new members."
+        dailyReward:5
     },
 
     {
@@ -1561,9 +1211,7 @@ const LEVELS = [
         name:"Mobile Phone",
         item:"📲",
         unlock:500,
-        dailyReward:10,
-        description:
-        "Mobile promotional activities."
+        dailyReward:10
     },
 
     {
@@ -1571,9 +1219,7 @@ const LEVELS = [
         name:"Sound Woofer",
         item:"🔊",
         unlock:1000,
-        dailyReward:20,
-        description:
-        "Audio promotional activities."
+        dailyReward:20
     },
 
     {
@@ -1581,9 +1227,7 @@ const LEVELS = [
         name:"Smart TV",
         item:"📺",
         unlock:2000,
-        dailyReward:30,
-        description:
-        "Digital promotional activities."
+        dailyReward:30
     },
 
     {
@@ -1591,9 +1235,7 @@ const LEVELS = [
         name:"Laptop",
         item:"💻",
         unlock:3500,
-        dailyReward:40,
-        description:
-        "Technology-related activities."
+        dailyReward:40
     },
 
     {
@@ -1601,9 +1243,7 @@ const LEVELS = [
         name:"Motorbike",
         item:"🏍️",
         unlock:5000,
-        dailyReward:50,
-        description:
-        "Advanced promotional activities."
+        dailyReward:50
     },
 
     {
@@ -1611,9 +1251,7 @@ const LEVELS = [
         name:"Business",
         item:"🏪",
         unlock:7500,
-        dailyReward:70,
-        description:
-        "Business-related activities."
+        dailyReward:70
     },
 
     {
@@ -1621,25 +1259,43 @@ const LEVELS = [
         name:"Premium",
         item:"🏆",
         unlock:10000,
-        dailyReward:100,
-        description:
-        "Highest available activity level."
+        dailyReward:100
     }
 
 ];
 
 
-/* ==================================================
-   USER STORAGE
-================================================== */
+/*
+   DEMO STAFF LOGIN ONLY.
+
+   DO NOT USE THIS FOR A REAL PAYMENT SYSTEM.
+
+   Production:
+   Replace this with Supabase Auth / another
+   secure authentication service.
+*/
+
+const DEMO_MODERATOR_ID =
+    "moderator";
+
+const DEMO_MODERATOR_PASSWORD =
+    "CHANGE_THIS_IN_BACKEND";
+
+
+/* =================================================
+   STORAGE
+================================================= */
 
 function getUsers(){
 
     return JSON.parse(
-        localStorage.getItem("dreamBigUsers") || "[]"
+        localStorage.getItem(
+            "dreamBigUsers"
+        ) || "[]"
     );
 
 }
+
 
 function saveUsers(users){
 
@@ -1650,28 +1306,29 @@ function saveUsers(users){
 
 }
 
+
+function currentPhone(){
+
+    return localStorage.getItem(
+        "dreamBigCurrentUser"
+    );
+
+}
+
+
 function getCurrentUser(){
-
-    const phone =
-        localStorage.getItem(
-            "dreamBigCurrentUser"
-        );
-
-    if(!phone){
-        return null;
-    }
 
     return getUsers().find(
         user =>
-        user.phone === phone
+        user.phone === currentPhone()
     ) || null;
 
 }
 
 
-/* ==================================================
-   REGISTER / LOGIN UI
-================================================== */
+/* =================================================
+   AUTH
+================================================= */
 
 function showLogin(){
 
@@ -1682,10 +1339,6 @@ function showLogin(){
     document
     .getElementById("loginBox")
     .classList.remove("hidden");
-
-    document
-    .getElementById("authMessage")
-    .innerHTML = "";
 
 }
 
@@ -1700,16 +1353,8 @@ function showRegister(){
     .getElementById("registerBox")
     .classList.remove("hidden");
 
-    document
-    .getElementById("authMessage")
-    .innerHTML = "";
-
 }
 
-
-/* ==================================================
-   REGISTER
-================================================== */
 
 function register(){
 
@@ -1731,11 +1376,11 @@ function register(){
         .value;
 
     const referral =
-        document.getElementById("refCode")
+        document.getElementById("referralCode")
         .value.trim();
 
     const terms =
-        document.getElementById("agreeTerms")
+        document.getElementById("terms")
         .checked;
 
     const message =
@@ -1750,9 +1395,7 @@ function register(){
     ){
 
         message.innerHTML =
-        '<div class="error">' +
-        'Please complete all required fields.' +
-        '</div>';
+        '<div class="error">Complete all fields.</div>';
 
         return;
     }
@@ -1762,7 +1405,7 @@ function register(){
 
         message.innerHTML =
         '<div class="error">' +
-        'Please agree to the Terms & Conditions and Privacy Policy.' +
+        'Please accept the Terms & Conditions.' +
         '</div>';
 
         return;
@@ -1772,11 +1415,7 @@ function register(){
     const users = getUsers();
 
 
-    /*
-       Prevent duplicate phone OR email.
-    */
-
-    const existing =
+    const duplicate =
         users.find(
             user =>
             user.phone === phone ||
@@ -1784,11 +1423,11 @@ function register(){
         );
 
 
-    if(existing){
+    if(duplicate){
 
         message.innerHTML =
         '<div class="error">' +
-        'These details are already registered. Please login instead.' +
+        'These details are already registered. Please login.' +
         '</div>';
 
         return;
@@ -1809,7 +1448,7 @@ function register(){
     }
 
 
-    const referralCode =
+    const newReferralCode =
         "DB" +
         Math.random()
         .toString(36)
@@ -1825,11 +1464,6 @@ function register(){
 
         email:email,
 
-        /*
-           Prototype only.
-           Production must hash passwords server-side.
-        */
-
         password:password,
 
         balance:0,
@@ -1838,46 +1472,36 @@ function register(){
 
         referrals:0,
 
-        taskProgress:0,
-
-        taskDate:
-            getKenyaDateKey(),
-
-        taskStarted:false,
-
-        taskFinished:false,
-
-        referralCode:referralCode,
+        referralCode:
+            newReferralCode,
 
         referredBy:
             referrer
             ? referrer.phone
             : null,
 
-        history:[],
+        taskDate:
+            kenyaDateKey(),
+
+        taskProgress:0,
+
+        taskStarted:false,
+
+        taskFinished:false,
 
         deposits:[],
 
-        unlockPayments:[],
+        levelRequests:[],
 
-        pendingLevel:null,
+        withdrawals:[],
 
-        agreedTerms:true,
-
-        termsDate:
-            new Date().toLocaleString()
+        history:[]
 
     };
 
 
     users.push(user);
 
-
-    /*
-       Referral count is updated only in this
-       prototype. Production referral rewards
-       should be calculated server-side.
-    */
 
     if(referrer){
 
@@ -1900,10 +1524,6 @@ function register(){
 }
 
 
-/* ==================================================
-   LOGIN
-================================================== */
-
 function login(){
 
     const phone =
@@ -1919,9 +1539,9 @@ function login(){
 
     const user =
         getUsers().find(
-            u =>
-            u.phone === phone &&
-            u.password === password
+            item =>
+            item.phone === phone &&
+            item.password === password
         );
 
 
@@ -1931,7 +1551,7 @@ function login(){
         .getElementById("authMessage")
         .innerHTML =
         '<div class="error">' +
-        'Incorrect phone number or password.' +
+        'Invalid login details.' +
         '</div>';
 
         return;
@@ -1948,10 +1568,6 @@ function login(){
 
 }
 
-
-/* ==================================================
-   LOGOUT
-================================================== */
 
 function logout(){
 
@@ -1971,16 +1587,14 @@ function logout(){
     .getElementById("logoutBtn")
     .classList.add("hidden");
 
-    showLogin();
-
 }
 
 
-/* ==================================================
+/* =================================================
    KENYA TIME
-================================================== */
+================================================= */
 
-function getKenyaNow(){
+function kenyaNow(){
 
     return new Date(
         new Date().toLocaleString(
@@ -1994,34 +1608,33 @@ function getKenyaNow(){
 }
 
 
-function getKenyaDateKey(){
+function kenyaDateKey(){
 
-    const now =
-        getKenyaNow();
+    const d = kenyaNow();
 
     return (
-        now.getFullYear() +
+        d.getFullYear() +
         "-" +
         String(
-            now.getMonth()+1
+            d.getMonth()+1
         ).padStart(2,"0") +
         "-" +
         String(
-            now.getDate()
+            d.getDate()
         ).padStart(2,"0")
     );
 
 }
 
 
-/* ==================================================
+/* =================================================
    DAILY RESET
-================================================== */
+================================================= */
 
-function resetDailyTasks(user){
+function resetTasks(user){
 
     const today =
-        getKenyaDateKey();
+        kenyaDateKey();
 
 
     if(user.taskDate !== today){
@@ -2039,8 +1652,8 @@ function resetDailyTasks(user){
 
         const index =
             users.findIndex(
-                u =>
-                u.phone === user.phone
+                item =>
+                item.phone === user.phone
             );
 
 
@@ -2057,9 +1670,9 @@ function resetDailyTasks(user){
 }
 
 
-/* ==================================================
+/* =================================================
    DASHBOARD
-================================================== */
+================================================= */
 
 function showDashboard(){
 
@@ -2070,7 +1683,7 @@ function showDashboard(){
     }
 
 
-    resetDailyTasks(user);
+    resetTasks(user);
 
 
     document
@@ -2092,21 +1705,6 @@ function showDashboard(){
     user.name;
 
     document
-    .getElementById("profileName")
-    .textContent =
-    user.name;
-
-    document
-    .getElementById("profilePhone")
-    .textContent =
-    user.phone;
-
-    document
-    .getElementById("profileEmail")
-    .textContent =
-    user.email;
-
-    document
     .getElementById("balance")
     .textContent =
     Number(user.balance)
@@ -2123,51 +1721,51 @@ function showDashboard(){
     user.referrals;
 
     document
-    .getElementById("tasksCompletedToday")
+    .getElementById("taskCountTop")
     .textContent =
     user.taskProgress;
-
-    document
-    .getElementById("myReferralCode")
-    .value =
-    user.referralCode;
 
 
     renderLevels();
 
-    renderHistory();
+    renderTasks();
 
-    updateTaskInterface();
+    renderHistory();
 
 }
 
 
-/* ==================================================
-   LEVEL DISPLAY
-================================================== */
+/* =================================================
+   LEVELS
+================================================= */
 
 function renderLevels(){
 
     const user = getCurrentUser();
 
-    const container =
+    const box =
         document.getElementById("levels");
 
-    container.innerHTML = "";
+
+    box.innerHTML = "";
 
 
     LEVELS.forEach(level => {
+
+        const div =
+            document.createElement("div");
+
 
         const active =
             level.level <= user.level;
 
 
         const pending =
-            user.pendingLevel === level.level;
-
-
-        const div =
-            document.createElement("div");
+            user.levelRequests.some(
+                request =>
+                request.level === level.level &&
+                request.status === "Pending"
+            );
 
 
         div.className =
@@ -2181,18 +1779,18 @@ function renderLevels(){
             );
 
 
-        let button = "";
+        let action = "";
 
 
         if(active){
 
-            button = `
+            action = `
 
                 <button
                     class="level-btn"
-                    onclick="openTasks(${level.level})">
+                    onclick="openTaskLevel(${level.level})">
 
-                    ▶ Start Today's Activities
+                    ▶ Start Activities
 
                 </button>
 
@@ -2201,13 +1799,13 @@ function renderLevels(){
         }
         else if(pending){
 
-            button = `
+            action = `
 
                 <button
                     class="level-btn"
                     disabled>
 
-                    ⏳ Pending Verification
+                    ⏳ Pending Customer Care
 
                 </button>
 
@@ -2218,13 +1816,13 @@ function renderLevels(){
             level.level === user.level + 1
         ){
 
-            button = `
+            action = `
 
                 <button
                     class="level-btn"
-                    onclick="levelAction(${level.level})">
+                    onclick="openUnlock(${level.level})">
 
-                    🔓 Request Activation
+                    🔓 Unlock Level
 
                 </button>
 
@@ -2233,7 +1831,7 @@ function renderLevels(){
         }
         else{
 
-            button = `
+            action = `
 
                 <button
                     class="level-btn"
@@ -2263,11 +1861,7 @@ function renderLevels(){
             </div>
 
             <p>
-                ${level.description}
-            </p>
-
-            <p>
-                Activation amount:
+                Activation:
                 <b>
                     KSh
                     ${level.unlock.toLocaleString()}
@@ -2275,66 +1869,29 @@ function renderLevels(){
             </p>
 
             <p>
-                Displayed daily activity reward:
+                Displayed daily activity:
                 <b>
                     KSh ${level.dailyReward}
                 </b>
             </p>
 
-            <p>
-
-                Status:
-
-                <span class="status
-                    ${
-                        active
-                        ? "active"
-                        : pending
-                        ? "pending"
-                        : ""
-                    }">
-
-                    ${
-                        active
-                        ? "ACTIVE"
-                        : pending
-                        ? "PENDING"
-                        : "LOCKED"
-                    }
-
-                </span>
-
-            </p>
-
-            ${button}
+            ${action}
 
         `;
 
 
-        container.appendChild(div);
+        box.appendChild(div);
 
     });
 
 }
 
 
-/* ==================================================
-   LEVEL ACTIVATION
-================================================== */
+/* =================================================
+   UNLOCK
+================================================= */
 
-function levelAction(levelNumber){
-
-    const user = getCurrentUser();
-
-
-    if(
-        levelNumber !==
-        user.level + 1
-    ){
-
-        return;
-    }
-
+function openUnlock(levelNumber){
 
     const level =
         LEVELS.find(
@@ -2354,7 +1911,7 @@ function levelAction(levelNumber){
 
 
     document
-    .getElementById("unlockLevel")
+    .getElementById("unlockName")
     .textContent =
         "Level " +
         level.level +
@@ -2382,21 +1939,124 @@ function levelAction(levelNumber){
 }
 
 
-/* ==================================================
-   TASKS
-================================================== */
+function submitLevelUnlock(){
 
-function openTasks(levelNumber){
+    const code =
+        document
+        .getElementById("unlockCode")
+        .value.trim();
+
+
+    const message =
+        document
+        .getElementById("unlockMessage");
+
+
+    const user =
+        getCurrentUser();
+
+
+    if(!user){
+        return;
+    }
+
+
+    if(!code){
+
+        message.innerHTML =
+        '<div class="error">' +
+        'Enter your M-Pesa transaction code.' +
+        '</div>';
+
+        return;
+    }
+
+
+    const nextLevel =
+        LEVELS.find(
+            item =>
+            item.level === user.level + 1
+        );
+
+
+    if(!nextLevel){
+
+        return;
+    }
+
+
+    user.levelRequests.push({
+
+        id:
+            Date.now(),
+
+        level:
+            nextLevel.level,
+
+        amount:
+            nextLevel.unlock,
+
+        code:
+            code,
+
+        status:
+            "Pending",
+
+        date:
+            new Date().toLocaleString()
+
+    });
+
+
+    user.history.push({
+
+        date:
+            new Date().toLocaleString(),
+
+        type:
+            "Level " +
+            nextLevel.level +
+            " activation",
+
+        amount:
+            nextLevel.unlock,
+
+        status:
+            "Pending Customer Care"
+
+    });
+
+
+    updateUser(user);
+
+
+    message.innerHTML =
+    '<div class="pending">' +
+    'Request submitted. Customer Care must verify the payment before the level is activated.' +
+    '</div>';
+
+
+    document
+    .getElementById("unlockCode")
+    .value = "";
+
+
+    renderLevels();
+
+    renderHistory();
+
+}
+
+
+/* =================================================
+   TASK SYSTEM
+================================================= */
+
+function openTaskLevel(levelNumber){
 
     const user = getCurrentUser();
 
-
     if(levelNumber > user.level){
-
-        alert(
-            "This level is not active."
-        );
-
         return;
     }
 
@@ -2425,10 +2085,10 @@ function openTasks(levelNumber){
     document
     .getElementById("taskDescription")
     .textContent =
-        level.description;
+        "Complete 6 activities for today's session.";
 
 
-    updateTaskInterface();
+    renderTasks();
 
 
     document
@@ -2440,25 +2100,10 @@ function openTasks(levelNumber){
 }
 
 
-/* ==================================================
-   START EARNING
-================================================== */
-
-function startEarning(){
-
-    const users = getUsers();
-
-    const phone =
-        localStorage.getItem(
-            "dreamBigCurrentUser"
-        );
-
+function startOrCompleteTask(){
 
     const user =
-        users.find(
-            item =>
-            item.phone === phone
-        );
+        getCurrentUser();
 
 
     if(!user){
@@ -2466,40 +2111,118 @@ function startEarning(){
     }
 
 
-    resetDailyTasks(user);
+    resetTasks(user);
 
 
     if(user.taskFinished){
+        return;
+    }
+
+
+    if(!user.taskStarted){
+
+        user.taskStarted = true;
+
+        updateUser(user);
+
+        renderTasks();
 
         return;
     }
 
 
-    user.taskStarted = true;
-
-
-    saveUsers(users);
-
-
-    updateTaskInterface();
+    completeOneTask();
 
 }
 
 
-/* ==================================================
-   TASK INTERFACE
-================================================== */
+function completeOneTask(){
 
-function updateTaskInterface(){
+    const user =
+        getCurrentUser();
 
-    const user = getCurrentUser();
 
     if(!user){
         return;
     }
 
 
-    resetDailyTasks(user);
+    if(
+        user.taskProgress >= DAILY_TASKS
+    ){
+        return;
+    }
+
+
+    const level =
+        LEVELS.find(
+            item =>
+            item.level === user.level
+        );
+
+
+    user.taskProgress += 1;
+
+
+    /*
+       Prototype display calculation.
+
+       Production crediting MUST happen
+       server-side after eligibility checks.
+    */
+
+    user.balance += level.dailyReward;
+
+
+    user.history.push({
+
+        date:
+            new Date().toLocaleString(),
+
+        type:
+            "Daily activity",
+
+        amount:
+            level.dailyReward,
+
+        status:
+            "Recorded"
+
+    });
+
+
+    if(
+        user.taskProgress === DAILY_TASKS
+    ){
+
+        user.taskFinished = true;
+
+        user.taskStarted = false;
+
+    }
+
+
+    updateUser(user);
+
+    showDashboard();
+
+    openTaskLevel(user.level);
+
+}
+
+
+function renderTasks(){
+
+    const user =
+        getCurrentUser();
+
+
+    if(!user){
+        return;
+    }
+
+
+    resetTasks(user);
 
 
     document
@@ -2508,14 +2231,20 @@ function updateTaskInterface(){
     user.taskProgress;
 
 
-    const percentage =
-        (user.taskProgress / DAILY_TASKS) * 100;
+    document
+    .getElementById("taskCountTop")
+    .textContent =
+    user.taskProgress;
 
 
     document
-    .getElementById("taskProgressBar")
+    .getElementById("progressBar")
     .style.width =
-    percentage + "%";
+        (
+            user.taskProgress /
+            DAILY_TASKS *
+            100
+        ) + "%";
 
 
     const buttons =
@@ -2532,11 +2261,11 @@ function updateTaskInterface(){
         i++
     ){
 
-        const button =
+        const btn =
             document.createElement("button");
 
 
-        button.className =
+        btn.className =
             "task-circle";
 
 
@@ -2544,33 +2273,33 @@ function updateTaskInterface(){
             i <= user.taskProgress
         ){
 
-            button.classList.add(
+            btn.classList.add(
                 "completed"
             );
 
-            button.textContent = "✓";
+            btn.textContent = "✓";
 
         }
         else{
 
-            button.textContent = i;
+            btn.textContent = i;
 
         }
 
 
-        buttons.appendChild(button);
+        buttons.appendChild(btn);
 
     }
 
 
     const startButton =
         document
-        .getElementById("startTaskButton");
+        .getElementById("startButton");
 
 
-    const completedMessage =
+    const completedBox =
         document
-        .getElementById("completedMessage");
+        .getElementById("completedBox");
 
 
     if(user.taskFinished){
@@ -2579,199 +2308,54 @@ function updateTaskInterface(){
             "hidden"
         );
 
-        completedMessage.classList.remove(
+        completedBox.classList.remove(
             "hidden"
         );
 
         startCountdown();
 
     }
-    else if(user.taskStarted){
-
-        startButton.classList.remove(
-            "hidden"
-        );
-
-        startButton.textContent =
-            "▶ COMPLETE NEXT ACTIVITY";
-
-        completedMessage.classList.add(
-            "hidden"
-        );
-
-    }
     else{
 
+        completedBox.classList.add(
+            "hidden"
+        );
+
         startButton.classList.remove(
             "hidden"
         );
 
-        startButton.textContent =
-            "▶ START EARNING";
 
-        completedMessage.classList.add(
-            "hidden"
-        );
+        if(user.taskStarted){
 
-    }
-
-}
-
-
-/* ==================================================
-   COMPLETE ONE OF SIX ACTIVITIES
-================================================== */
-
-function completeTask(){
-
-    const users = getUsers();
-
-    const phone =
-        localStorage.getItem(
-            "dreamBigCurrentUser"
-        );
-
-
-    const user =
-        users.find(
-            item =>
-            item.phone === phone
-        );
-
-
-    if(!user){
-        return;
-    }
-
-
-    resetDailyTasks(user);
-
-
-    if(!user.taskStarted){
-
-        alert(
-            "Press START EARNING first."
-        );
-
-        return;
-    }
-
-
-    if(user.taskProgress >= DAILY_TASKS){
-
-        return;
-    }
-
-
-    const level =
-        LEVELS.find(
-            item =>
-            item.level === user.level
-        );
-
-
-    if(!level){
-        return;
-    }
-
-
-    user.taskProgress += 1;
-
-
-    /*
-       This prototype records the displayed
-       activity reward locally.
-
-       Production reward calculations should
-       happen on the secure backend.
-    */
-
-    user.balance += level.dailyReward;
-
-
-    user.history.push({
-
-        date:
-            new Date().toLocaleString(),
-
-        type:
-            "Activity reward",
-
-        amount:
-            level.dailyReward,
-
-        status:
-            "Recorded"
-
-    });
-
-
-    if(
-        user.taskProgress >= DAILY_TASKS
-    ){
-
-        user.taskFinished = true;
-
-        user.taskStarted = false;
-
-    }
-
-
-    saveUsers(users);
-
-
-    showDashboard();
-
-    openTasks(user.level);
-
-}
-
-
-/* ==================================================
-   MAKE THE START BUTTON COMPLETE THE NEXT TASK
-================================================== */
-
-document
-.getElementById("startTaskButton")
-.addEventListener(
-    "click",
-    function(){
-
-        const user =
-            getCurrentUser();
-
-        if(!user){
-            return;
-        }
-
-
-        if(!user.taskStarted){
-
-            startEarning();
+            startButton.textContent =
+                "▶ COMPLETE NEXT ACTIVITY";
 
         }
         else{
 
-            completeTask();
+            startButton.textContent =
+                "▶ START EARNING";
 
         }
 
     }
-);
+
+}
 
 
-/* ==================================================
-   MIDNIGHT COUNTDOWN — KENYA
-================================================== */
+/* =================================================
+   COUNTDOWN
+================================================= */
 
-let countdownTimer = null;
+let countdownTimer;
 
 
 function startCountdown(){
 
-    if(countdownTimer){
-        clearInterval(countdownTimer);
-    }
+    clearInterval(
+        countdownTimer
+    );
 
 
     updateCountdown();
@@ -2797,23 +2381,14 @@ function updateCountdown(){
     }
 
 
-    resetDailyTasks(user);
-
-
-    /*
-       resetDailyTasks can unlock the new day.
-    */
-
     if(!user.taskFinished){
-
-        updateTaskInterface();
 
         return;
     }
 
 
     const now =
-        getKenyaNow();
+        kenyaNow();
 
 
     const tomorrow =
@@ -2824,18 +2399,19 @@ function updateCountdown(){
         tomorrow.getDate()+1
     );
 
+
     tomorrow.setHours(
         0,0,0,0
     );
 
 
     const difference =
-        tomorrow - now;
+        tomorrow-now;
 
 
     if(difference <= 0){
 
-        resetDailyTasks(user);
+        resetTasks(user);
 
         showDashboard();
 
@@ -2846,7 +2422,7 @@ function updateCountdown(){
     const hours =
         Math.floor(
             difference /
-            (1000*60*60)
+            3600000
         );
 
 
@@ -2854,9 +2430,9 @@ function updateCountdown(){
         Math.floor(
             (
                 difference %
-                (1000*60*60)
+                3600000
             ) /
-            (1000*60)
+            60000
         );
 
 
@@ -2864,7 +2440,7 @@ function updateCountdown(){
         Math.floor(
             (
                 difference %
-                (1000*60)
+                60000
             ) /
             1000
         );
@@ -2882,63 +2458,9 @@ function updateCountdown(){
 }
 
 
-/* ==================================================
+/* =================================================
    DEPOSIT
-================================================== */
-
-function openDeposit(){
-
-    document
-    .getElementById("paymentSection")
-    .classList.remove("hidden");
-
-
-    document
-    .getElementById("paymentMessage")
-    .innerHTML = "";
-
-
-    document
-    .getElementById("paymentSection")
-    .scrollIntoView({
-        behavior:"smooth"
-    });
-
-}
-
-
-/* ==================================================
-   COPY TILL
-================================================== */
-
-function copyTill(){
-
-    navigator.clipboard
-    .writeText(MPESA_TILL)
-    .then(() => {
-
-        alert(
-            "Till number " +
-            MPESA_TILL +
-            " copied."
-        );
-
-    })
-    .catch(() => {
-
-        alert(
-            "M-Pesa Till Number: " +
-            MPESA_TILL
-        );
-
-    });
-
-}
-
-
-/* ==================================================
-   DEPOSIT SUBMISSION
-================================================== */
+================================================= */
 
 function submitDeposit(){
 
@@ -2952,13 +2474,22 @@ function submitDeposit(){
 
     const code =
         document
-        .getElementById("mpesaCode")
+        .getElementById("depositCode")
         .value.trim();
 
 
     const message =
         document
-        .getElementById("paymentMessage");
+        .getElementById("depositMessage");
+
+
+    const user =
+        getCurrentUser();
+
+
+    if(!user){
+        return;
+    }
 
 
     if(
@@ -2968,7 +2499,7 @@ function submitDeposit(){
 
         message.innerHTML =
         '<div class="error">' +
-        'Enter a valid deposit amount.' +
+        'Enter a valid amount.' +
         '</div>';
 
         return;
@@ -2986,52 +2517,22 @@ function submitDeposit(){
     }
 
 
-    const users = getUsers();
-
-    const user =
-        users.find(
-            item =>
-            item.phone ===
-            localStorage.getItem(
-                "dreamBigCurrentUser"
-            )
-        );
-
-
-    if(!user){
-        return;
-    }
-
-
-    const duplicate =
-        user.deposits.find(
-            deposit =>
-            deposit.code === code
-        );
-
-
-    if(duplicate){
-
-        message.innerHTML =
-        '<div class="error">' +
-        'This transaction code has already been submitted.' +
-        '</div>';
-
-        return;
-    }
-
-
     user.deposits.push({
 
-        amount:amount,
+        id:
+            Date.now(),
 
-        code:code,
+        amount:
+            amount,
 
-        date:
-            new Date().toLocaleString(),
+        code:
+            code,
 
         status:
-            "Pending verification"
+            "Pending",
+
+        date:
+            new Date().toLocaleString()
 
     });
 
@@ -3048,17 +2549,17 @@ function submitDeposit(){
             amount,
 
         status:
-            "Pending verification"
+            "Pending Customer Care"
 
     });
 
 
-    saveUsers(users);
+    updateUser(user);
 
 
     message.innerHTML =
     '<div class="pending">' +
-    'Deposit submitted. Pending verification.' +
+    'Deposit submitted for Customer Care verification.' +
     '</div>';
 
 
@@ -3067,7 +2568,7 @@ function submitDeposit(){
     .value = "";
 
     document
-    .getElementById("mpesaCode")
+    .getElementById("depositCode")
     .value = "";
 
 
@@ -3076,199 +2577,15 @@ function submitDeposit(){
 }
 
 
-/* ==================================================
-   LEVEL PAYMENT
-================================================== */
+/* =================================================
+   WITHDRAWAL
+================================================= */
 
-function submitUnlock(){
-
-    const code =
-        document
-        .getElementById("unlockCode")
-        .value.trim();
-
-
-    const message =
-        document
-        .getElementById("unlockMessage");
-
-
-    if(!code){
-
-        message.innerHTML =
-        '<div class="error">' +
-        'Enter the M-Pesa transaction code.' +
-        '</div>';
-
-        return;
-    }
-
-
-    const users = getUsers();
+function requestWithdrawal(){
 
     const user =
-        users.find(
-            item =>
-            item.phone ===
-            localStorage.getItem(
-                "dreamBigCurrentUser"
-            )
-        );
+        getCurrentUser();
 
-
-    if(!user){
-        return;
-    }
-
-
-    const nextLevel =
-        LEVELS.find(
-            item =>
-            item.level ===
-            user.level + 1
-        );
-
-
-    if(!nextLevel){
-
-        message.innerHTML =
-        '<div class="error">' +
-        'You have reached the highest level.' +
-        '</div>';
-
-        return;
-    }
-
-
-    if(user.pendingLevel){
-
-        message.innerHTML =
-        '<div class="pending">' +
-        'A level activation is already pending verification.' +
-        '</div>';
-
-        return;
-    }
-
-
-    const duplicate =
-        user.unlockPayments.find(
-            payment =>
-            payment.code === code
-        );
-
-
-    if(duplicate){
-
-        message.innerHTML =
-        '<div class="error">' +
-        'This transaction code has already been submitted.' +
-        '</div>';
-
-        return;
-    }
-
-
-    user.unlockPayments.push({
-
-        level:
-            nextLevel.level,
-
-        amount:
-            nextLevel.unlock,
-
-        code:code,
-
-        date:
-            new Date().toLocaleString(),
-
-        status:
-            "Pending verification"
-
-    });
-
-
-    user.pendingLevel =
-        nextLevel.level;
-
-
-    user.history.push({
-
-        date:
-            new Date().toLocaleString(),
-
-        type:
-            "Level " +
-            nextLevel.level +
-            " activation",
-
-        amount:
-            nextLevel.unlock,
-
-        status:
-            "Pending verification"
-
-    });
-
-
-    saveUsers(users);
-
-
-    message.innerHTML =
-    '<div class="pending">' +
-    'Payment submitted. The level will activate after verification.' +
-    '</div>';
-
-
-    document
-    .getElementById("unlockCode")
-    .value = "";
-
-
-    renderLevels();
-
-    renderHistory();
-
-}
-
-
-/* ==================================================
-   REFERRAL
-================================================== */
-
-function copyReferral(){
-
-    const code =
-        document
-        .getElementById("myReferralCode")
-        .value;
-
-
-    navigator.clipboard
-    .writeText(code)
-    .then(() => {
-
-        alert(
-            "Referral code copied."
-        );
-
-    })
-    .catch(() => {
-
-        alert(
-            "Referral code: " + code
-        );
-
-    });
-
-}
-
-
-/* ==================================================
-   WITHDRAWAL
-================================================== */
-
-function withdraw(){
 
     const amount =
         Number(
@@ -3289,12 +2606,8 @@ function withdraw(){
         .getElementById("withdrawMessage");
 
 
-    const kenyaNow =
-        getKenyaNow();
-
-
     const day =
-        kenyaNow.getDay();
+        kenyaNow().getDay();
 
 
     if(
@@ -3304,18 +2617,9 @@ function withdraw(){
 
         message.innerHTML =
         '<div class="error">' +
-        'Weekend withdrawals are unavailable. ' +
-        'Please submit your request Monday to Friday.' +
+        'Weekend withdrawals are unavailable.' +
         '</div>';
 
-        return;
-    }
-
-
-    const user = getCurrentUser();
-
-
-    if(!user){
         return;
     }
 
@@ -3327,18 +2631,20 @@ function withdraw(){
 
         message.innerHTML =
         '<div class="error">' +
-        'Enter a valid withdrawal amount.' +
+        'Enter a valid amount.' +
         '</div>';
 
         return;
     }
 
 
-    if(amount > user.balance){
+    if(
+        amount > user.balance
+    ){
 
         message.innerHTML =
         '<div class="error">' +
-        'Insufficient available balance.' +
+        'Insufficient balance.' +
         '</div>';
 
         return;
@@ -3349,26 +2655,34 @@ function withdraw(){
 
         message.innerHTML =
         '<div class="error">' +
-        'Enter the M-Pesa phone number.' +
+        'Enter M-Pesa phone number.' +
         '</div>';
 
         return;
     }
 
 
-    const users = getUsers();
+    user.withdrawals.push({
 
-    const current =
-        users.find(
-            item =>
-            item.phone === user.phone
-        );
+        id:
+            Date.now(),
+
+        amount:
+            amount,
+
+        phone:
+            phone,
+
+        status:
+            "Pending",
+
+        date:
+            new Date().toLocaleString()
+
+    });
 
 
-    current.balance -= amount;
-
-
-    current.history.push({
+    user.history.push({
 
         date:
             new Date().toLocaleString(),
@@ -3380,40 +2694,41 @@ function withdraw(){
             amount,
 
         status:
-            "Pending"
+            "Pending Customer Care"
 
     });
 
 
-    saveUsers(users);
+    updateUser(user);
 
 
-    showDashboard();
-
-
-    document
-    .getElementById("withdrawMessage")
-    .innerHTML =
-    '<div class="success">' +
-    'Withdrawal request submitted. Status: Pending.' +
+    message.innerHTML =
+    '<div class="pending">' +
+    'Withdrawal request submitted for Customer Care approval.' +
     '</div>';
+
+
+    renderHistory();
 
 }
 
 
-/* ==================================================
+/* =================================================
    HISTORY
-================================================== */
+================================================= */
 
 function renderHistory(){
 
-    const user = getCurrentUser();
-
-    const tbody =
-        document.getElementById("history");
+    const user =
+        getCurrentUser();
 
 
-    tbody.innerHTML = "";
+    const body =
+        document
+        .getElementById("history");
+
+
+    body.innerHTML = "";
 
 
     if(
@@ -3421,15 +2736,8 @@ function renderHistory(){
         user.history.length === 0
     ){
 
-        tbody.innerHTML = `
-
-            <tr>
-                <td colspan="4">
-                    No transactions yet.
-                </td>
-            </tr>
-
-        `;
+        body.innerHTML =
+        '<tr><td colspan="4">No transactions yet.</td></tr>';
 
         return;
     }
@@ -3466,71 +2774,83 @@ function renderHistory(){
         `;
 
 
-        tbody.appendChild(row);
+        body.appendChild(row);
 
     });
 
 }
 
 
-/* ==================================================
-   HELP CENTER
-================================================== */
+/* =================================================
+   MODERATOR LOGIN
+================================================= */
 
-function openHelpCenter(){
+function openModerator(){
 
     document
-    .getElementById("helpModal")
+    .getElementById("moderatorModal")
     .classList.remove("hidden");
 
 }
 
 
-function staffLogin(){
+function closeModerator(){
+
+    document
+    .getElementById("moderatorModal")
+    .classList.add("hidden");
+
+}
+
+
+function moderatorSignIn(){
 
     const id =
         document
-        .getElementById("staffId")
+        .getElementById("moderatorId")
         .value.trim();
+
 
     const password =
         document
-        .getElementById("staffPassword")
+        .getElementById("moderatorPassword")
         .value;
 
 
     const message =
         document
-        .getElementById("staffMessage");
+        .getElementById("moderatorLoginMessage");
 
 
     /*
-       Prototype-only login.
+       DEMO ONLY.
 
-       Replace with Supabase Auth in production.
+       Real production login must use
+       secure backend authentication.
     */
 
     if(
-        id === DEMO_STAFF_ID &&
-        password === DEMO_STAFF_PASSWORD
+        id === DEMO_MODERATOR_ID &&
+        password === DEMO_MODERATOR_PASSWORD
     ){
 
         document
-        .getElementById("helpLogin")
+        .getElementById("moderatorLogin")
         .classList.add("hidden");
 
         document
-        .getElementById("helpDashboard")
+        .getElementById("moderatorDashboard")
         .classList.remove("hidden");
 
-        message.innerHTML = "";
+
+        renderPendingRequests();
 
     }
     else{
 
         message.innerHTML =
         '<div class="error">' +
-        'Invalid Help Center credentials.' +
+        'Invalid moderator credentials.' +
         '</div>';
 
     }
@@ -3538,49 +2858,38 @@ function staffLogin(){
 }
 
 
-function staffLogout(){
+function moderatorLogout(){
 
     document
-    .getElementById("helpDashboard")
+    .getElementById("moderatorDashboard")
     .classList.add("hidden");
 
     document
-    .getElementById("helpLogin")
+    .getElementById("moderatorLogin")
     .classList.remove("hidden");
 
     document
-    .getElementById("staffPassword")
+    .getElementById("moderatorPassword")
     .value = "";
 
 }
 
 
-/* ==================================================
-   SEARCH USER IN HELP CENTER
-================================================== */
+/* =================================================
+   SEARCH CUSTOMER
+================================================= */
 
-function findUser(){
+function searchCustomer(){
 
     const phone =
         document
-        .getElementById("searchUser")
+        .getElementById("moderatorSearch")
         .value.trim();
 
 
     const result =
         document
-        .getElementById("adminResult");
-
-
-    if(!phone){
-
-        result.innerHTML =
-        '<div class="error">' +
-        'Enter a phone number.' +
-        '</div>';
-
-        return;
-    }
+        .getElementById("customerResult");
 
 
     const user =
@@ -3594,22 +2903,16 @@ function findUser(){
 
         result.innerHTML =
         '<div class="error">' +
-        'User not found.' +
+        'Customer not found.' +
         '</div>';
 
         return;
     }
 
 
-    const pendingLevel =
-        user.pendingLevel
-        ? "Level " + user.pendingLevel
-        : "None";
-
-
     result.innerHTML = `
 
-        <div class="admin-user">
+        <div class="request">
 
             <h3>
                 ${user.name}
@@ -3618,6 +2921,11 @@ function findUser(){
             <p>
                 Phone:
                 <b>${user.phone}</b>
+            </p>
+
+            <p>
+                Email:
+                <b>${user.email}</b>
             </p>
 
             <p>
@@ -3640,25 +2948,10 @@ function findUser(){
             </p>
 
             <p>
-                Pending Level:
-                <b>${pendingLevel}</b>
-            </p>
-
-            <p>
-                Today's Activities:
+                Today's Tasks:
                 <b>
                     ${user.taskProgress}/6
                 </b>
-            </p>
-
-            <p
-                style="font-size:12px;color:#777;margin-top:12px;">
-
-                Production version:
-                staff actions must be performed
-                through a secure server-side system
-                with an audit trail.
-
             </p>
 
         </div>
@@ -3668,85 +2961,739 @@ function findUser(){
 }
 
 
-/* ==================================================
-   MODALS
-================================================== */
+/* =================================================
+   PENDING REQUESTS
+================================================= */
 
-function openTerms(){
+function renderPendingRequests(){
 
-    document
-    .getElementById("termsModal")
-    .classList.remove("hidden");
-
-}
+    const users =
+        getUsers();
 
 
-function openPrivacy(){
-
-    document
-    .getElementById("privacyModal")
-    .classList.remove("hidden");
-
-}
+    const container =
+        document
+        .getElementById("pendingRequests");
 
 
-function closeModals(){
-
-    document
-    .getElementById("termsModal")
-    .classList.add("hidden");
-
-    document
-    .getElementById("privacyModal")
-    .classList.add("hidden");
-
-    document
-    .getElementById("helpModal")
-    .classList.add("hidden");
-
-}
+    container.innerHTML = "";
 
 
-/* ==================================================
-   OUTSIDE MODAL CLICK
-================================================== */
+    let found = false;
 
-[
-    "termsModal",
-    "privacyModal",
-    "helpModal"
-]
-.forEach(id => {
 
-    document
-    .getElementById(id)
-    .addEventListener(
-        "click",
-        function(event){
+    users.forEach(user => {
 
-            if(event.target === this){
 
-                closeModals();
+        (user.deposits || [])
+        .forEach(deposit => {
+
+            if(
+                deposit.status === "Pending"
+            ){
+
+                found = true;
+
+
+                container.innerHTML += `
+
+                    <div class="request">
+
+                        <h3>
+                            💰 Deposit Request
+                        </h3>
+
+                        <p>
+                            Customer:
+                            <b>
+                                ${user.name}
+                            </b>
+                        </p>
+
+                        <p>
+                            Phone:
+                            <b>
+                                ${user.phone}
+                            </b>
+                        </p>
+
+                        <p>
+                            Amount:
+                            <b>
+                                KSh
+                                ${Number(deposit.amount)
+                                .toLocaleString()}
+                            </b>
+                        </p>
+
+                        <p>
+                            M-Pesa Code:
+                            <b>
+                                ${deposit.code}
+                            </b>
+                        </p>
+
+                        <p>
+                            Date:
+                            ${deposit.date}
+                        </p>
+
+                        <div class="request-buttons">
+
+                            <button
+                                class="approve"
+                                onclick="approveDeposit(
+                                    '${user.phone}',
+                                    ${deposit.id}
+                                )">
+
+                                Approve
+
+                            </button>
+
+                            <button
+                                class="reject"
+                                onclick="rejectDeposit(
+                                    '${user.phone}',
+                                    ${deposit.id}
+                                )">
+
+                                Reject
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                `;
 
             }
 
-        }
+        });
+
+
+        (user.levelRequests || [])
+        .forEach(request => {
+
+            if(
+                request.status === "Pending"
+            ){
+
+                found = true;
+
+
+                container.innerHTML += `
+
+                    <div class="request">
+
+                        <h3>
+                            🔓 Level Activation
+                        </h3>
+
+                        <p>
+                            Customer:
+                            <b>
+                                ${user.name}
+                            </b>
+                        </p>
+
+                        <p>
+                            Phone:
+                            <b>
+                                ${user.phone}
+                            </b>
+                        </p>
+
+                        <p>
+                            Requested Level:
+                            <b>
+                                Level ${request.level}
+                            </b>
+                        </p>
+
+                        <p>
+                            Amount:
+                            <b>
+                                KSh
+                                ${Number(request.amount)
+                                .toLocaleString()}
+                            </b>
+                        </p>
+
+                        <p>
+                            M-Pesa Code:
+                            <b>
+                                ${request.code}
+                            </b>
+                        </p>
+
+                        <div class="request-buttons">
+
+                            <button
+                                class="approve"
+                                onclick="approveLevel(
+                                    '${user.phone}',
+                                    ${request.id}
+                                )">
+
+                                Approve Level
+
+                            </button>
+
+                            <button
+                                class="reject"
+                                onclick="rejectLevel(
+                                    '${user.phone}',
+                                    ${request.id}
+                                )">
+
+                                Reject
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+            }
+
+        });
+
+
+        (user.withdrawals || [])
+        .forEach(request => {
+
+            if(
+                request.status === "Pending"
+            ){
+
+                found = true;
+
+
+                container.innerHTML += `
+
+                    <div class="request">
+
+                        <h3>
+                            💸 Withdrawal Request
+                        </h3>
+
+                        <p>
+                            Customer:
+                            <b>
+                                ${user.name}
+                            </b>
+                        </p>
+
+                        <p>
+                            Phone:
+                            <b>
+                                ${user.phone}
+                            </b>
+                        </p>
+
+                        <p>
+                            Withdrawal:
+                            <b>
+                                KSh
+                                ${Number(request.amount)
+                                .toLocaleString()}
+                            </b>
+                        </p>
+
+                        <p>
+                            Send to:
+                            <b>
+                                ${request.phone}
+                            </b>
+                        </p>
+
+                        <div class="request-buttons">
+
+                            <button
+                                class="approve"
+                                onclick="approveWithdrawal(
+                                    '${user.phone}',
+                                    ${request.id}
+                                )">
+
+                                Approve
+
+                            </button>
+
+                            <button
+                                class="reject"
+                                onclick="rejectWithdrawal(
+                                    '${user.phone}',
+                                    ${request.id}
+                                )">
+
+                                Reject
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+            }
+
+        });
+
+    });
+
+
+    if(!found){
+
+        container.innerHTML =
+        '<div class="success">' +
+        'No pending requests.' +
+        '</div>';
+
+    }
+
+}
+
+
+/* =================================================
+   MODERATOR APPROVALS
+================================================= */
+
+function approveDeposit(
+    phone,
+    requestId
+){
+
+    /*
+       DEMO LOCAL ACTION ONLY.
+
+       Production must verify the M-Pesa
+       transaction with Safaricom/backend
+       before crediting funds.
+    */
+
+    const users =
+        getUsers();
+
+
+    const user =
+        users.find(
+            item =>
+            item.phone === phone
+        );
+
+
+    if(!user){
+        return;
+    }
+
+
+    const deposit =
+        user.deposits.find(
+            item =>
+            item.id === requestId
+        );
+
+
+    if(!deposit){
+        return;
+    }
+
+
+    deposit.status =
+        "Approved";
+
+
+    user.balance +=
+        Number(deposit.amount);
+
+
+    user.history.push({
+
+        date:
+            new Date().toLocaleString(),
+
+        type:
+            "Deposit approved",
+
+        amount:
+            deposit.amount,
+
+        status:
+            "Approved"
+
+    });
+
+
+    updateUser(user);
+
+
+    renderPendingRequests();
+
+}
+
+
+function rejectDeposit(
+    phone,
+    requestId
+){
+
+    const users =
+        getUsers();
+
+
+    const user =
+        users.find(
+            item =>
+            item.phone === phone
+        );
+
+
+    if(!user){
+        return;
+    }
+
+
+    const deposit =
+        user.deposits.find(
+            item =>
+            item.id === requestId
+        );
+
+
+    if(!deposit){
+        return;
+    }
+
+
+    deposit.status =
+        "Rejected";
+
+
+    updateUser(user);
+
+
+    renderPendingRequests();
+
+}
+
+
+function approveLevel(
+    phone,
+    requestId
+){
+
+    const users =
+        getUsers();
+
+
+    const user =
+        users.find(
+            item =>
+            item.phone === phone
+        );
+
+
+    if(!user){
+        return;
+    }
+
+
+    const request =
+        user.levelRequests.find(
+            item =>
+            item.id === requestId
+        );
+
+
+    if(!request){
+        return;
+    }
+
+
+    request.status =
+        "Approved";
+
+
+    if(
+        request.level >
+        user.level
+    ){
+
+        user.level =
+            request.level;
+
+    }
+
+
+    user.history.push({
+
+        date:
+            new Date().toLocaleString(),
+
+        type:
+            "Level activation",
+
+        amount:
+            request.amount,
+
+        status:
+            "Approved"
+
+    });
+
+
+    updateUser(user);
+
+
+    renderPendingRequests();
+
+}
+
+
+function rejectLevel(
+    phone,
+    requestId
+){
+
+    const users =
+        getUsers();
+
+
+    const user =
+        users.find(
+            item =>
+            item.phone === phone
+        );
+
+
+    if(!user){
+        return;
+    }
+
+
+    const request =
+        user.levelRequests.find(
+            item =>
+            item.id === requestId
+        );
+
+
+    if(!request){
+        return;
+    }
+
+
+    request.status =
+        "Rejected";
+
+
+    updateUser(user);
+
+
+    renderPendingRequests();
+
+}
+
+
+function approveWithdrawal(
+    phone,
+    requestId
+){
+
+    const users =
+        getUsers();
+
+
+    const user =
+        users.find(
+            item =>
+            item.phone === phone
+        );
+
+
+    if(!user){
+        return;
+    }
+
+
+    const request =
+        user.withdrawals.find(
+            item =>
+            item.id === requestId
+        );
+
+
+    if(!request){
+        return;
+    }
+
+
+    if(
+        Number(request.amount) >
+        Number(user.balance)
+    ){
+
+        alert(
+            "Insufficient balance."
+        );
+
+        return;
+    }
+
+
+    /*
+       Production system should only mark
+       this approved after the actual payout
+       has been confirmed by the payment backend.
+    */
+
+    user.balance -=
+        Number(request.amount);
+
+
+    request.status =
+        "Approved";
+
+
+    user.history.push({
+
+        date:
+            new Date().toLocaleString(),
+
+        type:
+            "Withdrawal approved",
+
+        amount:
+            request.amount,
+
+        status:
+            "Approved"
+
+    });
+
+
+    updateUser(user);
+
+
+    renderPendingRequests();
+
+}
+
+
+function rejectWithdrawal(
+    phone,
+    requestId
+){
+
+    const users =
+        getUsers();
+
+
+    const user =
+        users.find(
+            item =>
+            item.phone === phone
+        );
+
+
+    if(!user){
+        return;
+    }
+
+
+    const request =
+        user.withdrawals.find(
+            item =>
+            item.id === requestId
+        );
+
+
+    if(!request){
+        return;
+    }
+
+
+    request.status =
+        "Rejected";
+
+
+    updateUser(user);
+
+
+    renderPendingRequests();
+
+}
+
+
+/* =================================================
+   UPDATE USER
+================================================= */
+
+function updateUser(user){
+
+    const users =
+        getUsers();
+
+
+    const index =
+        users.findIndex(
+            item =>
+            item.phone === user.phone
+        );
+
+
+    if(index !== -1){
+
+        users[index] =
+            user;
+
+        saveUsers(users);
+
+    }
+
+}
+
+
+/* =================================================
+   COPY / CALL
+================================================= */
+
+function copyTill(){
+
+    navigator.clipboard
+    .writeText(MPESA_TILL)
+    .then(
+        () =>
+        alert(
+            "Till number copied: " +
+            MPESA_TILL
+        )
     );
 
-});
+}
 
 
-/* ==================================================
+function callCustomerCare(){
+
+    window.location.href =
+        "tel:" + HELPLINE;
+
+}
+
+
+/* =================================================
    AUTO LOGIN
-================================================== */
+================================================= */
 
 window.onload = function(){
 
-    const user =
-        getCurrentUser();
-
-
-    if(user){
+    if(getCurrentUser()){
 
         showDashboard();
 
