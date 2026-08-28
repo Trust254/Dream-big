@@ -1,24 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Dream Big | Kenya</title>
 
-<meta name="description"
-      content="Dream Big - activities, levels and member dashboard.">
-
 <style>
-
-/* =========================================
-   RESET
-========================================= */
-
 *{
     box-sizing:border-box;
     margin:0;
@@ -29,7 +17,6 @@
 body{
     background:#f4f7f6;
     color:#222;
-    line-height:1.5;
 }
 
 button{
@@ -37,13 +24,8 @@ button{
 }
 
 .hidden{
-    display:none !important;
+    display:none!important;
 }
-
-
-/* =========================================
-   HEADER
-========================================= */
 
 header{
     background:#075e54;
@@ -80,9 +62,8 @@ header{
 }
 
 .logo small{
-    display:block;
-    opacity:.85;
     font-size:11px;
+    opacity:.85;
 }
 
 .logout-btn{
@@ -94,29 +75,14 @@ header{
     font-weight:bold;
 }
 
-
-/* =========================================
-   CONTAINER
-========================================= */
-
 .container{
     width:94%;
     max-width:1150px;
     margin:25px auto;
 }
 
-
-/* =========================================
-   HERO
-========================================= */
-
 .hero{
-    background:linear-gradient(
-        135deg,
-        #075e54,
-        #0b907e
-    );
-
+    background:linear-gradient(135deg,#075e54,#0b907e);
     color:white;
     padding:35px 25px;
     border-radius:17px;
@@ -128,15 +94,6 @@ header{
     margin-bottom:10px;
 }
 
-.hero p{
-    max-width:700px;
-}
-
-
-/* =========================================
-   CARDS
-========================================= */
-
 .card{
     background:white;
     border-radius:15px;
@@ -145,23 +102,14 @@ header{
     box-shadow:0 3px 15px rgba(0,0,0,.07);
 }
 
-
-/* =========================================
-   AUTH
-========================================= */
-
 .auth{
     max-width:470px;
     margin:35px auto;
 }
 
-.auth h2{
-    margin-bottom:7px;
-}
-
 .subtitle{
     color:#777;
-    margin-bottom:15px;
+    margin:7px 0 15px;
 }
 
 input{
@@ -189,10 +137,6 @@ input:focus{
     font-weight:bold;
 }
 
-.primary:hover{
-    background:#064b44;
-}
-
 .secondary{
     background:#eee;
     color:#333;
@@ -207,11 +151,6 @@ input:focus{
     cursor:pointer;
 }
 
-
-/* =========================================
-   CHECKBOX
-========================================= */
-
 .terms-check{
     display:flex;
     align-items:flex-start;
@@ -223,13 +162,8 @@ input:focus{
 
 .terms-check input{
     width:auto;
-    margin:3px 0 0;
+    margin-top:3px;
 }
-
-
-/* =========================================
-   STATS
-========================================= */
 
 .stats{
     display:grid;
@@ -256,11 +190,6 @@ input:focus{
     font-size:23px;
 }
 
-
-/* =========================================
-   NOTICE
-========================================= */
-
 .notice{
     background:#fff7df;
     border-left:5px solid #e0a500;
@@ -285,10 +214,13 @@ input:focus{
     margin:12px 0;
 }
 
-
-/* =========================================
-   LEVELS
-========================================= */
+.pending{
+    background:#fff7df;
+    color:#805d00;
+    padding:13px;
+    border-radius:8px;
+    margin:12px 0;
+}
 
 .level-grid{
     display:grid;
@@ -301,28 +233,23 @@ input:focus{
     border:1px solid #ddd;
     border-radius:13px;
     padding:17px;
-    transition:.2s;
-}
-
-.level:hover{
-    transform:translateY(-2px);
 }
 
 .level.active{
     border:2px solid #075e54;
 }
 
+.level.pending-level{
+    border:2px solid #e0a500;
+}
+
 .level.locked{
-    opacity:.62;
+    opacity:.6;
 }
 
 .item{
     font-size:40px;
     margin-bottom:8px;
-}
-
-.level h3{
-    margin-bottom:4px;
 }
 
 .level-name{
@@ -347,14 +274,9 @@ input:focus{
     font-weight:bold;
 }
 
-.level.locked .level-btn{
+.level-btn:disabled{
     background:#999;
 }
-
-
-/* =========================================
-   REFERRAL
-========================================= */
 
 .referral-box{
     display:flex;
@@ -373,11 +295,6 @@ input:focus{
     padding:0 17px;
 }
 
-
-/* =========================================
-   MPESA
-========================================= */
-
 .till{
     background:#f0f6f5;
     border-radius:12px;
@@ -391,7 +308,7 @@ input:focus{
 }
 
 .till-number{
-    font-size:34px;
+    font-size:36px;
     color:#075e54;
     font-weight:bold;
     margin:8px 0;
@@ -405,10 +322,24 @@ input:focus{
     padding:9px 15px;
 }
 
+.status{
+    display:inline-block;
+    padding:5px 9px;
+    border-radius:15px;
+    background:#eee;
+    font-size:12px;
+    font-weight:bold;
+}
 
-/* =========================================
-   TABLE
-========================================= */
+.status.active{
+    background:#dff6e8;
+    color:#087441;
+}
+
+.status.pending{
+    background:#fff2c9;
+    color:#805d00;
+}
 
 .table-wrapper{
     overflow-x:auto;
@@ -419,18 +350,12 @@ table{
     border-collapse:collapse;
 }
 
-th,
-td{
+th,td{
     padding:12px;
     border-bottom:1px solid #eee;
     text-align:left;
     white-space:nowrap;
 }
-
-
-/* =========================================
-   TERMS MODAL
-========================================= */
 
 .modal{
     position:fixed;
@@ -455,7 +380,7 @@ td{
 
 .modal-box h2{
     color:#075e54;
-    margin-bottom:5px;
+    margin-bottom:10px;
 }
 
 .modal-box h3{
@@ -463,26 +388,30 @@ td{
     margin-bottom:7px;
 }
 
-.modal-box p,
-.modal-box li{
+.modal-box p{
     color:#555;
     font-size:14px;
     margin-bottom:8px;
 }
 
-.modal-box ul{
-    padding-left:20px;
-}
-
 .modal-close{
-    width:100%;
     margin-top:15px;
 }
 
+.support{
+    background:#075e54;
+    color:white;
+    text-align:center;
+    padding:18px;
+    border-radius:12px;
+}
 
-/* =========================================
-   FOOTER
-========================================= */
+.support a{
+    color:white;
+    font-size:21px;
+    font-weight:bold;
+    text-decoration:none;
+}
 
 footer{
     text-align:center;
@@ -496,13 +425,7 @@ footer a{
     font-weight:bold;
 }
 
-
-/* =========================================
-   MOBILE
-========================================= */
-
 @media(max-width:850px){
-
     .stats{
         grid-template-columns:repeat(2,1fr);
     }
@@ -510,15 +433,9 @@ footer a{
     .level-grid{
         grid-template-columns:repeat(2,1fr);
     }
-
 }
 
 @media(max-width:520px){
-
-    .stats{
-        grid-template-columns:1fr 1fr;
-    }
-
     .level-grid{
         grid-template-columns:1fr;
     }
@@ -534,43 +451,24 @@ footer a{
     .referral-box button{
         padding:12px;
     }
-
 }
-
 </style>
-
 </head>
 
-
 <body>
-
-
-<!-- =========================================
-     HEADER
-========================================= -->
 
 <header>
 
     <div class="logo">
 
-        <div class="logo-icon">
-            ★
-        </div>
+        <div class="logo-icon">★</div>
 
         <div>
-
-            <h1>
-                Dream Big
-            </h1>
-
-            <small>
-                Kenya
-            </small>
-
+            <h1>Dream Big</h1>
+            <small>Kenya</small>
         </div>
 
     </div>
-
 
     <button
         id="logoutBtn"
@@ -584,26 +482,17 @@ footer a{
 </header>
 
 
+<!-- AUTH -->
 
-<!-- =========================================
-     AUTH SECTION
-========================================= -->
-
-<section
-    id="authSection"
-    class="container">
-
+<section id="authSection" class="container">
 
     <div class="hero">
 
-        <h2>
-            Dream Big
-        </h2>
+        <h2>Dream Big</h2>
 
         <p>
-            Welcome to Dream Big. Create your account,
-            access available activities and progress
-            through the platform's levels.
+            Dream Big. Build Bigger.
+            Welcome to the Dream Big member platform.
         </p>
 
     </div>
@@ -611,49 +500,38 @@ footer a{
 
     <div class="card auth">
 
-
-        <!-- REGISTER -->
-
         <div id="registerBox">
 
-            <h2>
-                Create Account
-            </h2>
+            <h2>Create Account</h2>
 
             <p class="subtitle">
                 Register once using your details.
             </p>
-
 
             <input
                 id="regName"
                 type="text"
                 placeholder="Full name">
 
-
             <input
                 id="regPhone"
                 type="tel"
                 placeholder="Phone number">
-
 
             <input
                 id="regEmail"
                 type="email"
                 placeholder="Email address">
 
-
             <input
                 id="regPassword"
                 type="password"
                 placeholder="Password">
 
-
             <input
                 id="refCode"
                 type="text"
                 placeholder="Referral code (optional)">
-
 
             <label class="terms-check">
 
@@ -664,10 +542,13 @@ footer a{
                 <span>
 
                     I agree to the
+
                     <span
                         class="link"
                         onclick="openTerms()">
+
                         Terms & Conditions
+
                     </span>
 
                     and
@@ -675,13 +556,14 @@ footer a{
                     <span
                         class="link"
                         onclick="openPrivacy()">
+
                         Privacy Policy
+
                     </span>.
 
                 </span>
 
             </label>
-
 
             <button
                 class="primary"
@@ -691,9 +573,7 @@ footer a{
 
             </button>
 
-
-            <p
-                style="text-align:center;margin-top:15px;">
+            <p style="text-align:center;margin-top:15px;">
 
                 Already registered?
 
@@ -710,33 +590,23 @@ footer a{
         </div>
 
 
+        <div id="loginBox" class="hidden">
 
-        <!-- LOGIN -->
-
-        <div
-            id="loginBox"
-            class="hidden">
-
-            <h2>
-                Login
-            </h2>
+            <h2>Login</h2>
 
             <p class="subtitle">
                 Login to your Dream Big account.
             </p>
-
 
             <input
                 id="loginPhone"
                 type="tel"
                 placeholder="Phone number">
 
-
             <input
                 id="loginPassword"
                 type="password"
                 placeholder="Password">
-
 
             <button
                 class="primary"
@@ -746,9 +616,7 @@ footer a{
 
             </button>
 
-
-            <p
-                style="text-align:center;margin-top:15px;">
+            <p style="text-align:center;margin-top:15px;">
 
                 New member?
 
@@ -764,7 +632,6 @@ footer a{
 
         </div>
 
-
         <div id="authMessage"></div>
 
     </div>
@@ -772,23 +639,15 @@ footer a{
 </section>
 
 
+<!-- DASHBOARD -->
 
-<!-- =========================================
-     DASHBOARD
-========================================= -->
-
-<section
-    id="dashboard"
-    class="container hidden">
-
+<section id="dashboard" class="container hidden">
 
     <div class="hero">
 
         <h2>
-
             Welcome,
             <span id="userName"></span> 👋
-
         </h2>
 
         <p>
@@ -798,67 +657,48 @@ footer a{
     </div>
 
 
-
     <div class="notice">
 
         <strong>Important:</strong>
 
-        Activity rewards are subject to
-        eligibility, available funding and
-        verification. Unlocking a level does
-        not guarantee profits or investment
-        returns.
+        Deposits and level payments require
+        verification. Rewards and activities
+        are subject to eligibility and platform
+        rules. Rewards are not guaranteed
+        investment returns.
 
     </div>
-
 
 
     <!-- STATS -->
 
     <div class="stats">
 
-
         <div class="stat">
 
-            <h4>
-                Available Balance
-            </h4>
+            <h4>Available Balance</h4>
 
             <strong>
-
                 KSh
-                <span id="balance">
-                    0
-                </span>
-
+                <span id="balance">0</span>
             </strong>
 
         </div>
 
-
         <div class="stat">
 
-            <h4>
-                Current Level
-            </h4>
+            <h4>Current Level</h4>
 
             <strong>
-
                 Level
-                <span id="currentLevel">
-                    1
-                </span>
-
+                <span id="currentLevel">1</span>
             </strong>
 
         </div>
 
-
         <div class="stat">
 
-            <h4>
-                Referrals
-            </h4>
+            <h4>Referrals</h4>
 
             <strong id="referrals">
                 0
@@ -866,15 +706,12 @@ footer a{
 
         </div>
 
-
         <div class="stat">
 
-            <h4>
-                Activities
-            </h4>
+            <h4>Today's Activities</h4>
 
-            <strong id="tasksCompleted">
-                0
+            <strong>
+                <span id="tasksCompletedToday">0</span>/10
             </strong>
 
         </div>
@@ -882,68 +719,71 @@ footer a{
     </div>
 
 
+    <!-- DEPOSIT -->
+
+    <div class="card">
+
+        <h2>💰 Deposit</h2>
+
+        <p style="color:#777;margin:8px 0 15px;">
+
+            Deposit through M-Pesa using
+            the official Till Number below.
+
+        </p>
+
+        <button
+            class="primary"
+            onclick="openDeposit()">
+
+            💰 Deposit via M-Pesa
+
+        </button>
+
+    </div>
+
 
     <!-- ACCOUNT -->
 
     <div class="card">
 
-        <h2>
-            My Account
-        </h2>
-
+        <h2>My Account</h2>
 
         <p style="margin-top:12px;">
-
             <b>Name:</b>
-
             <span id="profileName"></span>
-
         </p>
 
-
         <p style="margin-top:8px;">
-
             <b>Phone:</b>
-
             <span id="profilePhone"></span>
-
         </p>
 
-
         <p style="margin-top:8px;">
-
             <b>Email:</b>
-
             <span id="profileEmail"></span>
-
         </p>
 
     </div>
-
 
 
     <!-- REFERRAL -->
 
     <div class="card">
 
-        <h2>
-            Invite Friends
-        </h2>
+        <h2>🤝 Invite Friends</h2>
 
-        <p
-            style="color:#777;margin:8px 0 15px;">
+        <p style="color:#777;margin:8px 0 15px;">
 
-            Your referral code:
+            Share your referral code with friends.
 
         </p>
-
 
         <div class="referral-box">
 
             <input
                 id="myReferralCode"
                 readonly>
-
 
             <button
                 onclick="copyReferral()">
@@ -957,121 +797,103 @@ footer a{
     </div>
 
 
-
     <!-- LEVELS -->
 
     <div class="card">
 
-        <h2>
-            Dream Big Levels
-        </h2>
+        <h2>🏆 Dream Big Levels</h2>
 
         <p
             style="color:#777;margin:8px 0 18px;">
 
-            Start with Level 1 or unlock the
-            next available level.
+            Level 1 is available to new members.
+            Higher levels require payment and
+            verification before activation.
 
         </p>
-
 
         <div
             id="levels"
             class="level-grid">
-
         </div>
 
     </div>
 
 
-
-    <!-- EARNING -->
+    <!-- ACTIVITIES -->
 
     <div
         id="taskSection"
         class="card hidden">
 
         <h2 id="taskTitle">
-            Level 1 Activities
+            Today's Activities
         </h2>
-
 
         <p
             id="taskDescription"
             style="color:#777;margin:10px 0;">
-
         </p>
-
 
         <div class="success">
 
-            Today's activities:
+            Today's progress:
 
             <b>
-                <span id="taskCount">
-                    0
-                </span>
-                /10
+                <span id="taskCount">0</span>/10
             </b>
 
         </div>
-
 
         <button
             class="primary"
             onclick="completeTask()">
 
-            ▶ Complete Activity
+            ▶ Start Activity
 
         </button>
+
+        <p
+            style="font-size:12px;color:#777;margin-top:10px;">
+
+            Activities and rewards are subject
+            to the applicable Dream Big rules.
+
+        </p>
 
     </div>
 
 
-
-    <!-- PAYMENT -->
+    <!-- DEPOSIT -->
 
     <div
         id="paymentSection"
         class="card hidden">
 
-        <h2>
-            Unlock Next Level
-        </h2>
+        <h2>💰 Deposit via M-Pesa</h2>
 
+        <p style="color:#777;margin-top:8px;">
 
-        <p style="margin-top:10px;">
-
-            Required amount:
-
-            <strong>
-
-                KSh
-                <span id="paymentAmount">
-                    0
-                </span>
-
-            </strong>
+            Enter the amount you are depositing.
 
         </p>
 
+        <input
+            id="depositAmount"
+            type="number"
+            min="1"
+            placeholder="Amount in KSh">
 
 
         <div class="till">
 
             <div class="till-title">
-
-                Pay using M-Pesa Till Number
-
+                M-Pesa Till Number
             </div>
-
 
             <div class="till-number">
-
                 555122
-
             </div>
-
 
             <button
                 class="copy-btn"
@@ -1084,18 +906,6 @@ footer a{
         </div>
 
 
-
-        <p
-            style="color:#555;">
-
-            After making your payment, enter
-            the M-Pesa transaction code below.
-            Your payment will remain pending
-            until it is verified.
-
-        </p>
-
-
         <input
             id="mpesaCode"
             type="text"
@@ -1104,34 +914,102 @@ footer a{
 
         <button
             class="primary"
-            onclick="submitPayment()">
+            onclick="submitDeposit()">
 
-            Submit Payment Code
+            Submit Deposit
+
+        </button>
+
+        <div id="paymentMessage"></div>
+
+    </div>
+
+
+    <!-- LEVEL UNLOCK -->
+
+    <div
+        id="unlockSection"
+        class="card hidden">
+
+        <h2>🔓 Unlock Next Level</h2>
+
+        <p style="margin:10px 0;">
+
+            Level:
+            <strong id="unlockLevel"></strong>
+
+        </p>
+
+        <p>
+
+            Required payment:
+
+            <strong>
+                KSh
+                <span id="unlockAmount">0</span>
+            </strong>
+
+        </p>
+
+
+        <div class="till">
+
+            <div class="till-title">
+                M-Pesa Till Number
+            </div>
+
+            <div class="till-number">
+                555122
+            </div>
+
+            <button
+                class="copy-btn"
+                onclick="copyTill()">
+
+                Copy Till Number
+
+            </button>
+
+        </div>
+
+
+        <p style="color:#555;">
+
+            After making the payment,
+            enter the M-Pesa transaction code.
+            Your request will remain pending
+            until verified.
+
+        </p>
+
+
+        <input
+            id="unlockCode"
+            type="text"
+            placeholder="M-Pesa transaction code">
+
+
+        <button
+            class="primary"
+            onclick="submitUnlock()">
+
+            Submit Level Payment
 
         </button>
 
 
-        <div
-            id="paymentMessage">
-        </div>
+        <div id="unlockMessage"></div>
 
     </div>
-
 
 
     <!-- WITHDRAW -->
 
     <div class="card">
 
-        <h2>
-            Withdraw
-        </h2>
+        <h2>💸 Withdraw</h2>
 
-
-        <div
-            id="withdrawMessage">
-        </div>
-
+        <div id="withdrawMessage"></div>
 
         <input
             id="withdrawAmount"
@@ -1139,12 +1017,10 @@ footer a{
             min="1"
             placeholder="Amount">
 
-
         <input
             id="withdrawPhone"
             type="tel"
             placeholder="M-Pesa phone number">
-
 
         <button
             class="primary"
@@ -1154,28 +1030,47 @@ footer a{
 
         </button>
 
-
         <p
             style="font-size:13px;color:#777;margin-top:10px;">
 
             Weekend withdrawals are unavailable.
-            Requests can be submitted Monday
-            to Friday.
+            Requests can be submitted Monday to Friday.
 
         </p>
 
     </div>
 
 
+    <!-- SUPPORT -->
+
+    <div class="card">
+
+        <div class="support">
+
+            <h2>📞 Dream Big Support</h2>
+
+            <p style="margin:8px 0 12px;">
+
+                Need help? Contact our helpline.
+
+            </p>
+
+            <a href="tel:0719222390">
+
+                0719222390
+
+            </a>
+
+        </div>
+
+    </div>
+
 
     <!-- HISTORY -->
 
     <div class="card">
 
-        <h2>
-            Transaction History
-        </h2>
-
+        <h2>📋 Transaction History</h2>
 
         <div
             class="table-wrapper"
@@ -1186,32 +1081,15 @@ footer a{
                 <thead>
 
                     <tr>
-
-                        <th>
-                            Date
-                        </th>
-
-                        <th>
-                            Type
-                        </th>
-
-                        <th>
-                            Amount
-                        </th>
-
-                        <th>
-                            Status
-                        </th>
-
+                        <th>Date</th>
+                        <th>Type</th>
+                        <th>Amount</th>
+                        <th>Status</th>
                     </tr>
 
                 </thead>
 
-
-                <tbody
-                    id="history">
-
-                </tbody>
+                <tbody id="history"></tbody>
 
             </table>
 
@@ -1222,26 +1100,21 @@ footer a{
 </section>
 
 
-
-<!-- =========================================
-     FOOTER
-========================================= -->
-
 <footer>
 
     <p>
-        © 2026 Dream Big
+        © 2026 Dream Big Kenya
     </p>
 
     <p style="margin-top:7px;">
-
         Published:
-        <strong>
-            28 August 2026
-        </strong>
-
+        <strong>28 August 2026</strong>
     </p>
 
+    <p style="margin-top:7px;">
+        Helpline:
+        <strong>0719222390</strong>
+    </p>
 
     <p style="margin-top:10px;">
 
@@ -1260,10 +1133,7 @@ footer a{
 </footer>
 
 
-
-<!-- =========================================
-     TERMS MODAL
-========================================= -->
+<!-- TERMS MODAL -->
 
 <div
     id="termsModal"
@@ -1277,111 +1147,66 @@ footer a{
 
         <p>
             <strong>
-                Published date: 28 August 2026
+                Published: 28 August 2026
             </strong>
         </p>
 
-
-        <h3>
-            1. Acceptance
-        </h3>
-
-        <p>
-            By creating an account or using Dream Big,
-            you agree to these Terms & Conditions.
-        </p>
-
-
-        <h3>
-            2. Account Registration
-        </h3>
+        <h3>1. Account Registration</h3>
 
         <p>
             Members must provide accurate information.
             Each phone number and email address may
-            only be used for one account.
+            only be registered once.
         </p>
 
-
-        <h3>
-            3. Activities
-        </h3>
+        <h3>2. Payments</h3>
 
         <p>
-            Activities displayed on the platform are
-            subject to eligibility and availability.
-            Rewards shown on the platform are not
+            Payments submitted for level access or
+            other services require verification.
+            Entering a transaction code does not
+            itself prove that payment was made.
+        </p>
+
+        <h3>3. Activities</h3>
+
+        <p>
+            Activities are provided according to the
+            level available to the member.
+        </p>
+
+        <h3>4. Rewards</h3>
+
+        <p>
+            Any promotional or activity rewards are
+            subject to eligibility, verification and
+            applicable platform rules and are not
             guaranteed investment returns.
         </p>
 
-
-        <h3>
-            4. Level Payments
-        </h3>
+        <h3>5. Withdrawals</h3>
 
         <p>
-            Where a level requires a payment, the
-            payment must be made through the displayed
-            official payment channel. Users must submit
-            the correct transaction code.
+            Withdrawal requests are subject to
+            verification and processing requirements.
+            Weekend withdrawals may be unavailable.
         </p>
 
-
-        <h3>
-            5. Payment Verification
-        </h3>
+        <h3>6. Prohibited Activity</h3>
 
         <p>
-            A submitted M-Pesa transaction code does
-            not automatically confirm a payment.
-            Payments may require verification before
-            a level is activated.
+            Users must not attempt to manipulate
+            balances, payments, accounts or the
+            operation of the website.
         </p>
 
-
-        <h3>
-            6. Withdrawals
-        </h3>
+        <h3>7. Changes</h3>
 
         <p>
-            Withdrawal requests are subject to the
-            platform's verification and processing
-            procedures. Weekend withdrawal requests
-            may be unavailable.
-        </p>
-
-
-        <h3>
-            7. Prohibited Activity
-        </h3>
-
-        <p>
-            Users must not attempt to manipulate,
-            hack, abuse or interfere with the platform,
-            accounts, balances or payment records.
-        </p>
-
-
-        <h3>
-            8. Changes
-        </h3>
-
-        <p>
-            Dream Big may update these Terms when
+            Dream Big may update these terms when
             necessary. Updated terms should be
-            published on the platform.
+            displayed on the website.
         </p>
-
-
-        <h3>
-            9. Contact
-        </h3>
-
-        <p>
-            For support, users should use the official
-            contact details provided by Dream Big.
-        </p>
-
 
         <button
             class="primary modal-close"
@@ -1396,10 +1221,7 @@ footer a{
 </div>
 
 
-
-<!-- =========================================
-     PRIVACY MODAL
-========================================= -->
+<!-- PRIVACY MODAL -->
 
 <div
     id="privacyModal"
@@ -1413,67 +1235,39 @@ footer a{
 
         <p>
             <strong>
-                Published date: 28 August 2026
+                Published: 28 August 2026
             </strong>
         </p>
 
-
-        <h3>
-            Information We Collect
-        </h3>
+        <h3>Information Collected</h3>
 
         <p>
-            The registration system may collect
-            information such as your name, phone
-            number, email address and account
-            information.
+            Dream Big may collect name, phone number,
+            email address and account information.
         </p>
 
-
-        <h3>
-            How Information Is Used
-        </h3>
+        <h3>Use of Information</h3>
 
         <p>
             Information may be used to manage accounts,
-            provide platform services, process requests
-            and communicate with members.
+            verify transactions, process requests and
+            communicate with members.
         </p>
 
-
-        <h3>
-            Payment Information
-        </h3>
+        <h3>Payment Information</h3>
 
         <p>
-            M-Pesa transaction codes submitted for
-            verification may be recorded for payment
-            review.
+            M-Pesa transaction codes submitted through
+            the platform may be recorded for verification.
         </p>
 
-
-        <h3>
-            Security
-        </h3>
+        <h3>Security</h3>
 
         <p>
-            Reasonable measures should be used to
-            protect member information. A production
-            version should use secure server-side
-            authentication and database security.
+            The production version should use secure
+            server-side authentication and a protected
+            database.
         </p>
-
-
-        <h3>
-            Updates
-        </h3>
-
-        <p>
-            This Privacy Policy may be updated when
-            necessary. The latest published version
-            should be displayed on the website.
-        </p>
-
 
         <button
             class="primary modal-close"
@@ -1488,12 +1282,19 @@ footer a{
 </div>
 
 
-
 <script>
 
-/* =========================================
-   LEVEL INFORMATION
-========================================= */
+/* ==========================================
+   DREAM BIG CONFIGURATION
+========================================== */
+
+const MPESA_TILL = "555122";
+const HELPLINE = "0719222390";
+
+
+/* ==========================================
+   LEVELS
+========================================== */
 
 const LEVELS = [
 
@@ -1524,7 +1325,7 @@ const LEVELS = [
         unlock:1000,
         reward:20,
         description:
-        "Audio and promotional activities."
+        "Audio promotional activities."
     },
 
     {
@@ -1580,9 +1381,9 @@ const LEVELS = [
 ];
 
 
-/* =========================================
-   LOCAL STORAGE
-========================================= */
+/* ==========================================
+   USERS
+========================================== */
 
 function getUsers(){
 
@@ -1591,7 +1392,6 @@ function getUsers(){
     );
 
 }
-
 
 function saveUsers(users){
 
@@ -1602,7 +1402,6 @@ function saveUsers(users){
 
 }
 
-
 function getCurrentUser(){
 
     const phone =
@@ -1610,13 +1409,9 @@ function getCurrentUser(){
             "dreamBigCurrentUser"
         );
 
-
     if(!phone){
-
         return null;
-
     }
-
 
     return getUsers().find(
         user =>
@@ -1626,9 +1421,9 @@ function getCurrentUser(){
 }
 
 
-/* =========================================
-   AUTH SCREENS
-========================================= */
+/* ==========================================
+   AUTH
+========================================== */
 
 function showLogin(){
 
@@ -1636,18 +1431,15 @@ function showLogin(){
     .getElementById("registerBox")
     .classList.add("hidden");
 
-
     document
     .getElementById("loginBox")
     .classList.remove("hidden");
-
 
     document
     .getElementById("authMessage")
     .innerHTML = "";
 
 }
-
 
 function showRegister(){
 
@@ -1655,11 +1447,9 @@ function showRegister(){
     .getElementById("loginBox")
     .classList.add("hidden");
 
-
     document
     .getElementById("registerBox")
     .classList.remove("hidden");
-
 
     document
     .getElementById("authMessage")
@@ -1668,52 +1458,39 @@ function showRegister(){
 }
 
 
-/* =========================================
+/* ==========================================
    REGISTER
-========================================= */
+========================================== */
 
 function register(){
 
     const name =
-        document
-        .getElementById("regName")
+        document.getElementById("regName")
         .value.trim();
-
 
     const phone =
-        document
-        .getElementById("regPhone")
+        document.getElementById("regPhone")
         .value.trim();
 
-
     const email =
-        document
-        .getElementById("regEmail")
+        document.getElementById("regEmail")
         .value.trim()
         .toLowerCase();
 
-
     const password =
-        document
-        .getElementById("regPassword")
+        document.getElementById("regPassword")
         .value;
 
-
     const referral =
-        document
-        .getElementById("refCode")
+        document.getElementById("refCode")
         .value.trim();
 
-
     const terms =
-        document
-        .getElementById("agreeTerms")
+        document.getElementById("agreeTerms")
         .checked;
 
-
     const message =
-        document
-        .getElementById("authMessage");
+        document.getElementById("authMessage");
 
 
     if(
@@ -1724,37 +1501,27 @@ function register(){
     ){
 
         message.innerHTML =
-
         '<div class="error">' +
         'Please complete all required fields.' +
         '</div>';
 
         return;
-
     }
 
 
     if(!terms){
 
         message.innerHTML =
-
         '<div class="error">' +
-
-        'You must agree to the Terms & Conditions ' +
-        'and Privacy Policy before registering.' +
-
+        'Please agree to the Terms & Conditions and Privacy Policy.' +
         '</div>';
 
         return;
-
     }
 
 
-    const users =
-        getUsers();
+    const users = getUsers();
 
-
-    /* Prevent duplicate phone/email */
 
     const existing =
         users.find(
@@ -1767,24 +1534,15 @@ function register(){
     if(existing){
 
         message.innerHTML =
-
         '<div class="error">' +
-
-        'These details are already registered. ' +
-
-        'Please login instead.' +
-
+        'These details are already registered. Please login instead.' +
         '</div>';
 
         return;
-
     }
 
 
-    /* Find referral */
-
     let referrer = null;
-
 
     if(referral){
 
@@ -1797,12 +1555,8 @@ function register(){
     }
 
 
-    /* Generate referral code */
-
     const referralCode =
-
         "DB" +
-
         Math.random()
         .toString(36)
         .substring(2,8)
@@ -1812,11 +1566,8 @@ function register(){
     const user = {
 
         name:name,
-
         phone:phone,
-
         email:email,
-
         password:password,
 
         balance:0,
@@ -1829,6 +1580,9 @@ function register(){
 
         taskProgress:0,
 
+        taskDate:
+            new Date().toDateString(),
+
         referralCode:referralCode,
 
         referredBy:
@@ -1838,21 +1592,22 @@ function register(){
 
         history:[],
 
-        payments:[],
+        deposits:[],
+
+        unlockPayments:[],
+
+        pendingLevel:null,
 
         agreedTerms:true,
 
         termsDate:
-            new Date()
-            .toLocaleString()
+            new Date().toLocaleString()
 
     };
 
 
     users.push(user);
 
-
-    /* Increase referral count */
 
     if(referrer){
 
@@ -1875,9 +1630,9 @@ function register(){
 }
 
 
-/* =========================================
+/* ==========================================
    LOGIN
-========================================= */
+========================================== */
 
 function login(){
 
@@ -1885,7 +1640,6 @@ function login(){
         document
         .getElementById("loginPhone")
         .value.trim();
-
 
     const password =
         document
@@ -1906,15 +1660,11 @@ function login(){
         document
         .getElementById("authMessage")
         .innerHTML =
-
         '<div class="error">' +
-
         'Incorrect phone number or password.' +
-
         '</div>';
 
         return;
-
     }
 
 
@@ -1929,9 +1679,9 @@ function login(){
 }
 
 
-/* =========================================
+/* ==========================================
    LOGOUT
-========================================= */
+========================================== */
 
 function logout(){
 
@@ -1939,53 +1689,82 @@ function logout(){
         "dreamBigCurrentUser"
     );
 
-
     document
     .getElementById("dashboard")
     .classList.add("hidden");
-
 
     document
     .getElementById("authSection")
     .classList.remove("hidden");
 
-
     document
     .getElementById("logoutBtn")
     .classList.add("hidden");
-
 
     showLogin();
 
 }
 
 
-/* =========================================
+/* ==========================================
+   DAILY RESET
+========================================== */
+
+function resetDailyTasks(user){
+
+    const today =
+        new Date().toDateString();
+
+
+    if(user.taskDate !== today){
+
+        user.taskDate = today;
+        user.taskProgress = 0;
+
+        const users = getUsers();
+
+        const index =
+            users.findIndex(
+                u =>
+                u.phone === user.phone
+            );
+
+        if(index !== -1){
+
+            users[index] = user;
+
+            saveUsers(users);
+
+        }
+
+    }
+
+}
+
+
+/* ==========================================
    DASHBOARD
-========================================= */
+========================================== */
 
 function showDashboard(){
 
-    const user =
-        getCurrentUser();
-
+    const user = getCurrentUser();
 
     if(!user){
-
         return;
-
     }
+
+
+    resetDailyTasks(user);
 
 
     document
     .getElementById("authSection")
     .classList.add("hidden");
 
-
     document
     .getElementById("dashboard")
     .classList.remove("hidden");
-
 
     document
     .getElementById("logoutBtn")
@@ -1995,113 +1774,78 @@ function showDashboard(){
     document
     .getElementById("userName")
     .textContent =
-        user.name;
-
+    user.name;
 
     document
     .getElementById("profileName")
     .textContent =
-        user.name;
-
+    user.name;
 
     document
     .getElementById("profilePhone")
     .textContent =
-        user.phone;
-
+    user.phone;
 
     document
     .getElementById("profileEmail")
     .textContent =
-        user.email;
-
+    user.email;
 
     document
     .getElementById("balance")
     .textContent =
-        Number(user.balance)
-        .toLocaleString();
-
+    Number(user.balance)
+    .toLocaleString();
 
     document
     .getElementById("currentLevel")
     .textContent =
-        user.level;
-
+    user.level;
 
     document
     .getElementById("referrals")
     .textContent =
-        user.referrals;
-
+    user.referrals;
 
     document
-    .getElementById("tasksCompleted")
+    .getElementById("tasksCompletedToday")
     .textContent =
-        user.tasksCompleted;
-
+    user.taskProgress;
 
     document
     .getElementById("myReferralCode")
     .value =
-        user.referralCode;
+    user.referralCode;
 
 
     renderLevels();
-
     renderHistory();
 
 }
 
 
-/* =========================================
-   LEVEL DISPLAY
-========================================= */
+/* ==========================================
+   LEVELS
+========================================== */
 
 function renderLevels(){
 
-    const user =
-        getCurrentUser();
-
+    const user = getCurrentUser();
 
     const container =
-        document
-        .getElementById("levels");
-
+        document.getElementById("levels");
 
     container.innerHTML = "";
 
 
     LEVELS.forEach(level => {
 
-
-        const unlocked =
+        const active =
             level.level <= user.level;
 
 
-        let buttonText;
-
-
-        if(unlocked){
-
-            buttonText =
-                "▶ Start Earning";
-
-        }
-        else if(
-            level.level === user.level + 1
-        ){
-
-            buttonText =
-                "🔒 Unlock Level";
-
-        }
-        else{
-
-            buttonText =
-                "🔒 Locked";
-
-        }
+        const pending =
+            user.pendingLevel === level.level;
 
 
         const div =
@@ -2109,14 +1853,81 @@ function renderLevels(){
 
 
         div.className =
-
             "level " +
-
             (
-                unlocked
+                active
                 ? "active"
+                : pending
+                ? "pending-level"
                 : "locked"
             );
+
+
+        let button = "";
+
+
+        if(active){
+
+            button = `
+
+                <button
+                    class="level-btn"
+                    onclick="openTasks(${level.level})">
+
+                    ▶ Start Today's Activities
+
+                </button>
+
+            `;
+
+        }
+        else if(pending){
+
+            button = `
+
+                <button
+                    class="level-btn"
+                    disabled>
+
+                    ⏳ Payment Pending Verification
+
+                </button>
+
+            `;
+
+        }
+        else if(
+            level.level === user.level + 1
+        ){
+
+            button = `
+
+                <button
+                    class="level-btn"
+                    onclick="levelAction(${level.level})">
+
+                    🔓 Pay & Request Activation
+
+                </button>
+
+            `;
+
+        }
+        else{
+
+            button = `
+
+                <button
+                    class="level-btn"
+                    disabled>
+
+                    🔒 Locked
+
+                </button>
+
+            `;
+
+        }
 
 
         div.innerHTML = `
@@ -2138,7 +1949,7 @@ function renderLevels(){
             </p>
 
             <p>
-                Unlock:
+                Activation amount:
                 <b>
                     KSh
                     ${level.unlock.toLocaleString()}
@@ -2152,13 +1963,26 @@ function renderLevels(){
                 </b>
             </p>
 
-            <button
-                class="level-btn"
-                onclick="levelAction(${level.level})">
+            <p>
 
-                ${buttonText}
+                Status:
 
-            </button>
+                <span class="status
+                    ${active ? "active" : pending ? "pending" : ""}">
+
+                    ${
+                        active
+                        ? "ACTIVE"
+                        : pending
+                        ? "PENDING"
+                        : "LOCKED"
+                    }
+
+                </span>
+
+            </p>
+
+            ${button}
 
         `;
 
@@ -2170,85 +1994,22 @@ function renderLevels(){
 }
 
 
-/* =========================================
+/* ==========================================
    LEVEL ACTION
-========================================= */
+========================================== */
 
 function levelAction(levelNumber){
 
-    const user =
-        getCurrentUser();
+    const user = getCurrentUser();
 
-
-    /* Level already unlocked */
-
-    if(
-        levelNumber <= user.level
-    ){
-
-        openTasks(levelNumber);
-
-        return;
-
-    }
-
-
-    /* Only next level can be unlocked */
 
     if(
         levelNumber !==
         user.level + 1
     ){
 
-        alert(
-            "Please unlock the previous level first."
-        );
-
         return;
-
     }
-
-
-    const level =
-        LEVELS.find(
-            item =>
-            item.level === levelNumber
-        );
-
-
-    document
-    .getElementById("paymentSection")
-    .classList.remove("hidden");
-
-
-    document
-    .getElementById("paymentAmount")
-    .textContent =
-        level.unlock.toLocaleString();
-
-
-    document
-    .getElementById("paymentMessage")
-    .innerHTML = "";
-
-
-    document
-    .getElementById("paymentSection")
-    .scrollIntoView({
-        behavior:"smooth"
-    });
-
-}
-
-
-/* =========================================
-   OPEN EARNING
-========================================= */
-
-function openTasks(levelNumber){
-
-    const user =
-        getCurrentUser();
 
 
     const level =
@@ -2259,10 +2020,68 @@ function openTasks(levelNumber){
 
 
     if(!level){
+        return;
+    }
+
+
+    document
+    .getElementById("unlockSection")
+    .classList.remove("hidden");
+
+
+    document
+    .getElementById("unlockLevel")
+    .textContent =
+        "Level " +
+        level.level +
+        " — " +
+        level.name;
+
+
+    document
+    .getElementById("unlockAmount")
+    .textContent =
+        level.unlock.toLocaleString();
+
+
+    document
+    .getElementById("unlockMessage")
+    .innerHTML = "";
+
+
+    document
+    .getElementById("unlockSection")
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+/* ==========================================
+   ACTIVITIES
+========================================== */
+
+function openTasks(levelNumber){
+
+    const user = getCurrentUser();
+
+
+    if(levelNumber > user.level){
+
+        alert(
+            "This level is not active yet."
+        );
 
         return;
-
     }
+
+
+    const level =
+        LEVELS.find(
+            item =>
+            item.level === levelNumber
+        );
 
 
     document
@@ -2273,19 +2092,16 @@ function openTasks(levelNumber){
     document
     .getElementById("taskTitle")
     .textContent =
-
         "Level " +
         level.level +
-        " - " +
+        " — " +
         level.name;
 
 
     document
     .getElementById("taskDescription")
     .textContent =
-
-        level.description +
-        " Complete up to 10 eligible activities.";
+        level.description;
 
 
     document
@@ -2303,15 +2119,13 @@ function openTasks(levelNumber){
 }
 
 
-/* =========================================
+/* ==========================================
    COMPLETE ACTIVITY
-========================================= */
+========================================== */
 
 function completeTask(){
 
-    const users =
-        getUsers();
-
+    const users = getUsers();
 
     const phone =
         localStorage.getItem(
@@ -2327,22 +2141,20 @@ function completeTask(){
 
 
     if(!user){
-
         return;
-
     }
 
 
-    if(
-        user.taskProgress >= 10
-    ){
+    resetDailyTasks(user);
+
+
+    if(user.taskProgress >= 10){
 
         alert(
             "You have completed today's 10 activities."
         );
 
         return;
-
     }
 
 
@@ -2354,9 +2166,7 @@ function completeTask(){
 
 
     if(!level){
-
         return;
-
     }
 
 
@@ -2366,11 +2176,10 @@ function completeTask(){
 
 
     /*
-       Preview activity reward.
-
-       A production platform should only
-       credit rewards after a genuine,
-       server-verified activity.
+       Activity reward shown here is for the
+       website prototype only. In a real system,
+       reward eligibility should be determined
+       securely by the backend.
     */
 
     user.balance += level.reward;
@@ -2379,8 +2188,7 @@ function completeTask(){
     user.history.push({
 
         date:
-            new Date()
-            .toLocaleString(),
+            new Date().toLocaleString(),
 
         type:
             "Activity reward",
@@ -2399,33 +2207,58 @@ function completeTask(){
 
     showDashboard();
 
-
-    openTasks(
-        user.level
-    );
+    openTasks(user.level);
 
 }
 
 
-/* =========================================
+/* ==========================================
+   DEPOSIT
+========================================== */
+
+function openDeposit(){
+
+    document
+    .getElementById("paymentSection")
+    .classList.remove("hidden");
+
+
+    document
+    .getElementById("paymentMessage")
+    .innerHTML = "";
+
+
+    document
+    .getElementById("paymentSection")
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+/* ==========================================
    COPY TILL
-========================================= */
+========================================== */
 
 function copyTill(){
 
     navigator.clipboard
-    .writeText("555122")
+    .writeText(MPESA_TILL)
     .then(() => {
 
         alert(
-            "Till number 555122 copied."
+            "Till number " +
+            MPESA_TILL +
+            " copied."
         );
 
     })
     .catch(() => {
 
         alert(
-            "Till number: 555122"
+            "M-Pesa Till Number: " +
+            MPESA_TILL
         );
 
     });
@@ -2433,11 +2266,19 @@ function copyTill(){
 }
 
 
-/* =========================================
-   SUBMIT MPESA CODE
-========================================= */
+/* ==========================================
+   SUBMIT DEPOSIT
+========================================== */
 
-function submitPayment(){
+function submitDeposit(){
+
+    const amount =
+        Number(
+            document
+            .getElementById("depositAmount")
+            .value
+        );
+
 
     const code =
         document
@@ -2450,106 +2291,91 @@ function submitPayment(){
         .getElementById("paymentMessage");
 
 
-    if(!code){
+    if(
+        !amount ||
+        amount <= 0
+    ){
 
         message.innerHTML =
-
         '<div class="error">' +
-
-        'Please enter the M-Pesa transaction code.' +
-
+        'Enter a valid deposit amount.' +
         '</div>';
 
         return;
-
     }
 
 
-    const users =
-        getUsers();
+    if(!code){
+
+        message.innerHTML =
+        '<div class="error">' +
+        'Enter the M-Pesa transaction code.' +
+        '</div>';
+
+        return;
+    }
 
 
-    const phone =
-        localStorage.getItem(
-            "dreamBigCurrentUser"
-        );
-
+    const users = getUsers();
 
     const user =
         users.find(
             item =>
-            item.phone === phone
+            item.phone ===
+            localStorage.getItem(
+                "dreamBigCurrentUser"
+            )
         );
 
 
     if(!user){
-
         return;
-
     }
 
-
-    const requestedLevel =
-        user.level + 1;
-
-
-    const level =
-        LEVELS.find(
-            item =>
-            item.level === requestedLevel
-        );
-
-
-    if(!level){
-
-        message.innerHTML =
-
-        '<div class="error">' +
-
-        'There are no more levels to unlock.' +
-
-        '</div>';
-
-        return;
-
-    }
-
-
-    /* Prevent same code being submitted twice */
 
     const duplicate =
-        user.payments.find(
-            payment =>
-            payment.code === code
+        user.deposits.find(
+            deposit =>
+            deposit.code === code
         );
 
 
     if(duplicate){
 
         message.innerHTML =
-
         '<div class="error">' +
-
         'This transaction code has already been submitted.' +
-
         '</div>';
 
         return;
-
     }
 
 
-    user.payments.push({
+    user.deposits.push({
+
+        amount:amount,
 
         code:code,
 
-        amount:level.unlock,
+        date:
+            new Date().toLocaleString(),
 
-        level:requestedLevel,
+        status:
+            "Pending verification"
+
+    });
+
+
+    user.history.push({
 
         date:
-            new Date()
-            .toLocaleString(),
+            new Date().toLocaleString(),
+
+        type:
+            "Deposit",
+
+        amount:
+            amount,
 
         status:
             "Pending verification"
@@ -2561,34 +2387,190 @@ function submitPayment(){
 
 
     message.innerHTML =
-
-    '<div class="success">' +
-
-    'Payment code submitted. ' +
-
-    'Status: Pending verification.' +
-
+    '<div class="pending">' +
+    'Deposit submitted. Status: Pending verification.' +
     '</div>';
 
+
+    document
+    .getElementById("depositAmount")
+    .value = "";
 
     document
     .getElementById("mpesaCode")
     .value = "";
 
+
+    renderHistory();
+
 }
 
 
-/* =========================================
-   COPY REFERRAL
-========================================= */
+/* ==========================================
+   LEVEL PAYMENT
+========================================== */
+
+function submitUnlock(){
+
+    const code =
+        document
+        .getElementById("unlockCode")
+        .value.trim();
+
+
+    const message =
+        document
+        .getElementById("unlockMessage");
+
+
+    if(!code){
+
+        message.innerHTML =
+        '<div class="error">' +
+        'Enter the M-Pesa transaction code.' +
+        '</div>';
+
+        return;
+    }
+
+
+    const users = getUsers();
+
+    const user =
+        users.find(
+            item =>
+            item.phone ===
+            localStorage.getItem(
+                "dreamBigCurrentUser"
+            )
+        );
+
+
+    if(!user){
+        return;
+    }
+
+
+    const nextLevel =
+        LEVELS.find(
+            item =>
+            item.level ===
+            user.level + 1
+        );
+
+
+    if(!nextLevel){
+
+        message.innerHTML =
+        '<div class="error">' +
+        'You have reached the highest level.' +
+        '</div>';
+
+        return;
+    }
+
+
+    if(user.pendingLevel){
+
+        message.innerHTML =
+        '<div class="pending">' +
+        'You already have a level payment pending verification.' +
+        '</div>';
+
+        return;
+    }
+
+
+    const duplicate =
+        user.unlockPayments.find(
+            payment =>
+            payment.code === code
+        );
+
+
+    if(duplicate){
+
+        message.innerHTML =
+        '<div class="error">' +
+        'This transaction code has already been submitted.' +
+        '</div>';
+
+        return;
+    }
+
+
+    user.unlockPayments.push({
+
+        level:
+            nextLevel.level,
+
+        amount:
+            nextLevel.unlock,
+
+        code:code,
+
+        date:
+            new Date().toLocaleString(),
+
+        status:
+            "Pending verification"
+
+    });
+
+
+    user.pendingLevel =
+        nextLevel.level;
+
+
+    user.history.push({
+
+        date:
+            new Date().toLocaleString(),
+
+        type:
+            "Level " +
+            nextLevel.level +
+            " activation",
+
+        amount:
+            nextLevel.unlock,
+
+        status:
+            "Pending verification"
+
+    });
+
+
+    saveUsers(users);
+
+
+    message.innerHTML =
+    '<div class="pending">' +
+    'Payment submitted successfully. ' +
+    'Your level will become active after payment verification.' +
+    '</div>';
+
+
+    document
+    .getElementById("unlockCode")
+    .value = "";
+
+
+    renderLevels();
+    renderHistory();
+
+}
+
+
+/* ==========================================
+   REFERRAL
+========================================== */
 
 function copyReferral(){
 
     const code =
         document
-        .getElementById(
-            "myReferralCode"
-        )
+        .getElementById("myReferralCode")
         .value;
 
 
@@ -2612,45 +2594,34 @@ function copyReferral(){
 }
 
 
-/* =========================================
-   WITHDRAW
-========================================= */
+/* ==========================================
+   WITHDRAWAL
+========================================== */
 
 function withdraw(){
 
     const amount =
         Number(
             document
-            .getElementById(
-                "withdrawAmount"
-            )
+            .getElementById("withdrawAmount")
             .value
         );
 
 
     const phone =
         document
-        .getElementById(
-            "withdrawPhone"
-        )
+        .getElementById("withdrawPhone")
         .value.trim();
 
 
     const message =
         document
-        .getElementById(
-            "withdrawMessage"
-        );
+        .getElementById("withdrawMessage");
 
 
     const day =
         new Date().getDay();
 
-
-    /*
-       Sunday = 0
-       Saturday = 6
-    */
 
     if(
         day === 0 ||
@@ -2658,28 +2629,20 @@ function withdraw(){
     ){
 
         message.innerHTML =
-
         '<div class="error">' +
-
         'Weekend withdrawals are unavailable. ' +
-
         'Please submit your request Monday to Friday.' +
-
         '</div>';
 
         return;
-
     }
 
 
-    const user =
-        getCurrentUser();
+    const user = getCurrentUser();
 
 
     if(!user){
-
         return;
-
     }
 
 
@@ -2689,53 +2652,37 @@ function withdraw(){
     ){
 
         message.innerHTML =
-
         '<div class="error">' +
-
         'Enter a valid withdrawal amount.' +
-
         '</div>';
 
         return;
-
     }
 
 
-    if(
-        amount > user.balance
-    ){
+    if(amount > user.balance){
 
         message.innerHTML =
-
         '<div class="error">' +
-
         'Insufficient available balance.' +
-
         '</div>';
 
         return;
-
     }
 
 
     if(!phone){
 
         message.innerHTML =
-
         '<div class="error">' +
-
         'Enter the M-Pesa phone number.' +
-
         '</div>';
 
         return;
-
     }
 
 
-    const users =
-        getUsers();
-
+    const users = getUsers();
 
     const current =
         users.find(
@@ -2750,8 +2697,7 @@ function withdraw(){
     current.history.push({
 
         date:
-            new Date()
-            .toLocaleString(),
+            new Date().toLocaleString(),
 
         type:
             "Withdrawal",
@@ -2772,37 +2718,25 @@ function withdraw(){
 
 
     document
-    .getElementById(
-        "withdrawMessage"
-    )
+    .getElementById("withdrawMessage")
     .innerHTML =
-
     '<div class="success">' +
-
-    'Withdrawal request submitted. ' +
-
-    'Status: Pending.' +
-
+    'Withdrawal request submitted. Status: Pending.' +
     '</div>';
 
 }
 
 
-/* =========================================
-   TRANSACTION HISTORY
-========================================= */
+/* ==========================================
+   HISTORY
+========================================== */
 
 function renderHistory(){
 
-    const user =
-        getCurrentUser();
-
+    const user = getCurrentUser();
 
     const tbody =
-        document
-        .getElementById(
-            "history"
-        );
+        document.getElementById("history");
 
 
     tbody.innerHTML = "";
@@ -2816,26 +2750,20 @@ function renderHistory(){
         tbody.innerHTML = `
 
             <tr>
-
                 <td colspan="4">
-
                     No transactions yet.
-
                 </td>
-
             </tr>
 
         `;
 
         return;
-
     }
 
 
     [...user.history]
     .reverse()
     .forEach(item => {
-
 
         const row =
             document.createElement("tr");
@@ -2871,9 +2799,9 @@ function renderHistory(){
 }
 
 
-/* =========================================
-   TERMS / PRIVACY MODALS
-========================================= */
+/* ==========================================
+   MODALS
+========================================== */
 
 function openTerms(){
 
@@ -2883,7 +2811,6 @@ function openTerms(){
 
 }
 
-
 function openPrivacy(){
 
     document
@@ -2892,13 +2819,11 @@ function openPrivacy(){
 
 }
 
-
 function closeModals(){
 
     document
     .getElementById("termsModal")
     .classList.add("hidden");
-
 
     document
     .getElementById("privacyModal")
@@ -2907,9 +2832,9 @@ function closeModals(){
 }
 
 
-/* =========================================
-   CLOSE MODAL WHEN CLICKING OUTSIDE
-========================================= */
+/* ==========================================
+   OUTSIDE MODAL CLICK
+========================================== */
 
 document
 .getElementById("termsModal")
@@ -2917,12 +2842,8 @@ document
     "click",
     function(event){
 
-        if(
-            event.target === this
-        ){
-
+        if(event.target === this){
             closeModals();
-
         }
 
     }
@@ -2935,27 +2856,21 @@ document
     "click",
     function(event){
 
-        if(
-            event.target === this
-        ){
-
+        if(event.target === this){
             closeModals();
-
         }
 
     }
 );
 
 
-/* =========================================
+/* ==========================================
    AUTO LOGIN
-========================================= */
+========================================== */
 
 window.onload = function(){
 
-    const user =
-        getCurrentUser();
-
+    const user = getCurrentUser();
 
     if(user){
 
